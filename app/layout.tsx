@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://elitebettingsiteslistuk.com"),
   title: {
-    default: "Elite Betting Sites UK — Premier Bookmaker Rankings 2025",
+    default: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
     template: "%s | Elite Betting Sites UK",
   },
   description:
