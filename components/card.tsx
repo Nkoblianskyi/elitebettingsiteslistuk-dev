@@ -64,21 +64,11 @@ export function Card({ site, rank }: SiteCardProps) {
           Terms &amp; Conditions
         </p>
         <div
-          className={`font-sans leading-tight ${mobile ? "text-[9px]" : "text-[10px]"} ${!isTermsExpanded ? "line-clamp-2" : ""}`}
+          className={`font-sans leading-tight line-clamp-1 ${mobile ? "text-[9px]" : "text-[10px]"}`}
           style={{ color: "rgba(245,240,232,0.45)" }}
         >
           {termsText}
         </div>
-        {showReadMore && (
-          <button
-            type="button"
-            onClick={handleTermsClick}
-            className="underline mt-0.5 text-[9px] font-sans font-semibold"
-            style={{ color: GOLD }}
-          >
-            {isTermsExpanded ? "Less" : "Full terms"}
-          </button>
-        )}
       </div>
     </div>
   )
@@ -191,7 +181,7 @@ export function Card({ site, rank }: SiteCardProps) {
             <div className="flex-[0_0_13%] flex items-center justify-center px-4">
               <div className="flex flex-col items-center gap-1.5 w-full">
                 <span
-                  className="w-full text-center font-sans font-bold text-xs xl:text-sm py-3.5 transition-all border"
+                  className="w-full text-center font-sans font-bold text-[10px] xl:text-sm py-3.5 transition-all border"
                   style={{
                     backgroundColor: GOLD,
                     color: NAVY,
@@ -301,45 +291,63 @@ export function Card({ site, rank }: SiteCardProps) {
           className="block"
         >
           <div className="grid grid-cols-[1fr_1fr]">
-            {/* Left: logo + score */}
+            {/* Left: white bg only under logo, then dark bg with stars + score */}
             <div
-              className="flex flex-col justify-between items-center py-3 px-2 border-r"
-              style={{ backgroundColor: "#fff", borderColor: "rgba(201,168,76,0.2)" }}
+              className="flex flex-col border-r"
+              style={{ borderColor: "rgba(201,168,76,0.2)" }}
             >
-              <div className="flex items-center justify-center w-full mb-2">
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-24 w-auto max-w-full object-contain" />
+              {/* Logo — white */}
+              <div
+                className="flex items-center justify-center px-2 py-3"
+                style={{ backgroundColor: "#fff" }}
+              >
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto max-w-full object-contain" />
               </div>
-              <div className="flex flex-col items-center gap-0.5 w-full">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => {
-                    const fill = getStarFill(i)
-                    return (
-                      <span key={i} className="relative inline-block w-3.5 h-3.5 shrink-0">
-                        <Star className="absolute inset-0 w-3.5 h-3.5" style={{ fill: "none", stroke: GOLD, strokeWidth: 1.5 }} />
-                        <Star className="absolute inset-0 w-3.5 h-3.5" style={{ fill: GOLD, stroke: GOLD, strokeWidth: 0, clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)` }} />
-                      </span>
-                    )
-                  })}
+              {/* Stars + score + votes — dark */}
+              <div
+                className="flex flex-col items-center justify-center gap-1 py-2 flex-1"
+                style={{ backgroundColor: NAVY_CARD }}
+              >
+                <div className="flex items-center gap-1">
+                  <span className="font-serif font-bold text-base leading-none" style={{ color: GOLD }}>
+                    {site.score.toFixed(1)}
+                  </span>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => {
+                      const fill = getStarFill(i)
+                      return (
+                        <span key={i} className="relative inline-block w-3 h-3 shrink-0">
+                          <Star className="absolute inset-0 w-3 h-3" style={{ fill: "none", stroke: GOLD, strokeWidth: 1.5 }} />
+                          <Star className="absolute inset-0 w-3 h-3" style={{ fill: GOLD, stroke: GOLD, strokeWidth: 0, clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)` }} />
+                        </span>
+                      )
+                    })}
+                  </div>
                 </div>
-                <span className="text-[10px] font-sans" style={{ color: "#555" }}>({formatVotes(site.reviews)})</span>
+                <span className="text-[9px] font-sans" style={{ color: "rgba(245,240,232,0.4)" }}>
+                  ({formatVotes(site.reviews)})
+                </span>
               </div>
             </div>
 
-            {/* Right: rank + bonus + CTA */}
-            <div className="flex flex-col items-center justify-between py-3 px-3">
-              <div>
+            {/* Right: bonus + CTA — dark bg */}
+            <div className="flex flex-col items-center justify-between py-3 px-3" style={{ backgroundColor: NAVY_CARD }}>
+              {/* Bonus */}
+              <div className="text-center">
                 <p className="text-[9px] font-sans uppercase tracking-wider mb-0.5" style={{ color: "rgba(201,168,76,0.5)" }}>
                   Welcome Offer
                 </p>
                 <p className="font-serif font-bold text-base leading-tight" style={{ color: IVORY }}>
                   {site.bonus}
                 </p>
-                <p className="font-sans text-[13px] mt-0.5" style={{ color: "rgba(245,240,232,0.5)" }}>
+                <p className="font-sans text-[11px] mt-0.5" style={{ color: "rgba(245,240,232,0.45)" }}>
                   {welcomeOffer}
                 </p>
               </div>
+
+              {/* CTA */}
               <div
-                className="text-center py-2.5 mt-2 font-sans font-bold text-sm"
+                className="text-center py-2.5 mt-2 w-full font-sans font-bold text-sm"
                 style={{ backgroundColor: GOLD, color: NAVY }}
               >
                 CLAIM OFFER
