@@ -54,14 +54,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Elite Betting Sites UK",
     url: "https://elitebettingsiteslistuk.com",
-    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2025",
+    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
     description:
       "Independent comparison of the UK's finest licensed bookmakers: welcome offers, odds quality, and expert ratings for discerning punters.",
     locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2025",
+    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
     description:
       "Independent comparison of the UK's finest licensed bookmakers: welcome offers, odds quality, and expert ratings.",
   },
