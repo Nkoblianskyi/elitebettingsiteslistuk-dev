@@ -307,7 +307,7 @@ export function Card({ site, rank }: SiteCardProps) {
               style={{ backgroundColor: "#fff", borderColor: "rgba(201,168,76,0.2)" }}
             >
               <div className="flex items-center justify-center w-full mb-2">
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-14 w-auto max-w-full object-contain" />
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-24 w-auto max-w-full object-contain" />
               </div>
               <div className="flex flex-col items-center gap-0.5 w-full">
                 <div className="flex gap-0.5">
