@@ -10,7 +10,7 @@ const rawSites: Omit<BettingSite, "score">[] = [
     bonus: "Only £5 to Claim £30",
     welcomeOffer: "£30 Welcome Bonus",
     terms: defaultTerms,
-    link: "https://www.ladbrokes.com/en/sports",
+    link: "https://www.ladbrokes.com/",
     reviews: 8971,
   },
   {
@@ -30,7 +30,7 @@ const rawSites: Omit<BettingSite, "score">[] = [
     bonus: "Get £50 Free Bets",
     welcomeOffer: "£50 Free Bets",
     terms: defaultTerms,
-    link: "https://www.betfred.com/sports",
+    link: "https://www.betfred.com/",
     reviews: 9317,
   },
   {
@@ -50,7 +50,7 @@ const rawSites: Omit<BettingSite, "score">[] = [
     bonus: "Get £30 Free Bets",
     welcomeOffer: "£30 Free Bets",
     terms: defaultTerms,
-    link: "https://www.betvictor.com/en-gb/",
+    link: "https://www.betvictor.com/",
     reviews: 9088,
   },
 
@@ -61,7 +61,7 @@ const rawSites: Omit<BettingSite, "score">[] = [
     bonus: "Bet £10, Get £60",
     welcomeOffer: "£60 in Free Bets",
     terms: defaultTerms,
-    link: "https://www.spreadex.com/sports",
+    link: "https://www.spreadex.com",
     reviews: 8619,
   },
 ]
