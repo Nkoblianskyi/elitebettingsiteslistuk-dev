@@ -18,33 +18,33 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elitebettingsiteslistuk.com"),
+  metadataBase: new URL("https://elitecasinossitesuk.com"),
   title: {
-    default: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
-    template: "%s | Elite Betting Sites UK",
+    default: "Elite Casinos Sites UK — Premier Casino Rankings 2026",
+    template: "%s | Elite Casinos Sites UK",
   },
   description:
-    "elitebettingsiteslistuk.com compares the finest UK-licensed bookmakers: exclusive welcome offers, odds quality, and expert ratings curated for discerning punters.",
+    "elitecasinossitesuk.com curates the finest UK-licensed casinos: exclusive welcome bonuses, game selection, and expert ratings for the discerning player.",
   keywords: [
-    "best betting sites UK",
-    "top UK bookmakers 2025",
-    "elite betting sites",
-    "UK online bookmakers",
-    "best bookmakers UK",
-    "sports betting UK",
+    "best casino sites UK",
+    "top UK casinos 2026",
+    "elite casino sites",
+    "UK online casinos",
+    "best casinos UK",
+    "casino games UK",
     "UK gambling sites",
-    "betting site reviews UK",
-    "licensed bookmakers UK",
+    "casino site reviews UK",
+    "licensed casinos UK",
     "UK Gambling Commission approved",
-    "welcome offers UK bookmakers",
-    "best odds UK",
-    "horse racing betting UK",
-    "football betting sites UK",
-    "online betting UK",
+    "welcome bonuses UK casinos",
+    "best slots UK",
+    "live casino UK",
+    "online casino UK",
+    "casino bonus UK",
   ],
-  authors: [{ name: "elitebettingsiteslistuk.com" }],
-  creator: "elitebettingsiteslistuk.com",
-  publisher: "elitebettingsiteslistuk.com",
+  authors: [{ name: "elitecasinossitesuk.com" }],
+  creator: "elitecasinossitesuk.com",
+  publisher: "elitecasinossitesuk.com",
   robots: {
     index: true,
     follow: true,
@@ -52,18 +52,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Elite Betting Sites UK",
-    url: "https://elitebettingsiteslistuk.com",
-    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
+    siteName: "Elite Casinos Sites UK",
+    url: "https://elitecasinossitesuk.com",
+    title: "Elite Casinos Sites UK — Premier Casino Rankings 2026",
     description:
-      "Independent comparison of the UK's finest licensed bookmakers: welcome offers, odds quality, and expert ratings for discerning punters.",
+      "Independent comparison of the UK's finest licensed casinos: welcome bonuses, game variety, and expert ratings for discerning players.",
     locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
+    title: "Elite Casinos Sites UK — Premier Casino Rankings 2026",
     description:
-      "Independent comparison of the UK's finest licensed bookmakers: welcome offers, odds quality, and expert ratings.",
+      "Independent comparison of the UK's finest licensed casinos: welcome bonuses, game variety, and expert ratings.",
   },
 }
 
@@ -73,8 +73,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} bg-[#0D1B2A]`}>
-      <body className="font-sans bg-[#0D1B2A] text-[#F5F0E8] antialiased">
+    <html lang="en" className={`${playfair.variable} ${inter.variable} bg-[#0D0D0D]`}>
+      <body className="font-sans bg-[#0D0D0D] text-[#F5F0E8] antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

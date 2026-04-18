@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Star } from "lucide-react"
 import type { BettingSite } from "../types"
 import Link from "next/link"
@@ -12,9 +12,10 @@ interface SiteCardProps {
 }
 
 const GOLD = "#C9A84C"
-const NAVY = "#0D1B2A"
-const NAVY_CARD = "#131E2B"
-const NAVY_LIGHT = "#1C2B3A"
+const BLACK = "#0D0D0D"
+const BLACK_CARD = "#141414"
+const BLACK_LIGHT = "#1E1E1E"
+const CRIMSON = "#8B1A1A"
 const IVORY = "#F5F0E8"
 
 const BADGE_LABELS: Record<number, string> = {
@@ -24,8 +25,6 @@ const BADGE_LABELS: Record<number, string> = {
 }
 
 export function Card({ site, rank }: SiteCardProps) {
-  const [isTermsExpanded, setIsTermsExpanded] = useState(false)
-  const [showReadMore, setShowReadMore] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -37,35 +36,31 @@ export function Card({ site, rank }: SiteCardProps) {
 
   const termsText = site.terms ?? ""
   const welcomeOffer = site.welcomeOffer ?? site.bonus
-  useEffect(() => {
-    const limit = isMobile ? 72 : 350
-    setShowReadMore(termsText.length > limit)
-  }, [termsText, isMobile])
 
   const formatVotes = (v: number) => v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   const starRating = site.score / 2
   const getStarFill = (i: number) => Math.round(Math.max(0, Math.min(1, starRating - i)) * 5) / 5
-
-  const handleTermsClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsTermsExpanded(!isTermsExpanded)
-  }
 
   const hasBadge = rank in BADGE_LABELS
 
   const TermsBlock = ({ mobile = false }: { mobile?: boolean }) => (
     <div
       className="border-t px-3 py-2"
-      style={{ borderColor: "rgba(201,168,76,0.15)", backgroundColor: "rgba(13,27,42,0.6)" }}
+      style={{
+        borderColor: "rgba(139,26,26,0.2)",
+        backgroundColor: "rgba(13,13,13,0.7)",
+      }}
     >
       <div className="text-center max-w-4xl mx-auto">
-        <p className="text-[7px] font-sans font-bold uppercase tracking-wider mb-0.5" style={{ color: "rgba(201,168,76,0.5)" }}>
+        <p
+          className="text-[7px] font-sans font-bold uppercase tracking-wider mb-0.5"
+          style={{ color: "rgba(201,168,76,0.45)" }}
+        >
           Terms &amp; Conditions
         </p>
         <div
           className={`font-sans leading-tight line-clamp-1 ${mobile ? "text-[9px]" : "text-[10px]"}`}
-          style={{ color: "rgba(245,240,232,0.45)" }}
+          style={{ color: "rgba(245,240,232,0.38)" }}
         >
           {termsText}
         </div>
@@ -77,24 +72,24 @@ export function Card({ site, rank }: SiteCardProps) {
     <div className="block">
       {/* ——— Desktop ——— */}
       <div
-        className="hidden lg:block border overflow-hidden transition-all duration-200 hover:border-[#C9A84C]/50"
-        style={{ backgroundColor: NAVY_CARD, borderColor: "rgba(201,168,76,0.2)" }}
+        className="hidden lg:block border overflow-hidden transition-all duration-200 hover:border-[#8B1A1A]/60"
+        style={{ backgroundColor: BLACK_CARD, borderColor: "rgba(139,26,26,0.25)" }}
       >
         <div className="flex items-stretch">
           {/* Rank column */}
           <div
             className="w-[5rem] xl:w-[5.5rem] shrink-0 flex flex-col items-center justify-center py-4 gap-1 border-r"
-            style={{ backgroundColor: NAVY, borderColor: "rgba(201,168,76,0.2)" }}
+            style={{ backgroundColor: BLACK, borderColor: "rgba(139,26,26,0.25)" }}
           >
             <span
-              className="text-[8px] font-sans font-bold uppercase tracking-[0.25em]"
-              style={{ color: "rgba(201,168,76,0.5)" }}
+              className="text-[7px] font-sans font-bold uppercase tracking-[0.25em]"
+              style={{ color: "rgba(201,168,76,0.45)" }}
             >
               Rank
             </span>
             <span
               className="font-serif font-bold text-3xl xl:text-4xl leading-none"
-              style={{ color: GOLD }}
+              style={{ color: CRIMSON }}
             >
               {rank}
             </span>
@@ -114,10 +109,10 @@ export function Card({ site, rank }: SiteCardProps) {
             rel="noopener noreferrer"
             className="flex-1 flex items-stretch gap-0 group/card"
           >
-            {/* Logo */}
+            {/* Logo — white bg */}
             <div
-              className="flex-[0_0_22%] xl:flex-[0_0_20%] flex items-center justify-center px-4 py-3 border-r"
-              style={{ backgroundColor: "#fff", borderColor: "rgba(201,168,76,0.2)" }}
+              className="flex-[0_0_22%] xl:flex-[0_0_20%] flex items-center justify-center px-4 py-4 border-r"
+              style={{ backgroundColor: "#fff", borderColor: "rgba(139,26,26,0.15)" }}
             >
               <img
                 src={site.logo || "/placeholder.svg"}
@@ -128,33 +123,39 @@ export function Card({ site, rank }: SiteCardProps) {
 
             {/* Bonus */}
             <div
-              className="flex-1 flex flex-col justify-center px-5 py-3 border-r text-center"
-              style={{ borderColor: "rgba(201,168,76,0.12)" }}
+              className="flex-1 flex flex-col justify-center px-5 py-4 border-r text-center"
+              style={{ borderColor: "rgba(139,26,26,0.12)" }}
             >
-              <p className="text-[9px] font-sans font-bold uppercase tracking-[0.2em] mb-1.5" style={{ color: "rgba(201,168,76,0.6)" }}>
-                Welcome Offer
+              <p
+                className="text-[8px] font-sans font-bold uppercase tracking-[0.22em] mb-2"
+                style={{ color: "rgba(139,26,26,0.8)" }}
+              >
+                Welcome Bonus
               </p>
               <p className="font-serif font-bold text-xl xl:text-2xl leading-tight" style={{ color: IVORY }}>
                 {site.bonus}
               </p>
-              <p className="font-sans text-xs mt-1" style={{ color: "rgba(245,240,232,0.55)" }}>
+              <p className="font-sans text-xs mt-1" style={{ color: "rgba(245,240,232,0.5)" }}>
                 {welcomeOffer}
               </p>
             </div>
 
             {/* Score */}
             <div
-              className="flex-[0_0_16%] flex flex-col items-center justify-center gap-1.5 px-4 border-r"
-              style={{ borderColor: "rgba(201,168,76,0.12)" }}
+              className="flex-[0_0_16%] flex flex-col items-center justify-center gap-2 px-4 border-r"
+              style={{ borderColor: "rgba(139,26,26,0.12)" }}
             >
               <div
                 className="w-16 h-16 xl:w-[4.5rem] xl:h-[4.5rem] border-2 flex flex-col items-center justify-center"
-                style={{ borderColor: GOLD, backgroundColor: "rgba(201,168,76,0.08)" }}
+                style={{ borderColor: CRIMSON, backgroundColor: "rgba(139,26,26,0.08)" }}
               >
                 <span className="font-serif font-bold text-2xl xl:text-3xl leading-none" style={{ color: GOLD }}>
                   {site.score.toFixed(1)}
                 </span>
-                <span className="text-[7px] font-sans uppercase tracking-wider mt-0.5" style={{ color: "rgba(201,168,76,0.6)" }}>
+                <span
+                  className="text-[7px] font-sans uppercase tracking-wider mt-0.5"
+                  style={{ color: "rgba(201,168,76,0.55)" }}
+                >
                   Score
                 </span>
               </div>
@@ -163,16 +164,24 @@ export function Card({ site, rank }: SiteCardProps) {
                   const fill = getStarFill(i)
                   return (
                     <span key={i} className="relative inline-block w-3 h-3 shrink-0">
-                      <Star className="absolute inset-0 w-3 h-3" style={{ fill: "none", stroke: GOLD, strokeWidth: 1.5 }} />
                       <Star
                         className="absolute inset-0 w-3 h-3"
-                        style={{ fill: GOLD, stroke: GOLD, strokeWidth: 0, clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)` }}
+                        style={{ fill: "none", stroke: CRIMSON, strokeWidth: 1.5 }}
+                      />
+                      <Star
+                        className="absolute inset-0 w-3 h-3"
+                        style={{
+                          fill: GOLD,
+                          stroke: GOLD,
+                          strokeWidth: 0,
+                          clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)`,
+                        }}
                       />
                     </span>
                   )
                 })}
               </div>
-              <span className="text-[8px] font-sans" style={{ color: "rgba(245,240,232,0.4)" }}>
+              <span className="text-[8px] font-sans" style={{ color: "rgba(245,240,232,0.35)" }}>
                 {formatVotes(site.reviews)} votes
               </span>
             </div>
@@ -183,16 +192,16 @@ export function Card({ site, rank }: SiteCardProps) {
                 <span
                   className="w-full text-center font-sans font-bold text-[10px] xl:text-sm py-3.5 transition-all border"
                   style={{
-                    backgroundColor: GOLD,
-                    color: NAVY,
-                    borderColor: GOLD,
+                    backgroundColor: CRIMSON,
+                    color: IVORY,
+                    borderColor: "rgba(201,168,76,0.3)",
                   }}
                 >
                   CLAIM OFFER
                 </span>
                 <span
                   className="text-[9px] font-sans group-hover/card:underline"
-                  style={{ color: "rgba(201,168,76,0.7)" }}
+                  style={{ color: "rgba(201,168,76,0.65)" }}
                 >
                   {site.name} →
                 </span>
@@ -206,14 +215,16 @@ export function Card({ site, rank }: SiteCardProps) {
       {/* ——— Tablet ——— */}
       <div
         className="hidden md:block lg:hidden border overflow-hidden transition-all duration-200"
-        style={{ backgroundColor: NAVY_CARD, borderColor: "rgba(201,168,76,0.2)" }}
+        style={{ backgroundColor: BLACK_CARD, borderColor: "rgba(139,26,26,0.25)" }}
       >
         <div className="flex items-stretch min-h-[140px]">
           <div
             className="w-14 shrink-0 flex flex-col items-center justify-center border-r"
-            style={{ backgroundColor: NAVY, borderColor: "rgba(201,168,76,0.2)" }}
+            style={{ backgroundColor: BLACK, borderColor: "rgba(139,26,26,0.25)" }}
           >
-            <span className="font-serif font-bold text-2xl" style={{ color: GOLD }}>{rank}</span>
+            <span className="font-serif font-bold text-2xl" style={{ color: CRIMSON }}>
+              {rank}
+            </span>
           </div>
           <Link
             href={site.link}
@@ -223,36 +234,68 @@ export function Card({ site, rank }: SiteCardProps) {
           >
             <div
               className="flex-[0_0_30%] flex items-center justify-center p-3 border-r"
-              style={{ backgroundColor: "#fff", borderColor: "rgba(201,168,76,0.15)" }}
+              style={{ backgroundColor: "#fff", borderColor: "rgba(139,26,26,0.12)" }}
             >
-              <img src={site.logo || "/placeholder.svg"} alt={site.name} className="max-h-[4rem] w-full object-contain" />
+              <img
+                src={site.logo || "/placeholder.svg"}
+                alt={site.name}
+                className="max-h-[4rem] w-full object-contain"
+              />
             </div>
             <div className="flex-1 flex flex-col justify-center px-3 py-2 gap-2">
               {hasBadge && (
-                <span className="self-start text-[8px] font-sans font-bold uppercase border px-2 py-0.5" style={{ borderColor: "rgba(201,168,76,0.4)", color: GOLD }}>
+                <span
+                  className="self-start text-[8px] font-sans font-bold uppercase border px-2 py-0.5"
+                  style={{ borderColor: "rgba(201,168,76,0.4)", color: GOLD }}
+                >
                   {BADGE_LABELS[rank]}
                 </span>
               )}
-              <div className="border px-2 py-1.5 text-center" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
-                <p className="text-[8px] font-sans uppercase tracking-wider mb-0.5" style={{ color: "rgba(201,168,76,0.6)" }}>Offer</p>
-                <p className="font-serif font-bold text-base leading-tight" style={{ color: IVORY }}>{site.bonus}</p>
-                <p className="font-sans text-xs" style={{ color: "rgba(245,240,232,0.5)" }}>{welcomeOffer}</p>
+              <div
+                className="border px-2 py-1.5 text-center"
+                style={{ borderColor: "rgba(139,26,26,0.2)" }}
+              >
+                <p
+                  className="text-[8px] font-sans uppercase tracking-wider mb-0.5"
+                  style={{ color: "rgba(139,26,26,0.75)" }}
+                >
+                  Bonus
+                </p>
+                <p className="font-serif font-bold text-base leading-tight" style={{ color: IVORY }}>
+                  {site.bonus}
+                </p>
+                <p className="font-sans text-xs" style={{ color: "rgba(245,240,232,0.45)" }}>
+                  {welcomeOffer}
+                </p>
               </div>
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <div
                     className="w-10 h-10 border flex flex-col items-center justify-center shrink-0"
-                    style={{ borderColor: GOLD, backgroundColor: "rgba(201,168,76,0.05)" }}
+                    style={{ borderColor: CRIMSON, backgroundColor: "rgba(139,26,26,0.06)" }}
                   >
-                    <span className="font-serif font-bold text-sm leading-none" style={{ color: GOLD }}>{site.score.toFixed(1)}</span>
+                    <span className="font-serif font-bold text-sm leading-none" style={{ color: GOLD }}>
+                      {site.score.toFixed(1)}
+                    </span>
                   </div>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => {
                       const fill = getStarFill(i)
                       return (
                         <span key={i} className="relative inline-block w-2.5 h-2.5 shrink-0">
-                          <Star className="absolute inset-0 w-2.5 h-2.5" style={{ fill: "none", stroke: GOLD, strokeWidth: 1.5 }} />
-                          <Star className="absolute inset-0 w-2.5 h-2.5" style={{ fill: GOLD, stroke: GOLD, strokeWidth: 0, clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)` }} />
+                          <Star
+                            className="absolute inset-0 w-2.5 h-2.5"
+                            style={{ fill: "none", stroke: CRIMSON, strokeWidth: 1.5 }}
+                          />
+                          <Star
+                            className="absolute inset-0 w-2.5 h-2.5"
+                            style={{
+                              fill: GOLD,
+                              stroke: GOLD,
+                              strokeWidth: 0,
+                              clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)`,
+                            }}
+                          />
                         </span>
                       )
                     })}
@@ -260,7 +303,11 @@ export function Card({ site, rank }: SiteCardProps) {
                 </div>
                 <span
                   className="px-5 py-2.5 text-[10px] font-sans font-bold border transition-colors"
-                  style={{ backgroundColor: GOLD, color: NAVY, borderColor: GOLD }}
+                  style={{
+                    backgroundColor: CRIMSON,
+                    color: IVORY,
+                    borderColor: "rgba(201,168,76,0.25)",
+                  }}
                 >
                   CLAIM
                 </span>
@@ -274,39 +321,33 @@ export function Card({ site, rank }: SiteCardProps) {
       {/* ——— Mobile ——— */}
       <div
         className={`md:hidden border overflow-hidden transition-all duration-200 ${hasBadge ? "mt-5" : "mt-2"}`}
-        style={{ backgroundColor: NAVY_CARD, borderColor: "rgba(201,168,76,0.2)" }}
+        style={{ backgroundColor: BLACK_CARD, borderColor: "rgba(139,26,26,0.25)" }}
       >
         {hasBadge && (
           <div
             className="text-center py-1 text-[8px] font-sans font-bold uppercase tracking-[0.2em] border-b"
-            style={{ backgroundColor: "rgba(201,168,76,0.12)", borderColor: "rgba(201,168,76,0.3)", color: GOLD }}
+            style={{
+              backgroundColor: "rgba(139,26,26,0.15)",
+              borderColor: "rgba(201,168,76,0.25)",
+              color: GOLD,
+            }}
           >
             {BADGE_LABELS[rank]}
           </div>
         )}
-        <Link
-          href={site.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
+        <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           <div className="grid grid-cols-[1fr_1fr]">
-            {/* Left: white bg only under logo, then dark bg with stars + score */}
-            <div
-              className="flex flex-col border-r"
-              style={{ borderColor: "rgba(201,168,76,0.2)" }}
-            >
-              {/* Logo — white */}
-              <div
-                className="flex items-center justify-center px-2 py-3"
-                style={{ backgroundColor: "#fff" }}
-              >
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto max-w-full object-contain" />
+            <div className="flex flex-col border-r" style={{ borderColor: "rgba(139,26,26,0.2)" }}>
+              <div className="flex items-center justify-center px-2 py-3" style={{ backgroundColor: "#fff" }}>
+                <img
+                  src={site.logo || "/placeholder.svg"}
+                  alt={site.name}
+                  className="h-16 w-auto max-w-full object-contain"
+                />
               </div>
-              {/* Stars + score + votes — dark */}
               <div
                 className="flex flex-col items-center justify-center gap-1 py-2 flex-1"
-                style={{ backgroundColor: NAVY_CARD }}
+                style={{ backgroundColor: BLACK_CARD }}
               >
                 <div className="flex items-center gap-1">
                   <span className="font-serif font-bold text-base leading-none" style={{ color: GOLD }}>
@@ -317,38 +358,51 @@ export function Card({ site, rank }: SiteCardProps) {
                       const fill = getStarFill(i)
                       return (
                         <span key={i} className="relative inline-block w-3 h-3 shrink-0">
-                          <Star className="absolute inset-0 w-3 h-3" style={{ fill: "none", stroke: GOLD, strokeWidth: 1.5 }} />
-                          <Star className="absolute inset-0 w-3 h-3" style={{ fill: GOLD, stroke: GOLD, strokeWidth: 0, clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)` }} />
+                          <Star
+                            className="absolute inset-0 w-3 h-3"
+                            style={{ fill: "none", stroke: CRIMSON, strokeWidth: 1.5 }}
+                          />
+                          <Star
+                            className="absolute inset-0 w-3 h-3"
+                            style={{
+                              fill: GOLD,
+                              stroke: GOLD,
+                              strokeWidth: 0,
+                              clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)`,
+                            }}
+                          />
                         </span>
                       )
                     })}
                   </div>
                 </div>
-                <span className="text-[9px] font-sans" style={{ color: "rgba(245,240,232,0.4)" }}>
+                <span className="text-[9px] font-sans" style={{ color: "rgba(245,240,232,0.35)" }}>
                   ({formatVotes(site.reviews)})
                 </span>
               </div>
             </div>
 
-            {/* Right: bonus + CTA — dark bg */}
-            <div className="flex flex-col items-center justify-between py-3 px-3" style={{ backgroundColor: NAVY_CARD }}>
-              {/* Bonus */}
+            <div
+              className="flex flex-col items-center justify-between py-3 px-3"
+              style={{ backgroundColor: BLACK_CARD }}
+            >
               <div className="text-center">
-                <p className="text-[9px] font-sans uppercase tracking-wider mb-0.5" style={{ color: "rgba(201,168,76,0.5)" }}>
-                  Welcome Offer
+                <p
+                  className="text-[9px] font-sans uppercase tracking-wider mb-0.5"
+                  style={{ color: "rgba(139,26,26,0.8)" }}
+                >
+                  Welcome Bonus
                 </p>
                 <p className="font-serif font-bold text-base leading-tight" style={{ color: IVORY }}>
                   {site.bonus}
                 </p>
-                <p className="font-sans text-[11px] mt-0.5" style={{ color: "rgba(245,240,232,0.45)" }}>
+                <p className="font-sans text-[11px] mt-0.5" style={{ color: "rgba(245,240,232,0.4)" }}>
                   {welcomeOffer}
                 </p>
               </div>
-
-              {/* CTA */}
               <div
                 className="text-center py-2.5 mt-2 w-full font-sans font-bold text-sm"
-                style={{ backgroundColor: GOLD, color: NAVY }}
+                style={{ backgroundColor: CRIMSON, color: IVORY }}
               >
                 CLAIM OFFER
               </div>

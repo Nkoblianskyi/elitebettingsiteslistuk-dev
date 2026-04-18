@@ -13,9 +13,10 @@ export function SiteWordmark({ variant, className }: { variant: WordmarkVariant;
         className,
       )}
     >
-      <span className="text-[#F5F0E8] font-bold">Elite Betting</span>
-      <span className="text-[#C9A84C] font-semibold"> Sites</span>
-      <span className="text-[#F5F0E8]/60 font-light text-[0.8em]"> UK</span>
+      <span className="text-[#F5F0E8] font-bold">Elite</span>
+      <span className="text-[#C9A84C] font-semibold"> Casinos</span>
+      <span className="text-[#F5F0E8] font-bold"> Sites</span>
+      <span className="text-[#F5F0E8]/50 font-light text-[0.8em]"> UK</span>
     </span>
   )
 }
