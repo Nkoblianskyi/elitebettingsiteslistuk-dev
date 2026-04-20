@@ -89,24 +89,24 @@ export function Card({ site, rank }: SiteCardProps) {
 
         {/* Logo column */}
         <div
-          className="shrink-0 flex items-center justify-center w-24 lg:w-32 px-3 py-5"
+          className="shrink-0 flex items-center justify-center w-28 lg:w-36 px-3 py-5"
           style={{ borderRight: "1px solid rgba(201,168,76,0.1)" }}
         >
           <div
             className="w-full flex items-center justify-center rounded-sm overflow-hidden"
-            style={{ background: "#fff", height: "48px" }}
+            style={{ background: "#fff", height: "60px" }}
           >
             <img
               src={site.logo}
               alt={site.name}
-              className="max-h-9 max-w-[90px] w-auto object-contain"
+              className="max-h-12 max-w-[110px] w-auto object-contain"
             />
           </div>
         </div>
 
         {/* Offer column */}
         <div
-          className="flex-1 flex flex-col justify-center px-6 py-5"
+          className="flex-1 flex flex-col items-center justify-center text-center px-6 py-5"
           style={{ borderRight: "1px solid rgba(201,168,76,0.1)" }}
         >
           <p className="font-sans text-[8px] font-bold uppercase tracking-[0.35em] mb-1.5" style={{ color: "rgba(201,168,76,0.42)" }}>
@@ -143,8 +143,8 @@ export function Card({ site, rank }: SiteCardProps) {
             href={site.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full text-center font-sans font-bold text-[10px] uppercase tracking-[0.28em] py-3.5 transition-all hover:opacity-90"
-            style={{ backgroundColor: "#C9A84C", color: "#0D0D0D" }}
+            className="block w-full text-center font-sans font-bold uppercase py-3.5 transition-all hover:opacity-90 whitespace-nowrap"
+            style={{ backgroundColor: "#C9A84C", color: "#0D0D0D", fontSize: "clamp(8px, 1vw, 11px)", letterSpacing: "0.22em" }}
           >
             Claim Offer
           </Link>
@@ -174,12 +174,12 @@ export function Card({ site, rank }: SiteCardProps) {
 
           <div
             className="flex items-center justify-center rounded-sm overflow-hidden shrink-0"
-            style={{ background: "#fff", height: "38px", width: "80px" }}
+            style={{ background: "#fff", height: "48px", width: "96px" }}
           >
             <img
               src={site.logo}
               alt={site.name}
-              className="max-h-7 max-w-[72px] w-auto object-contain"
+              className="max-h-10 max-w-[86px] w-auto object-contain"
             />
           </div>
 
