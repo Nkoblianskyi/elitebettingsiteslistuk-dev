@@ -9,7 +9,7 @@ interface MainLayoutProps {
 export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="w-full overflow-x-hidden">
-      <div className="container mx-auto px-2 sm:px-4 max-w-5xl xl:max-w-6xl relative">
+      <div className="mx-auto w-full max-w-5xl xl:max-w-6xl">
         {children}
       </div>
     </div>

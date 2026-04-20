@@ -1,106 +1,144 @@
 import Link from "next/link"
 import { SiteWordmark } from "@/components/site-wordmark"
 
-const GOLD = "#B8965A"
-const FOREST = "#0F2318"
-const FOREST_CARD = "#152B1E"
-const PARCHMENT = "#F2ECD9"
+const LEGAL_NAV = [
+  { href: "/terms",           label: "Terms of Use" },
+  { href: "/privacy-policy",  label: "Privacy Policy" },
+  { href: "/cookie-policy",   label: "Cookie Policy" },
+]
 
-const nav = [
-  { href: "/about", label: "About" },
+const SITE_NAV = [
+  { href: "/",                 label: "Rankings" },
+  { href: "/about",            label: "About" },
   { href: "/responsible-gaming", label: "Responsible Play" },
-  { href: "/terms", label: "Terms of Use" },
-  { href: "/cookie-policy", label: "Cookie Policy" },
-  { href: "/privacy-policy", label: "Privacy Policy" },
+]
+
+const RG_LINKS = [
+  { href: "https://www.gamstop.co.uk/",         img: "/gamstop.svg",                    alt: "GamStop" },
+  { href: "https://www.begambleaware.org/",      img: "/gamble-aware.png",               alt: "BeGambleAware" },
+  { href: "https://www.gamcare.org.uk/",         img: "/gamcare.png",                    alt: "GamCare" },
+  { href: "https://www.gamblingtherapy.org/",    img: "/gordon.png",                     alt: "Gambling Therapy" },
+  { href: "https://www.gamblingcommission.gov.uk/", img: "/Gambling_Commission_logo.png", alt: "UK Gambling Commission" },
 ]
 
 export function Footer() {
   return (
     <footer
-      className="mt-16 border-t"
-      style={{ backgroundColor: FOREST_CARD, borderColor: "rgba(184,150,90,0.15)" }}
+      className="w-full mt-0"
+      style={{ backgroundColor: "#0A0D0B", borderTop: "1px solid rgba(201,168,76,0.12)" }}
     >
-      {/* Gold top bar */}
-      <div className="h-[3px]" style={{ background: GOLD }} />
+      {/* Single gold rule */}
+      <div className="top-rule w-full" />
 
-      <div className="mx-auto max-w-5xl px-4 py-12 xl:max-w-6xl">
+      {/* Three-column editorial layout */}
+      <div className="mx-auto max-w-5xl xl:max-w-6xl px-6 md:px-10 lg:px-0 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
 
-        {/* Brand centre */}
-        <div className="flex flex-col items-center gap-3 mb-10">
-          {/* Crest */}
-          <svg width="44" height="38" viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M22 2 L39 7.5 L39 22 Q39 33 22 38 Q5 33 5 22 L5 7.5 Z" stroke="#B8965A" strokeWidth="1.2" fill="none" strokeLinejoin="round"/>
-            <path d="M22 6 L35 10 L35 21 Q35 30 22 34 Q9 30 9 21 L9 10 Z" fill="rgba(184,150,90,0.07)" stroke="#B8965A" strokeWidth="0.6"/>
-            <line x1="22" y1="10" x2="22" y2="30" stroke="#B8965A" strokeWidth="0.8" strokeOpacity="0.5"/>
-            <line x1="13" y1="20" x2="31" y2="20" stroke="#B8965A" strokeWidth="0.8" strokeOpacity="0.5"/>
-            <path d="M13 9 L17 14 L22 6 L27 14 L31 9" stroke="#B8965A" strokeWidth="1" fill="none" strokeLinejoin="round"/>
-          </svg>
-
-          <SiteWordmark variant="footer" />
-
-          <p className="font-sans text-[9px] uppercase tracking-[0.35em]" style={{ color: "rgba(184,150,90,0.4)" }}>
-            trustedcasinossitesuk.com
-          </p>
-        </div>
-
-        {/* Divider */}
-        <div className="h-px mb-8" style={{ background: "rgba(184,150,90,0.12)" }} />
-
-        {/* Nav */}
-        <nav
-          className="mb-10 flex flex-wrap justify-center gap-x-7 gap-y-3 text-[10px] font-sans uppercase tracking-[0.22em]"
-          aria-label="Footer navigation"
-        >
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition-opacity hover:opacity-100"
-              style={{ color: "rgba(242,236,217,0.42)" }}
+          {/* Col 1: Brand + description */}
+          <div>
+            <SiteWordmark variant="footer" className="block mb-6" />
+            <p
+              className="font-sans text-xs leading-loose mb-6"
+              style={{ color: "rgba(237,228,204,0.38)" }}
             >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+              An independent editorial comparison platform for UK-licensed casino platforms.
+              We do not accept wagers or hold player funds.
+            </p>
+            <p
+              className="font-sans text-[8px] uppercase tracking-[0.35em]"
+              style={{ color: "rgba(201,168,76,0.35)" }}
+            >
+              trustedcasinossitesuk.com
+            </p>
+          </div>
 
-        {/* Divider */}
-        <div className="h-px mb-8" style={{ background: "rgba(184,150,90,0.08)" }} />
+          {/* Col 2: Navigation */}
+          <div className="flex gap-12 md:gap-8 md:justify-center">
+            <div>
+              <p
+                className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-5"
+                style={{ color: "rgba(201,168,76,0.4)" }}
+              >
+                Site
+              </p>
+              <nav className="flex flex-col gap-3" aria-label="Footer site navigation">
+                {SITE_NAV.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="font-sans text-xs transition-colors hover:text-[#C9A84C]"
+                    style={{ color: "rgba(237,228,204,0.45)" }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+            <div>
+              <p
+                className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-5"
+                style={{ color: "rgba(201,168,76,0.4)" }}
+              >
+                Legal
+              </p>
+              <nav className="flex flex-col gap-3" aria-label="Footer legal navigation">
+                {LEGAL_NAV.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="font-sans text-xs transition-colors hover:text-[#C9A84C]"
+                    style={{ color: "rgba(237,228,204,0.45)" }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </div>
 
-        {/* Responsible gambling logos */}
-        <div className="mb-10 text-center">
-          <p className="font-sans text-[8px] font-bold uppercase tracking-[0.35em] mb-5" style={{ color: "rgba(184,150,90,0.45)" }}>
-            Responsible Play
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <Link href="https://www.gamstop.co.uk/" target="_blank" rel="noopener noreferrer">
-              <img src="/gamstop.svg" alt="GamStop" className="h-7 rounded opacity-70 hover:opacity-100 transition-opacity px-2 py-1" />
-            </Link>
-            <Link href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer">
-              <img src="/gamble-aware.png" alt="BeGambleAware" className="h-7 rounded opacity-70 hover:opacity-100 transition-opacity px-2 py-1" />
-            </Link>
-            <Link href="https://www.gamcare.org.uk/" target="_blank" rel="noopener noreferrer">
-              <img src="/gamcare.png" alt="GamCare" className="h-7 rounded opacity-70 hover:opacity-100 transition-opacity px-2 py-1" />
-            </Link>
-            <Link href="https://www.gamblingtherapy.org/" target="_blank" rel="noopener noreferrer">
-              <img src="/gordon.png" alt="Gambling Therapy" className="h-7 rounded opacity-70 hover:opacity-100 transition-opacity px-2 py-1" />
-            </Link>
-            <Link href="https://www.gamblingcommission.gov.uk/" target="_blank" rel="noopener noreferrer">
-              <img src="/Gambling_Commission_logo.png" alt="UK Gambling Commission" className="h-7 rounded opacity-70 hover:opacity-100 transition-opacity px-2 py-1" />
-            </Link>
+          {/* Col 3: Responsible gambling */}
+          <div>
+            <p
+              className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-5"
+              style={{ color: "rgba(201,168,76,0.4)" }}
+            >
+              Responsible Play
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {RG_LINKS.map((rg) => (
+                <Link
+                  key={rg.href}
+                  href={rg.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-2 transition-opacity hover:opacity-100"
+                  style={{ backgroundColor: "rgba(255,255,255,0.06)", opacity: 0.7 }}
+                >
+                  <img src={rg.img} alt={rg.alt} className="h-6 w-auto object-contain" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <div
-          className="border-t pt-6 text-center space-y-2"
-          style={{ borderColor: "rgba(184,150,90,0.1)" }}
-        >
-          <p className="font-sans text-[10px] leading-relaxed max-w-3xl mx-auto" style={{ color: "rgba(242,236,217,0.32)" }}>
-            trustedcasinossitesuk.com is an independent editorial comparison platform. We do not accept wagers or hold player funds.
-            All casino activity takes place on licensed third-party platforms under their own terms. Commercial links may generate affiliate revenue which does not influence our editorial rankings.
+        {/* Divider */}
+        <div className="h-px my-12" style={{ background: "rgba(201,168,76,0.08)" }} />
+
+        {/* Bottom row: disclaimer + copyright */}
+        <div className="flex flex-col md:flex-row gap-4 md:items-end justify-between">
+          <p
+            className="font-sans text-[10px] leading-loose max-w-2xl"
+            style={{ color: "rgba(237,228,204,0.28)" }}
+          >
+            Commercial links may generate affiliate revenue which does not influence editorial rankings.
+            All casino activity takes place on licensed third-party platforms under their own terms.
+            Identity and location verification applies. 18+ only. UK residents.
           </p>
-          <p className="font-sans text-[10px] uppercase tracking-wider" style={{ color: "rgba(184,150,90,0.3)" }}>
-            &copy; {new Date().getFullYear()} trustedcasinossitesuk.com &nbsp; 18+ &nbsp; United Kingdom
+          <p
+            className="font-sans text-[9px] uppercase tracking-[0.3em] shrink-0"
+            style={{ color: "rgba(201,168,76,0.3)" }}
+          >
+            &copy; {new Date().getFullYear()} trustedcasinossitesuk.com
           </p>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { Header } from "../components/header"
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-cormorant",
 })
 
@@ -20,56 +21,40 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL("https://trustedcasinossitesuk.com"),
   title: {
-    default: "Trusted Casinos Sites UK — Premier Casino Rankings 2026",
+    default: "Trusted Casinos Sites UK — Independent Casino Rankings 2026",
     template: "%s | Trusted Casinos Sites UK",
   },
   description:
-    "trustedcasinossitesuk.com compares the finest UK-licensed casinos: exclusive welcome offers, game selection, and expert ratings curated for discerning players.",
+    "An independent editorial guide to the UK's foremost licensed casino platforms. Expert analysis of welcome offers, game quality, and player protection.",
   keywords: [
     "best casino sites UK",
     "top UK casinos 2026",
     "trusted casino sites",
     "UK online casinos",
-    "best casinos UK",
     "casino reviews UK",
     "licensed casinos UK",
     "UK Gambling Commission approved",
-    "welcome offers UK casinos",
     "online casino UK",
   ],
   authors: [{ name: "trustedcasinossitesuk.com" }],
   creator: "trustedcasinossitesuk.com",
   publisher: "trustedcasinossitesuk.com",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: "website",
     siteName: "Trusted Casinos Sites UK",
     url: "https://trustedcasinossitesuk.com",
-    title: "Trusted Casinos Sites UK — Premier Casino Rankings 2026",
+    title: "Trusted Casinos Sites UK — Independent Casino Rankings 2026",
     description:
-      "Independent comparison of the UK's finest licensed casinos: welcome offers, game quality, and expert ratings for discerning players.",
+      "Independent editorial guide to the UK's foremost licensed casino platforms.",
     locale: "en_GB",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Trusted Casinos Sites UK — Premier Casino Rankings 2026",
-    description:
-      "Independent comparison of the UK's finest licensed casinos: welcome offers, game quality, and expert ratings.",
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${lato.variable} bg-[#0F2318]`}>
-      <body className="font-sans bg-[#0F2318] text-[#F2ECD9] antialiased">
+    <html lang="en" className={`${cormorant.variable} ${lato.variable} bg-[#0C0F0D]`}>
+      <body className="font-sans bg-[#0C0F0D] text-[#EDE4CC] antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

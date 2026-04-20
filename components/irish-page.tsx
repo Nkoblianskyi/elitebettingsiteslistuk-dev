@@ -17,15 +17,15 @@ export default function IrishPage() {
 
   return (
     <>
+      {/* Hero is full-bleed: outside MainLayout container */}
+      <HeroSection
+        onAdvertiserModalOpen={() => setIsAdvertiserModalOpen(true)}
+        onTermsModalOpen={() => setIsTermsModalOpen(true)}
+      />
+
       <MainLayout>
-        <div className="py-4 sm:py-6">
-          <HeroSection
-            onAdvertiserModalOpen={() => setIsAdvertiserModalOpen(true)}
-            onTermsModalOpen={() => setIsTermsModalOpen(true)}
-          />
-          <SitesList />
-          <InfoSections />
-        </div>
+        <SitesList />
+        <InfoSections />
       </MainLayout>
 
       <Modal bettingSites={bettingSites} casinoSites={[]} />

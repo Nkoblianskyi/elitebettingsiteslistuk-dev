@@ -1,22 +1,19 @@
 import { cn } from "@/lib/utils"
 
-type WordmarkVariant = "header-compact" | "header-hero" | "footer"
+type WordmarkVariant = "header" | "footer" | "hero"
 
-export function SiteWordmark({ variant, className }: { variant: WordmarkVariant; className?: string }) {
+export function SiteWordmark({ variant = "header", className }: { variant?: WordmarkVariant; className?: string }) {
+  const sizeMap = {
+    header: "text-base tracking-[0.12em]",
+    hero:   "text-4xl sm:text-5xl lg:text-6xl tracking-[0.06em]",
+    footer: "text-lg tracking-[0.14em]",
+  }
   return (
-    <span
-      className={cn(
-        "font-serif tracking-tight",
-        variant === "header-compact" && "text-xl sm:text-2xl",
-        variant === "header-hero" && "text-2xl sm:text-3xl",
-        variant === "footer" && "text-2xl sm:text-3xl",
-        className,
-      )}
-    >
-      <span className="text-[#F2ECD9] font-semibold">Trusted</span>
-      <span className="text-[#B8965A] font-light italic"> Casinos</span>
-      <span className="text-[#F2ECD9] font-semibold"> Sites</span>
-      <span className="text-[#F2ECD9]/50 font-light text-[0.8em]"> UK</span>
+    <span className={cn("font-serif font-light uppercase", sizeMap[variant], className)}>
+      <span style={{ color: "#EDE4CC" }}>Trusted</span>
+      <span style={{ color: "#C9A84C" }}> Casinos</span>
+      <span style={{ color: "#EDE4CC" }}> Sites</span>
+      <span style={{ color: "rgba(237,228,204,0.4)" }}> UK</span>
     </span>
   )
 }

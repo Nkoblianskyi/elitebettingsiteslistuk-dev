@@ -10,136 +10,97 @@ interface Top3ModalProps {
   casinoSites: BettingSite[]
 }
 
-const GOLD = "#B8965A"
-const GOLD_LIGHT = "#D4B07A"
-const FOREST = "#0F2318"
-const FOREST_CARD = "#152B1E"
-const FOREST_MID = "#1B3A2D"
-const PARCHMENT = "#F2ECD9"
+function ScoreArc({ score }: { score: number }) {
+  const radius = 28
+  const circumference = 2 * Math.PI * radius
+  const dash = (score / 10) * circumference
+  return (
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-label={`Score ${score} out of 10`}>
+      <circle cx="36" cy="36" r={radius} stroke="rgba(201,168,76,0.12)" strokeWidth="2" fill="none" />
+      <circle
+        cx="36" cy="36" r={radius}
+        stroke="#C9A84C" strokeWidth="2" fill="none"
+        strokeDasharray={`${dash} ${circumference}`}
+        strokeLinecap="butt"
+        transform="rotate(-90 36 36)"
+      />
+      <text x="36" y="40" textAnchor="middle" fill="#C9A84C" fontSize="14" fontFamily="Georgia, serif" fontWeight="300">
+        {score.toFixed(1)}
+      </text>
+    </svg>
+  )
+}
 
-function ModalSiteCard({
-  site,
-  isCenter,
-  compact,
-  rankLabel,
-  rankSub,
-}: {
-  site: BettingSite
-  isCenter: boolean
-  compact: boolean
-  rankLabel: string
-  rankSub: string
-}) {
-  const wClass = compact
-    ? isCenter ? "w-[190px]" : "w-[158px]"
-    : isCenter ? "w-[270px] xl:w-[310px]" : "w-[205px] xl:w-[240px]"
-
+function ModalCard({ site, position }: { site: BettingSite; position: number }) {
+  const isFirst = position === 1
   return (
     <div
-      className={`relative flex flex-col shrink-0 ${wClass} transition-transform duration-200 ${
-        isCenter ? "z-20 scale-[1.04]" : "z-10 opacity-85 hover:opacity-100"
-      }`}
+      className="flex flex-col"
+      style={{
+        flex: isFirst ? "0 0 38%" : "0 0 28%",
+        border: `1px solid ${isFirst ? "rgba(201,168,76,0.4)" : "rgba(201,168,76,0.15)"}`,
+        backgroundColor: isFirst ? "#141a16" : "#0f1310",
+        transform: isFirst ? "scale(1.03)" : "none",
+      }}
     >
-      {/* Rank header */}
+      {/* Rank strip */}
       <div
-        className={`flex items-center justify-center gap-1.5 border-t border-l border-r ${compact ? "h-7" : "h-9"}`}
+        className="flex items-center justify-between px-4 py-2.5"
         style={{
-          backgroundColor: isCenter ? GOLD : "rgba(184,150,90,0.08)",
-          color: isCenter ? FOREST : GOLD,
-          borderColor: isCenter ? GOLD : "rgba(184,150,90,0.28)",
+          borderBottom: `1px solid ${isFirst ? "rgba(201,168,76,0.25)" : "rgba(201,168,76,0.1)"}`,
+          backgroundColor: isFirst ? "rgba(201,168,76,0.08)" : "transparent",
         }}
       >
-        <span className={`font-sans font-bold uppercase tracking-[0.22em] ${compact ? "text-[9px]" : "text-[10px]"}`}>
-          {rankLabel}
+        <span
+          className="font-serif font-light text-3xl leading-none"
+          style={{ color: isFirst ? "#C9A84C" : "rgba(201,168,76,0.35)" }}
+        >
+          {position}
         </span>
-        {!compact && (
-          <>
-            <span style={{ opacity: 0.4 }} aria-hidden>·</span>
-            <span className="font-sans text-[9px] uppercase tracking-[0.15em]" style={{ opacity: 0.7 }}>
-              {rankSub}
-            </span>
-          </>
+        {isFirst && (
+          <span
+            className="font-sans text-[8px] font-bold uppercase tracking-[0.3em]"
+            style={{ color: "rgba(201,168,76,0.7)" }}
+          >
+            Top Ranked
+          </span>
         )}
       </div>
 
-      {/* Card body */}
-      <div
-        className="flex flex-col flex-1 border"
-        style={{
-          backgroundColor: FOREST_CARD,
-          borderColor: isCenter ? GOLD : "rgba(184,150,90,0.25)",
-        }}
-      >
-        {/* Logo */}
-        <div className={`flex items-center justify-center bg-white ${compact ? "h-16 mx-3 mt-3" : "h-20 xl:h-24 mx-4 mt-4"}`}>
-          <img
-            src={site?.logo || "/placeholder.svg"}
-            alt={site?.name || ""}
-            className={`object-contain ${compact ? "max-h-10" : "max-h-14 xl:max-h-16"}`}
-          />
-        </div>
+      {/* Body */}
+      <div className="flex flex-col items-center px-4 py-5 gap-3 flex-1">
+        <ScoreArc score={site.score} />
 
-        {/* Rating dots */}
-        <div className={`flex justify-center gap-1 ${compact ? "mt-3" : "mt-4"}`}>
-          {[...Array(5)].map((_, i) => (
-            <span
-              key={i}
-              className="block w-2 h-2 rounded-full border"
-              style={{
-                backgroundColor: GOLD,
-                borderColor: GOLD,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Bonus info */}
-        <div className={`flex flex-col flex-1 text-center ${compact ? "px-3 py-2.5" : "px-4 py-3"}`}>
-          <p
-            className={`font-sans font-bold uppercase tracking-[0.2em] mb-1.5 ${compact ? "text-[8px]" : "text-[9px]"}`}
-            style={{ color: "rgba(184,150,90,0.55)" }}
-          >
+        <div className="text-center">
+          <p className="font-sans text-[8px] uppercase tracking-[0.3em] mb-1.5" style={{ color: "rgba(201,168,76,0.45)" }}>
             Welcome Offer
           </p>
           <p
-            className={`font-serif font-semibold leading-tight ${compact ? "text-sm" : "text-base xl:text-lg"}`}
-            style={{ color: PARCHMENT }}
+            className="font-serif font-semibold leading-tight"
+            style={{ color: "#EDE4CC", fontSize: isFirst ? "1.25rem" : "1rem" }}
           >
-            {site?.bonus}
+            {site.bonus}
           </p>
-          <p
-            className={`font-sans ${compact ? "text-[9px] mt-1" : "text-xs mt-1.5"}`}
-            style={{ color: "rgba(184,150,90,0.65)" }}
-          >
-            {site?.welcomeOffer ?? site?.bonus}
+          <p className="font-sans text-[10px] mt-1" style={{ color: "rgba(237,228,204,0.42)" }}>
+            {site.welcomeOffer ?? site.bonus}
           </p>
         </div>
 
-        {/* CTA */}
         <Link
-          href={site?.link || "#"}
+          href={site.link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`block w-full font-sans font-bold text-center uppercase tracking-widest transition-opacity hover:opacity-85 ${
-            compact ? "py-2.5 text-[10px] mx-3 mb-3" : "py-3.5 text-xs xl:text-sm mx-4 mb-4"
-          }`}
-          style={{
-            width: compact ? "calc(100% - 1.5rem)" : "calc(100% - 2rem)",
-            backgroundColor: GOLD,
-            color: FOREST,
-          }}
+          className="block w-full text-center font-sans font-bold text-[10px] uppercase tracking-[0.28em] py-3 transition-opacity hover:opacity-85 mt-auto"
+          style={{ backgroundColor: isFirst ? "#C9A84C" : "rgba(201,168,76,0.15)", color: isFirst ? "#0C0F0D" : "#C9A84C", border: isFirst ? "none" : "1px solid rgba(201,168,76,0.3)" }}
         >
           Claim Offer
         </Link>
-
-        {/* Terms */}
-        <p
-          className={`px-3 pb-3 text-center leading-snug ${compact ? "text-[7px]" : "text-[8px] xl:text-[9px]"}`}
-          style={{ color: "rgba(242,236,217,0.3)" }}
-        >
-          {site?.terms ?? ""}
-        </p>
       </div>
+
+      {/* Terms */}
+      <p className="px-4 pb-3 font-sans text-[7px] text-center leading-snug" style={{ color: "rgba(237,228,204,0.2)" }}>
+        {site.terms}
+      </p>
     </div>
   )
 }
@@ -155,92 +116,88 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
   if (!isOpen) return null
 
   const top3 = bettingSites.slice(0, 3)
-  const reordered = [top3[1], top3[0], top3[2]]
-  const meta = [
-    { label: "#2 Ranked", sub: "Premium Pick" },
-    { label: "#1 Ranked", sub: "Editors' Choice" },
-    { label: "#3 Ranked", sub: "Highly Rated" },
-  ]
+  // Display order: #2, #1, #3
+  const display = [top3[1], top3[0], top3[2]]
+  const positions = [2, 1, 3]
 
   return (
     <div
-      className="hidden md:flex fixed inset-0 z-50 items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(15,35,24,0.94)", backdropFilter: "blur(8px)" }}
+      className="hidden md:flex fixed inset-0 z-50 items-center justify-center p-6"
+      style={{ backgroundColor: "rgba(12,15,13,0.92)", backdropFilter: "blur(10px)" }}
     >
-      {/* Close button */}
+      {/* Close */}
       <button
         type="button"
         onClick={() => setIsOpen(false)}
-        className="absolute top-5 right-5 z-[60] flex h-11 w-11 items-center justify-center border transition-colors hover:opacity-80"
-        style={{ borderColor: "rgba(184,150,90,0.35)", backgroundColor: FOREST_CARD, color: GOLD }}
+        className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center border transition-colors hover:border-[#C9A84C]"
+        style={{ borderColor: "rgba(201,168,76,0.25)", backgroundColor: "#111510", color: "#C9A84C" }}
         aria-label="Close"
       >
-        <X className="w-5 h-5" />
+        <X className="w-4 h-4" />
       </button>
 
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-4xl">
         {/* Heading */}
-        <div className="text-center mb-8 px-2">
-          <div className="flex items-center gap-4 justify-center mb-4">
-            <div className="h-px w-16 opacity-35" style={{ background: GOLD }} />
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em]" style={{ color: "rgba(184,150,90,0.6)" }}>
-              trustedcasinossitesuk.com
-            </p>
-            <div className="h-px w-16 opacity-35" style={{ background: GOLD }} />
-          </div>
-          <h2 className="font-serif font-semibold text-2xl lg:text-3xl xl:text-4xl leading-tight" style={{ color: PARCHMENT }}>
-            Today&apos;s Premier Offers
-          </h2>
-          <p className="font-sans text-xs mt-2" style={{ color: "rgba(242,236,217,0.4)" }}>
-            Curated for discerning UK players
+        <div className="text-center mb-10">
+          <p className="font-sans text-[8px] font-bold uppercase tracking-[0.5em] mb-4" style={{ color: "rgba(201,168,76,0.45)" }}>
+            trustedcasinossitesuk.com
           </p>
+          <h2
+            className="font-serif font-light leading-none"
+            style={{ color: "#EDE4CC", fontSize: "clamp(2rem, 4vw, 3rem)" }}
+          >
+            Today&apos;s{" "}
+            <em style={{ color: "#C9A84C" }}>Premier</em>{" "}
+            Offers
+          </h2>
+          <div className="w-10 h-px mx-auto mt-5" style={{ background: "#C9A84C" }} />
         </div>
 
-        {/* Cards desktop */}
-        <div className="hidden lg:flex items-end justify-center gap-4 xl:gap-6 px-2">
-          {reordered.map((site, i) => (
-            <ModalSiteCard
-              key={site?.id ?? i}
-              site={site}
-              isCenter={i === 1}
-              compact={false}
-              rankLabel={meta[i].label}
-              rankSub={meta[i].sub}
-            />
+        {/* Cards — desktop flex */}
+        <div className="hidden lg:flex items-end justify-center gap-4">
+          {display.map((site, i) => (
+            <ModalCard key={site?.id ?? i} site={site} position={positions[i]} />
           ))}
         </div>
 
-        {/* Cards tablet */}
-        <div className="hidden md:flex lg:hidden items-end justify-center gap-3 px-1">
-          {reordered.map((site, i) => (
-            <ModalSiteCard
+        {/* Compact tablet layout */}
+        <div className="hidden md:flex lg:hidden flex-col gap-3 max-w-sm mx-auto">
+          {top3.map((site, i) => (
+            <div
               key={site?.id ?? i}
-              site={site}
-              isCenter={i === 1}
-              compact
-              rankLabel={meta[i].label}
-              rankSub={meta[i].sub}
-            />
+              className="flex items-center gap-4 border px-4 py-4"
+              style={{
+                backgroundColor: "#111510",
+                borderColor: "rgba(201,168,76,0.18)",
+              }}
+            >
+              <span className="font-serif font-light text-3xl shrink-0" style={{ color: "rgba(201,168,76,0.5)" }}>
+                {i + 1}
+              </span>
+              <div className="flex-1 min-w-0">
+                <p className="font-serif font-semibold text-sm" style={{ color: "#EDE4CC" }}>{site.bonus}</p>
+                <p className="font-sans text-[10px] mt-0.5" style={{ color: "rgba(237,228,204,0.42)" }}>{site.welcomeOffer}</p>
+              </div>
+              <Link
+                href={site.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 font-sans font-bold text-[9px] uppercase tracking-[0.2em] px-4 py-2.5"
+                style={{ backgroundColor: "#C9A84C", color: "#0C0F0D" }}
+              >
+                Claim
+              </Link>
+            </div>
           ))}
         </div>
 
         {/* Footer */}
-        <div className="flex items-center gap-4 justify-center mt-7">
-          <div className="h-px w-10 opacity-18" style={{ background: GOLD }} />
-          <p className="text-center font-sans text-xs" style={{ color: "rgba(242,236,217,0.35)" }}>
-            18+ · Operator T&amp;Cs apply ·{" "}
-            <a
-              href="https://www.gambleaware.org"
-              className="underline underline-offset-2"
-              style={{ color: "rgba(184,150,90,0.55)" }}
-              target="_blank"
-              rel="noreferrer"
-            >
-              BeGambleAware.org
-            </a>
-          </p>
-          <div className="h-px w-10 opacity-18" style={{ background: GOLD }} />
-        </div>
+        <p className="text-center font-sans text-[9px] mt-8" style={{ color: "rgba(237,228,204,0.3)" }}>
+          18+ &nbsp; T&amp;Cs apply &nbsp;{" "}
+          <a href="https://www.gambleaware.org" target="_blank" rel="noreferrer" className="underline underline-offset-2" style={{ color: "rgba(201,168,76,0.5)" }}>
+            BeGambleAware.org
+          </a>
+        </p>
       </div>
     </div>
   )

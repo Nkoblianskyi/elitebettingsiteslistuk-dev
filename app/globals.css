@@ -4,83 +4,77 @@
 
 @layer base {
   :root {
-    /* Trusted Casinos Sites UK — Hunt Club Palette */
-    --background: 150 28% 10%;        /* deep forest green #0F2318 */
-    --foreground: 42 45% 90%;         /* warm parchment #F2ECD9 */
-
-    --card: 150 22% 13%;              /* slightly lighter green #152B1E */
-    --card-foreground: 42 45% 90%;
-
-    --popover: 150 28% 10%;
-    --popover-foreground: 42 45% 90%;
-
-    --primary: 36 42% 53%;            /* brushed gold #B8965A */
-    --primary-foreground: 150 28% 10%;
-
-    --secondary: 150 18% 17%;         /* muted forest */
-    --secondary-foreground: 42 45% 90%;
-
-    --muted: 150 18% 17%;
-    --muted-foreground: 42 25% 62%;
-
-    --accent: 36 42% 53%;
-    --accent-foreground: 150 28% 10%;
-
+    --background: 160 12% 5%;
+    --foreground: 42 35% 86%;
+    --card: 160 10% 8%;
+    --card-foreground: 42 35% 86%;
+    --popover: 160 12% 5%;
+    --popover-foreground: 42 35% 86%;
+    --primary: 42 57% 54%;
+    --primary-foreground: 160 12% 5%;
+    --secondary: 160 8% 12%;
+    --secondary-foreground: 42 35% 86%;
+    --muted: 160 8% 12%;
+    --muted-foreground: 42 18% 52%;
+    --accent: 42 57% 54%;
+    --accent-foreground: 160 12% 5%;
     --destructive: 0 55% 38%;
-    --destructive-foreground: 42 45% 90%;
-
-    --border: 36 28% 32%;
-    --input: 150 18% 17%;
-    --ring: 36 42% 53%;
-
-    --radius: 0.25rem;
+    --destructive-foreground: 42 35% 86%;
+    --border: 160 6% 14%;
+    --input: 160 8% 12%;
+    --ring: 42 57% 54%;
+    --radius: 0rem;
 
     /* Brand tokens */
-    --forest:        #0F2318;
-    --forest-mid:    #1B3A2D;
-    --forest-card:   #152B1E;
-    --forest-light:  #22422F;
-    --gold:          #B8965A;
-    --gold-light:    #D4B07A;
-    --gold-muted:    #7A622E;
-    --parchment:     #F2ECD9;
-    --parchment-dim: #D6CEBC;
-    --mahogany:      #2C1810;
+    --ink:          #0C0F0D;
+    --ink-mid:      #141a16;
+    --ink-panel:    #111510;
+    --ink-surface:  #1A2018;
+    --gold:         #C9A84C;
+    --gold-dim:     #8A6E2E;
+    --gold-pale:    #E8D49A;
+    --parchment:    #EDE4CC;
+    --parchment-dim:#B5AD99;
+    --rule:         rgba(201,168,76,0.15);
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  html {
-    background-color: var(--forest);
-  }
-  body {
-    background-color: var(--forest);
-    color: var(--parchment);
+  * { @apply border-border; }
+  html { background-color: var(--ink); scroll-behavior: smooth; }
+  body { background-color: var(--ink); color: var(--parchment); }
+
+  ::selection {
+    background-color: var(--gold);
+    color: var(--ink);
   }
 }
 
-/* Typography helpers */
-.font-serif-display {
-  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
-}
-.font-body {
-  font-family: var(--font-lato), system-ui, sans-serif;
-}
-
-/* Gold rule */
+/* Ornamental rule */
 .gold-rule {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 
-/* Utility shorthands */
-.text-gold        { color: var(--gold); }
-.text-parchment   { color: var(--parchment); }
-.text-parchment-dim { color: var(--parchment-dim); }
-.bg-forest        { background-color: var(--forest); }
-.bg-forest-mid    { background-color: var(--forest-mid); }
-.bg-forest-card   { background-color: var(--forest-card); }
-.border-gold      { border-color: var(--gold); }
+/* Thin top bar rule */
+.top-rule {
+  height: 2px;
+  background: var(--gold);
+}
+
+/* Race card number — massive editorial numeral */
+.rank-numeral {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 0.85;
+  color: rgba(201,168,76,0.18);
+  user-select: none;
+}
+
+/* Pull quote style */
+.pull-quote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+}
