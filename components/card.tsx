@@ -189,14 +189,14 @@ export function Card({ site, rank }: SiteCardProps) {
         </div>
 
         {/* Offer row */}
-        <div className="px-4 py-3">
+        <div className="px-4 py-3 flex flex-col items-center justify-center">
           <p className="font-sans text-[8px] uppercase tracking-[0.3em] mb-1" style={{ color: "rgba(201,168,76,0.4)" }}>
             Welcome Offer
           </p>
           <p className="font-serif font-semibold text-lg leading-tight" style={{ color: "#EDE4CC" }}>
             {site.bonus}
           </p>
-          <p className="font-sans text-[11px] mt-0.5" style={{ color: "rgba(237,228,204,0.4)" }}>
+          <p className="font-sans text-[12px] mt-0.5" style={{ color: "rgba(237,228,204,0.4)" }}>
             {site.welcomeOffer}
           </p>
         </div>
