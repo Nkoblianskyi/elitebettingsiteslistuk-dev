@@ -25,10 +25,9 @@ export const metadata: Metadata = {
   },
 }
 
-const GOLD = "#B8965A"
-const FOREST_CARD = "#152B1E"
-const FOREST = "#0F2318"
-const PARCHMENT = "#F2ECD9"
+const GOLD = "#C9A84C"
+const FOREST_CARD = "#111111"
+const PARCHMENT = "#EDE4CC"
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -50,7 +49,7 @@ function InfoCard({ title, body }: { title: string; body: string }) {
   return (
     <div
       className="border px-5 py-4"
-      style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(15,35,24,0.5)" }}
+      style={{ borderColor: "rgba(184,150,90,0.18)",         backgroundColor: "rgba(17,17,17,0.6)" }}
     >
       <p className="font-sans font-semibold text-sm mb-1.5" style={{ color: PARCHMENT }}>{title}</p>
       <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.62)" }}>{body}</p>
@@ -62,7 +61,7 @@ function SupportOrg({ name, website }: { name: string; website: string }) {
   return (
     <div
       className="border px-5 py-4"
-      style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(15,35,24,0.4)" }}
+      style={{ borderColor: "rgba(184,150,90,0.18)",         backgroundColor: "rgba(17,17,17,0.5)" }}
     >
       <p className="font-serif font-semibold text-base mb-1" style={{ color: PARCHMENT }}>{name}</p>
       <p className="font-sans text-xs" style={{ color: "rgba(184,150,90,0.65)" }}>{website}</p>
@@ -76,7 +75,7 @@ export default function ResponsibleGamingPage() {
       <Link
         href="/"
         className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider mb-8 transition-opacity hover:opacity-75"
-        style={{ color: "rgba(184,150,90,0.65)" }}
+        style={{ color: "rgba(201,168,76,0.6)" }}
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         Return to Rankings

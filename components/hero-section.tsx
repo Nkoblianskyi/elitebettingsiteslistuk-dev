@@ -13,140 +13,131 @@ function getRatingDate() {
   }
 }
 
+const TRUST_STATS = [
+  { value: "6", label: "Reviewed Sites" },
+  { value: "18+", label: "Age Requirement" },
+  { value: "UKGC", label: "Licensed Only" },
+  { value: "2025", label: "Updated Ratings" },
+]
+
 export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSectionProps) {
   const { iso, label } = getRatingDate()
 
   return (
-    <section
-      className="w-full"
-      style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}
-    >
-      {/* Split layout: 55% text / 45% image on large screens, stacked on mobile */}
-      <div className="flex flex-col lg:flex-row min-h-[520px] lg:min-h-[600px]">
+    <section className="w-full relative overflow-hidden" style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}>
 
-        {/* LEFT TEXT PANEL */}
+      {/* Background image with dark overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero-casino.jpg"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover object-center"
+        />
         <div
-          className="flex flex-col justify-between px-8 py-14 sm:px-12 lg:px-16 lg:py-20 lg:w-[55%]"
-          style={{
-            backgroundColor: "#0C0F0D",
-            borderRight: "1px solid rgba(201,168,76,0.1)",
-          }}
-        >
-          {/* Top eyebrow */}
-          <div>
-            <p
-              className="font-sans text-[9px] font-bold uppercase tracking-[0.5em] mb-10"
-              style={{ color: "rgba(201,168,76,0.5)" }}
-            >
-              trustedcasinossitesuk.com &nbsp; / &nbsp; United Kingdom
-            </p>
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.88) 55%, rgba(13,13,13,0.55) 100%)" }}
+        />
+      </div>
 
-            {/* Main headline — very large Cormorant */}
-            <h1
-              className="font-serif font-light leading-[0.92] mb-8"
-              style={{
-                color: "#EDE4CC",
-                fontSize: "clamp(3rem, 6vw, 5.5rem)",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Britain&apos;s
-              <br />
-              <em style={{ color: "#C9A84C" }}>Premier</em>
-              <br />
-              Casino Guide
-            </h1>
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
 
-            {/* Thin gold rule */}
-            <div className="w-16 h-px mb-8" style={{ background: "#C9A84C" }} />
-
-            {/* Body copy */}
-            <p
-              className="font-sans text-sm leading-loose max-w-sm"
-              style={{ color: "rgba(237,228,204,0.52)" }}
-            >
-              Six independently assessed UK-licensed casino platforms, ranked by
-              our editorial panel across game quality, bonus transparency, payout
-              reliability, and player protection standards.
-            </p>
-          </div>
-
-          {/* Bottom meta row */}
-          <div className="flex flex-wrap items-end gap-x-6 gap-y-2 mt-12">
-            <div>
-              <span className="block font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-1" style={{ color: "rgba(201,168,76,0.45)" }}>
-                Rankings Updated
-              </span>
-              <time
-                dateTime={iso}
-                className="font-serif text-sm"
-                style={{ color: "rgba(237,228,204,0.55)" }}
-              >
-                {label}
-              </time>
-            </div>
-
-            <div className="h-8 w-px" style={{ background: "rgba(201,168,76,0.15)" }} />
-
-            <button
-              type="button"
-              onClick={onAdvertiserModalOpen}
-              className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] underline underline-offset-2 transition-opacity hover:opacity-80"
-              style={{ color: "rgba(201,168,76,0.45)" }}
-            >
-              Advertiser Disclosure
-            </button>
-
-            <button
-              type="button"
-              onClick={onTermsModalOpen}
-              className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] underline underline-offset-2 transition-opacity hover:opacity-80"
-              style={{ color: "rgba(201,168,76,0.45)" }}
-            >
-              18+ Terms Apply
-            </button>
-          </div>
+        {/* Top eyebrow row */}
+        <div className="flex items-center gap-3 mb-8">
+          <div className="h-px w-6" style={{ background: "#C9A84C" }} />
+          <p className="font-sans text-[9px] font-bold uppercase tracking-[0.45em]" style={{ color: "rgba(201,168,76,0.6)" }}>
+            trustedcasinossitesuk.com &nbsp;·&nbsp; United Kingdom
+          </p>
         </div>
 
-        {/* RIGHT IMAGE PANEL */}
-        <div className="relative lg:w-[45%] h-64 lg:h-auto overflow-hidden" style={{ minHeight: "260px" }}>
-          <img
-            src="/hero-main.jpg"
-            alt="Casino atmosphere"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          {/* Subtle overlay fade to left on desktop */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to right, rgba(12,15,13,0.5) 0%, transparent 40%)",
-            }}
-            aria-hidden
-          />
-          {/* Overlay fade to bottom on mobile */}
-          <div
-            className="absolute inset-0 lg:hidden"
-            style={{
-              background: "linear-gradient(to top, rgba(12,15,13,0.7) 0%, transparent 60%)",
-            }}
-            aria-hidden
-          />
+        {/* Main headline */}
+        <h1
+          className="font-serif font-light leading-[0.9] mb-6 text-balance"
+          style={{
+            color: "#EDE4CC",
+            fontSize: "clamp(2.6rem, 5.5vw, 4.8rem)",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          Britain&apos;s&nbsp;Most&nbsp;Trusted
+          <br />
+          <em style={{ color: "#C9A84C" }}>Casino</em>{" "}Rankings
+        </h1>
 
-          {/* Floating stat */}
-          <div
-            className="absolute bottom-6 right-6 border px-5 py-4 text-right"
-            style={{
-              backgroundColor: "rgba(12,15,13,0.82)",
-              borderColor: "rgba(201,168,76,0.25)",
-            }}
+        {/* Date updated */}
+        <div className="flex items-center gap-2 mb-6">
+          <div className="w-3 h-px" style={{ background: "rgba(201,168,76,0.4)" }} />
+          <span className="font-sans text-[9px] uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.45)" }}>
+            Rankings Updated
+          </span>
+          <time
+            dateTime={iso}
+            className="font-sans text-[9px] uppercase tracking-[0.25em]"
+            style={{ color: "rgba(237,228,204,0.5)" }}
           >
-            <span className="block font-serif font-light text-4xl leading-none" style={{ color: "#C9A84C" }}>6</span>
-            <span className="block font-sans text-[9px] uppercase tracking-[0.3em] mt-1" style={{ color: "rgba(237,228,204,0.45)" }}>
-              Licensed Sites
-              <br />
-              Reviewed
-            </span>
-          </div>
+            {label}
+          </time>
+        </div>
+
+        {/* Subtext */}
+        <p
+          className="font-sans text-sm leading-relaxed max-w-md mb-10"
+          style={{ color: "rgba(237,228,204,0.48)" }}
+        >
+          Independently assessed UK-licensed casino platforms, ranked by editorial experts
+          across game quality, bonus transparency, payout reliability and player protection.
+        </p>
+
+        {/* Trust indicator strip */}
+        <div
+          className="inline-flex flex-wrap gap-0 mb-8"
+          style={{ border: "1px solid rgba(201,168,76,0.18)" }}
+        >
+          {TRUST_STATS.map((stat, i) => (
+            <div
+              key={stat.label}
+              className="flex flex-col items-center px-5 py-3"
+              style={{
+                borderRight: i < TRUST_STATS.length - 1 ? "1px solid rgba(201,168,76,0.18)" : "none",
+                backgroundColor: "rgba(13,13,13,0.7)",
+              }}
+            >
+              <span
+                className="font-serif font-light text-xl leading-none mb-0.5"
+                style={{ color: "#C9A84C" }}
+              >
+                {stat.value}
+              </span>
+              <span
+                className="font-sans text-[7px] uppercase tracking-[0.3em]"
+                style={{ color: "rgba(237,228,204,0.38)" }}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Disclosure links */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <button
+            type="button"
+            onClick={onAdvertiserModalOpen}
+            className="font-sans text-[8px] font-bold uppercase tracking-[0.3em] underline underline-offset-2 transition-opacity hover:opacity-80"
+            style={{ color: "rgba(201,168,76,0.42)" }}
+          >
+            Advertiser Disclosure
+          </button>
+          <span style={{ color: "rgba(201,168,76,0.2)", fontSize: "10px" }}>|</span>
+          <button
+            type="button"
+            onClick={onTermsModalOpen}
+            className="font-sans text-[8px] font-bold uppercase tracking-[0.3em] underline underline-offset-2 transition-opacity hover:opacity-80"
+            style={{ color: "rgba(201,168,76,0.42)" }}
+          >
+            18+ Terms Apply
+          </button>
         </div>
       </div>
     </section>

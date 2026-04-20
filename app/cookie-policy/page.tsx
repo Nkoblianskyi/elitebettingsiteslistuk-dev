@@ -16,10 +16,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-const GOLD = "#B8965A"
-const FOREST_CARD = "#152B1E"
-const FOREST = "#0F2318"
-const PARCHMENT = "#F2ECD9"
+const GOLD = "#C9A84C"
+const FOREST_CARD = "#111111"
+const PARCHMENT = "#EDE4CC"
 
 function Section({ num, title, children }: { num: number; title: string; children: React.ReactNode }) {
   return (
@@ -47,7 +46,7 @@ export default function CookiePolicyPage() {
       <Link
         href="/"
         className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider mb-8 transition-opacity hover:opacity-75"
-        style={{ color: "rgba(184,150,90,0.65)" }}
+        style={{ color: "rgba(201,168,76,0.6)" }}
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         Return to Rankings
