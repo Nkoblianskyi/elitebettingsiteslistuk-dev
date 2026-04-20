@@ -29,7 +29,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
     >
       {/* Background image */}
       <img
-        src="/hero-sports-bg.jpg"
+        src="/hero-casino-bg.jpg"
         alt=""
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover object-center"

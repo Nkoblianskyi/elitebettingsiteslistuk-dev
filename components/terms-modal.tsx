@@ -1,12 +1,33 @@
 "use client"
 
-import { X, ShieldAlert } from "lucide-react"
+import { X, Star, Award, ShieldCheck } from "lucide-react"
+import Link from "next/link"
 
 const GOLD = "#C9A84C"
 const BLACK = "#0D0D0D"
 const BLACK_CARD = "#141414"
+const BLACK_LIGHT = "#1E1E1E"
 const CRIMSON = "#8B1A1A"
 const IVORY = "#F5F0E8"
+
+const TOP_OFFER = {
+  rank: 1,
+  name: "Betfred Casino",
+  logo: "/betfred.webp",
+  bonus: "200 Free Spins",
+  offer: "Stake £10 & Get 200 Free Spins",
+  score: 9.8,
+  reviews: 9317,
+  link: "https://www.betfred.com/casino",
+  highlights: [
+    "UKGC Licensed & Regulated",
+    "No deposit required to claim",
+    "Spins credited within 24 hours",
+    "Available on top slot titles",
+  ],
+  terms:
+    "18+ | New customers only | Stake £10 on selected games | 200 free spins credited within 24 hrs | Winnings from spins = bonus funds | 30x wagering on bonus | Max withdrawal from bonus = £500 | T&Cs apply | BeGambleAware.org",
+}
 
 interface TermsModalProps {
   isOpen: boolean
@@ -16,123 +37,229 @@ interface TermsModalProps {
 export function TermsModal({ isOpen, onClose }: TermsModalProps) {
   if (!isOpen) return null
 
+  const starRating = TOP_OFFER.score / 2
+  const getStarFill = (i: number) =>
+    Math.round(Math.max(0, Math.min(1, starRating - i)) * 5) / 5
+
+  const formatVotes = (v: number) =>
+    v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
   return (
     <div
       className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4"
-      style={{ backgroundColor: "rgba(13,13,13,0.92)", backdropFilter: "blur(6px)" }}
+      style={{ backgroundColor: "rgba(7,7,7,0.93)", backdropFilter: "blur(8px)" }}
       role="dialog"
       aria-modal="true"
-      aria-labelledby="terms-modal-title"
+      aria-labelledby="top-offer-modal-title"
       onClick={onClose}
     >
       <div
-        className="w-full sm:max-w-lg max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden border"
-        style={{ backgroundColor: BLACK_CARD, borderColor: "rgba(139,26,26,0.4)" }}
+        className="w-full sm:max-w-md flex flex-col overflow-hidden border"
+        style={{
+          backgroundColor: BLACK_CARD,
+          borderColor: "rgba(201,168,76,0.25)",
+          boxShadow: "0 0 60px rgba(139,26,26,0.35), 0 0 0 1px rgba(201,168,76,0.08)",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Crimson top bar */}
-        <div className="h-[3px] shrink-0" style={{ background: CRIMSON }} />
-        <div className="h-px shrink-0" style={{ background: "rgba(201,168,76,0.25)" }} />
+        {/* Gold top rule */}
+        <div className="h-[2px] shrink-0" style={{ background: GOLD }} />
 
         {/* Header */}
         <div
-          className="shrink-0 flex items-start justify-between gap-3 px-5 py-5 sm:px-7 border-b"
-          style={{ borderColor: "rgba(139,26,26,0.2)" }}
+          className="shrink-0 flex items-center justify-between px-5 py-3 border-b"
+          style={{ backgroundColor: BLACK, borderColor: "rgba(201,168,76,0.15)" }}
         >
-          <div className="flex items-center gap-3">
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center border"
-              style={{ borderColor: "rgba(201,168,76,0.35)", backgroundColor: "rgba(139,26,26,0.1)" }}
+          <div className="flex items-center gap-2">
+            <Award className="w-4 h-4" style={{ color: GOLD }} />
+            <span
+              className="font-sans text-[9px] font-bold uppercase tracking-[0.28em]"
+              style={{ color: GOLD }}
             >
-              <ShieldAlert className="w-5 h-5" style={{ color: GOLD }} strokeWidth={2} />
-            </div>
-            <div>
-              <h2 id="terms-modal-title" className="font-serif font-bold text-xl" style={{ color: IVORY }}>
-                Site Rules &amp; 18+
-              </h2>
-              <p
-                className="text-[9px] font-sans uppercase tracking-[0.25em] mt-0.5"
-                style={{ color: "rgba(201,168,76,0.55)" }}
-              >
-                Terms of Use
-              </p>
-            </div>
+              Editors&apos; Choice — #1 Ranked Casino
+            </span>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-9 w-9 shrink-0 items-center justify-center border transition-opacity hover:opacity-70"
-            style={{ borderColor: "rgba(139,26,26,0.4)", color: "rgba(245,240,232,0.6)" }}
+            className="flex h-7 w-7 shrink-0 items-center justify-center border transition-opacity hover:opacity-60"
+            style={{ borderColor: "rgba(201,168,76,0.25)", color: "rgba(245,240,232,0.5)" }}
             aria-label="Close"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Body */}
-        <div
-          className="flex-1 overflow-y-auto px-5 py-5 sm:px-7 space-y-4 font-sans text-sm leading-relaxed"
-          style={{ color: "rgba(245,240,232,0.7)" }}
-        >
-          <p>
-            Using <strong style={{ color: IVORY }}>elitecasinossitesuk.com</strong> means you accept these rules.
-            They apply across all devices and sessions.
-          </p>
-
+        {/* Casino logo + score row */}
+        <div className="flex items-stretch border-b" style={{ borderColor: "rgba(139,26,26,0.2)" }}>
+          {/* Rank badge */}
           <div
-            className="border px-4 py-3"
-            style={{ borderColor: "rgba(201,168,76,0.2)", backgroundColor: "rgba(139,26,26,0.07)" }}
+            className="w-14 shrink-0 flex flex-col items-center justify-center gap-0.5 border-r"
+            style={{ backgroundColor: BLACK, borderColor: "rgba(139,26,26,0.25)" }}
           >
-            <p className="font-semibold mb-1" style={{ color: GOLD }}>
-              Age Restriction
-            </p>
-            <p>
-              You must be 18 years of age or older to use this site. This site discusses casino gambling; persons
-              under 18 must leave immediately.
-            </p>
+            <span
+              className="font-sans text-[7px] font-bold uppercase tracking-[0.2em]"
+              style={{ color: "rgba(201,168,76,0.4)" }}
+            >
+              Rank
+            </span>
+            <span
+              className="font-serif font-bold text-3xl leading-none"
+              style={{ color: CRIMSON }}
+            >
+              {TOP_OFFER.rank}
+            </span>
           </div>
 
-          <div>
-            <p className="font-semibold mb-2" style={{ color: IVORY }}>
-              Responsible Gambling
-            </p>
-            <ul className="space-y-1.5 list-none">
-              {[
-                "Set clear session time limits and a fixed budget before playing.",
-                "Never chase losses — treat every session as a leisure expense.",
-                "Wagering requirements apply to all casino bonuses without exception.",
-                "GambleAware, GamCare, and GAMSTOP are available 24/7 for free support.",
-              ].map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span style={{ color: CRIMSON }}>&#9670;</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+          {/* Logo */}
+          <div
+            className="flex-1 flex items-center justify-center px-6 py-4"
+            style={{ backgroundColor: "#ffffff" }}
+          >
+            <img
+              src={TOP_OFFER.logo}
+              alt={TOP_OFFER.name}
+              className="max-h-14 w-auto max-w-[160px] object-contain"
+            />
           </div>
 
-          <p>
-            We cannot guarantee that offers remain accurate at all times; casino operators revise terms without prior
-            notice. Third-party sites linked from this page operate under their own terms and conditions — we bear
-            no responsibility for their content or conduct.
-          </p>
-          <p className="text-xs" style={{ color: "rgba(245,240,232,0.38)" }}>
-            This site provides no legal or financial advice. Refer to our full Terms page for comprehensive rules.
-          </p>
+          {/* Score */}
+          <div
+            className="w-20 shrink-0 flex flex-col items-center justify-center gap-1.5 border-l"
+            style={{ backgroundColor: BLACK_LIGHT, borderColor: "rgba(139,26,26,0.2)" }}
+          >
+            <div
+              className="w-14 h-14 border-2 flex flex-col items-center justify-center"
+              style={{ borderColor: CRIMSON, backgroundColor: "rgba(139,26,26,0.1)" }}
+            >
+              <span
+                className="font-serif font-bold text-2xl leading-none"
+                style={{ color: GOLD }}
+              >
+                {TOP_OFFER.score.toFixed(1)}
+              </span>
+              <span
+                className="text-[7px] font-sans uppercase tracking-wider mt-0.5"
+                style={{ color: "rgba(201,168,76,0.5)" }}
+              >
+                Score
+              </span>
+            </div>
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => {
+                const fill = getStarFill(i)
+                return (
+                  <span key={i} className="relative inline-block w-2.5 h-2.5 shrink-0">
+                    <Star
+                      className="absolute inset-0 w-2.5 h-2.5"
+                      style={{ fill: "none", stroke: CRIMSON, strokeWidth: 1.5 }}
+                    />
+                    <Star
+                      className="absolute inset-0 w-2.5 h-2.5"
+                      style={{
+                        fill: GOLD,
+                        stroke: GOLD,
+                        strokeWidth: 0,
+                        clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)`,
+                      }}
+                    />
+                  </span>
+                )
+              })}
+            </div>
+            <span className="text-[7px] font-sans" style={{ color: "rgba(245,240,232,0.3)" }}>
+              {formatVotes(TOP_OFFER.reviews)}
+            </span>
+          </div>
         </div>
 
-        {/* Footer */}
+        {/* Bonus offer block */}
         <div
-          className="shrink-0 border-t px-5 py-3 sm:px-7 text-center"
-          style={{ borderColor: "rgba(139,26,26,0.2)", backgroundColor: BLACK }}
+          className="px-5 py-4 border-b text-center"
+          style={{
+            borderColor: "rgba(139,26,26,0.2)",
+            background: "linear-gradient(to bottom, rgba(139,26,26,0.12), rgba(13,13,13,0))",
+          }}
         >
           <p
-            className="font-sans text-xs font-semibold uppercase tracking-wider"
-            style={{ color: "rgba(201,168,76,0.65)" }}
+            className="font-sans text-[8px] font-bold uppercase tracking-[0.28em] mb-1"
+            style={{ color: "rgba(139,26,26,0.8)" }}
           >
-            18+ &nbsp;&middot;&nbsp; Wagering T&amp;Cs apply &nbsp;&middot;&nbsp; Play responsibly
+            Welcome Bonus
+          </p>
+          <p
+            className="font-serif font-bold leading-tight mb-1"
+            style={{ color: IVORY, fontSize: "1.6rem" }}
+          >
+            {TOP_OFFER.bonus}
+          </p>
+          <p className="font-sans text-sm" style={{ color: "rgba(245,240,232,0.55)" }}>
+            {TOP_OFFER.offer}
           </p>
         </div>
+
+        {/* Highlights */}
+        <div className="px-5 py-4 border-b" style={{ borderColor: "rgba(139,26,26,0.15)" }}>
+          <ul className="space-y-2">
+            {TOP_OFFER.highlights.map((item) => (
+              <li key={item} className="flex items-start gap-2.5">
+                <ShieldCheck
+                  className="w-3.5 h-3.5 mt-0.5 shrink-0"
+                  style={{ color: GOLD }}
+                />
+                <span className="font-sans text-sm" style={{ color: "rgba(245,240,232,0.75)" }}>
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* CTA */}
+        <div className="px-5 py-5">
+          <Link
+            href={TOP_OFFER.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center font-sans font-bold text-sm py-4 border transition-all hover:brightness-110"
+            style={{
+              backgroundColor: CRIMSON,
+              color: IVORY,
+              borderColor: "rgba(201,168,76,0.35)",
+              letterSpacing: "0.12em",
+            }}
+          >
+            CLAIM 200 FREE SPINS
+          </Link>
+          <p
+            className="font-sans text-center text-[9px] mt-2"
+            style={{ color: "rgba(245,240,232,0.3)" }}
+          >
+            Opens Betfred Casino in a new tab
+          </p>
+        </div>
+
+        {/* Terms footer */}
+        <div
+          className="border-t px-4 py-3"
+          style={{ borderColor: "rgba(139,26,26,0.18)", backgroundColor: BLACK }}
+        >
+          <p
+            className="font-sans text-[8px] font-bold uppercase tracking-wider text-center mb-1.5"
+            style={{ color: "rgba(201,168,76,0.4)" }}
+          >
+            Terms &amp; Conditions
+          </p>
+          <p
+            className="font-sans text-[9px] text-center leading-snug"
+            style={{ color: "rgba(245,240,232,0.3)" }}
+          >
+            {TOP_OFFER.terms}
+          </p>
+        </div>
+
+        {/* Gold bottom rule */}
+        <div className="h-[2px] shrink-0" style={{ background: `linear-gradient(to right, transparent, ${GOLD}, transparent)` }} />
       </div>
     </div>
   )
