@@ -10,24 +10,27 @@ interface Top3ModalProps {
   casinoSites: BettingSite[]
 }
 
-function ScoreArc({ score }: { score: number }) {
-  const radius = 30
-  const circumference = 2 * Math.PI * radius
-  const dash = (score / 10) * circumference
+function StarRating({ score }: { score: number }) {
+  // score is out of 10, map to 5 stars
+  const filled = Math.round((score / 10) * 5)
   return (
-    <svg width="76" height="76" viewBox="0 0 76 76" fill="none" aria-label={`Score ${score} out of 10`}>
-      <circle cx="38" cy="38" r={radius} stroke="rgba(201,168,76,0.12)" strokeWidth="1.5" fill="none" />
-      <circle
-        cx="38" cy="38" r={radius}
-        stroke="#C9A84C" strokeWidth="1.5" fill="none"
-        strokeDasharray={`${dash} ${circumference}`}
-        strokeLinecap="butt"
-        transform="rotate(-90 38 38)"
-      />
-      <text x="38" y="43" textAnchor="middle" fill="#C9A84C" fontSize="15" fontFamily="Georgia, serif" fontWeight="300">
-        {score.toFixed(1)}
-      </text>
-    </svg>
+    <div className="flex items-center justify-center gap-1" aria-label={`Rating ${score} out of 10`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          width="18" height="18" viewBox="0 0 18 18" fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"
+            fill={i < filled ? "#C9A84C" : "none"}
+            stroke="#C9A84C"
+            strokeWidth="1"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ))}
+    </div>
   )
 }
 
@@ -84,40 +87,37 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
           </h2>
         </div>
 
-        {/* Logo + rank strip */}
-        <div
-          className="flex items-center justify-between px-8 py-4"
-          style={{ borderBottom: "1px solid rgba(201,168,76,0.1)" }}
-        >
-          {/* Logo */}
+        {/* Logo */}
+        <div className="flex justify-center px-8 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(201,168,76,0.1)" }}>
           <div
             className="flex items-center justify-center rounded-sm overflow-hidden"
-            style={{ background: "#fff", height: "44px", width: "110px" }}
+            style={{ background: "#fff", height: "64px", width: "160px" }}
           >
             <img
               src={site.logo}
               alt={site.name}
-              className="max-h-8 max-w-[100px] w-auto object-contain"
+              className="max-h-12 max-w-[148px] w-auto object-contain"
             />
-          </div>
-
-          {/* Rank badge */}
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <p className="font-sans text-[8px] uppercase tracking-[0.3em] mb-0.5" style={{ color: "rgba(201,168,76,0.4)" }}>
-                Rank
-              </p>
-              <span className="font-serif font-light text-3xl leading-none" style={{ color: "#C9A84C" }}>
-                1
-              </span>
-            </div>
-            <ScoreArc score={site.score} />
           </div>
         </div>
 
+        {/* Stars + score */}
+        <div className="flex flex-col items-center gap-1.5 px-8 pt-5 pb-3">
+          <StarRating score={site.score} />
+          <span
+            className="font-serif font-light leading-none"
+            style={{ color: "#C9A84C", fontSize: "1.6rem" }}
+          >
+            {site.score.toFixed(1)}
+          </span>
+          <span className="font-sans text-[8px] uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.45)" }}>
+            out of 10
+          </span>
+        </div>
+
         {/* Offer block */}
-        <div className="px-8 py-6 text-center">
-          <p className="font-sans text-[9px] font-bold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.45)" }}>
+        <div className="px-8 pt-2 pb-6 text-center" style={{ borderTop: "1px solid rgba(201,168,76,0.1)" }}>
+          <p className="font-sans text-[9px] font-bold uppercase tracking-[0.4em] mb-3 mt-4" style={{ color: "rgba(201,168,76,0.45)" }}>
             Welcome Offer
           </p>
           <p
