@@ -102,11 +102,11 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
           </p>
         </div>
 
-        {/* Row 3: trust strip + disclosures */}
-        <div className="flex items-end justify-between gap-x-4">
+        {/* Row 3: trust strip THEN disclosures below */}
+        <div className="flex flex-col gap-2">
           {/* Trust indicators */}
           <div
-            className="inline-flex gap-0 shrink-0"
+            className="inline-flex gap-0 self-start"
             style={{ border: "1px solid rgba(201,168,76,0.18)" }}
           >
             {TRUST_STATS.map((stat, i) => (
@@ -140,8 +140,8 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             ))}
           </div>
 
-          {/* Disclosure links — stack vertically on very small screens */}
-          <div className="flex flex-col items-end gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
+          {/* Disclosure links — always in a row below the strip */}
+          <div className="flex items-center gap-x-3">
             <button
               type="button"
               onClick={onAdvertiserModalOpen}
@@ -150,7 +150,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             >
               Advertiser Disclosure
             </button>
-            <span className="hidden sm:inline" style={{ color: "rgba(201,168,76,0.2)", fontSize: "9px" }}>|</span>
+            <span style={{ color: "rgba(201,168,76,0.2)", fontSize: "9px" }}>|</span>
             <button
               type="button"
               onClick={onTermsModalOpen}
