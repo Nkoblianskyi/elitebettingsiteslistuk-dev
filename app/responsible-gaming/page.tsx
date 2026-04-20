@@ -1,259 +1,222 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft, Shield, Clock, AlertTriangle, Phone, Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
+import type React from "react"
 
 export const metadata: Metadata = {
-  title: "Responsible Gambling",
+  title: "Responsible Play",
   description:
-    "elitebettingsiteslistuk.com promotes safer betting. Learn the warning signs of problem gambling, self-help tools, and UK support organisations including GambleAware and GamCare.",
+    "trustedcasinossitesuk.com promotes safer play. Learn the warning signs of problem gambling, self-help tools, and UK support organisations including GambleAware and GamCare.",
   keywords: [
     "responsible gambling UK",
     "problem gambling help UK",
     "GambleAware",
     "GamCare",
-    "safer betting UK",
+    "safer casino UK",
     "gambling addiction support",
     "self-exclusion UK",
     "18+ gambling UK",
   ],
   openGraph: {
-    title: "Responsible Gambling | Elite Betting Sites UK",
+    title: "Responsible Play | Trusted Casinos Sites UK",
     description:
-      "Safer betting guidance, warning signs, and UK support organisations for anyone affected by problem gambling.",
-    url: "https://elitebettingsiteslistuk.com/responsible-gaming",
+      "Safer play guidance, warning signs, and UK support organisations for anyone affected by problem gambling.",
+    url: "https://trustedcasinossitesuk.com/responsible-gaming",
   },
+}
+
+const GOLD = "#B8965A"
+const FOREST_CARD = "#152B1E"
+const FOREST = "#0F2318"
+const PARCHMENT = "#F2ECD9"
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="mb-7">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-[2px] h-5 shrink-0" style={{ background: GOLD }} />
+        <h2 className="font-serif font-semibold text-xl" style={{ color: PARCHMENT }}>
+          {title}
+        </h2>
+      </div>
+      <div className="font-sans text-sm leading-relaxed space-y-3 pl-5" style={{ color: "rgba(242,236,217,0.68)" }}>
+        {children}
+      </div>
+    </section>
+  )
+}
+
+function InfoCard({ title, body }: { title: string; body: string }) {
+  return (
+    <div
+      className="border px-5 py-4"
+      style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(15,35,24,0.5)" }}
+    >
+      <p className="font-sans font-semibold text-sm mb-1.5" style={{ color: PARCHMENT }}>{title}</p>
+      <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.62)" }}>{body}</p>
+    </div>
+  )
+}
+
+function SupportOrg({ name, website }: { name: string; website: string }) {
+  return (
+    <div
+      className="border px-5 py-4"
+      style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(15,35,24,0.4)" }}
+    >
+      <p className="font-serif font-semibold text-base mb-1" style={{ color: PARCHMENT }}>{name}</p>
+      <p className="font-sans text-xs" style={{ color: "rgba(184,150,90,0.65)" }}>{website}</p>
+    </div>
+  )
 }
 
 export default function ResponsibleGamingPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Link href="/">
-        <Button variant="ghost" className="text-white hover:bg-white/20 mb-6">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Home
-        </Button>
+    <div className="mx-auto max-w-4xl px-4 py-10">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider mb-8 transition-opacity hover:opacity-75"
+        style={{ color: "rgba(184,150,90,0.65)" }}
+      >
+        <ArrowLeft className="w-3.5 h-3.5" />
+        Return to Rankings
       </Link>
 
-      <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 lg:p-12 shadow-lg max-w-4xl mx-auto">
-        <div className="prose prose-lg max-w-none">
-          <div className="text-center mb-8">
-            <Shield className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Safer betting</h1>
-            <p className="text-xl text-gray-700 font-medium">elitebettingsiteslistuk.com backs play that stays inside your limits</p>
-          </div>
+      <div className="border" style={{ backgroundColor: FOREST_CARD, borderColor: "rgba(184,150,90,0.22)" }}>
+        {/* Gold top bar */}
+        <div className="h-[3px]" style={{ background: GOLD }} />
 
-          <div className="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
-            <div className="flex items-center mb-3">
-              <AlertTriangle className="w-6 h-6 text-red-600 mr-3" />
-              <h2 className="text-red-800 font-bold text-xl mb-0">Important Notice</h2>
-            </div>
-            <p className="text-red-700 mb-2">
-              Gambling should always remain fun and entertaining. If betting stops being enjoyable or begins to cause
-              problems in your life, it's time to seek help.
+        <div className="px-6 py-8 sm:px-10 sm:py-10">
+          {/* Page heading */}
+          <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
+            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              trustedcasinossitesuk.com
             </p>
-            <p className="text-red-700 font-semibold">Remember: You are never alone, and help is always available.</p>
+            <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
+              Responsible Play
+            </h1>
+            <p className="font-sans text-sm mt-3 max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(242,236,217,0.55)" }}>
+              We back play that stays inside your limits. If casino games stop being enjoyable, help is always available.
+            </p>
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Gambling Responsibly</h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Responsible gambling means enjoying betting as a form of entertainment while maintaining control over your
-            time and money. It involves understanding the risks, setting limits, and knowing when to stop.
-          </p>
-
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Key Principles of Responsible Gambling</h3>
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-900 mb-2">Set Time Limits</h4>
-              <p className="text-blue-800 text-sm">
-                Decide how much time you'll spend gambling before you start, and stick to it.
-              </p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-900 mb-2">Set Money Limits</h4>
-              <p className="text-blue-800 text-sm">
-                Only gamble with money you can afford to lose. Never borrow money to gamble.
-              </p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-900 mb-2">Take Regular Breaks</h4>
-              <p className="text-blue-800 text-sm">
-                Step away from gambling regularly to maintain perspective and control.
-              </p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-900 mb-2">Don't Chase Losses</h4>
-              <p className="text-blue-800 text-sm">
-                Accept losses as part of the entertainment cost. Never try to win back what you've lost.
-              </p>
-            </div>
+          {/* Alert bar */}
+          <div
+            className="border-l-4 px-5 py-5 mb-8"
+            style={{ borderLeftColor: GOLD, backgroundColor: "rgba(184,150,90,0.06)" }}
+          >
+            <p className="font-sans font-semibold text-sm mb-1.5" style={{ color: GOLD }}>
+              Important Notice
+            </p>
+            <p className="font-sans text-sm leading-relaxed" style={{ color: "rgba(242,236,217,0.68)" }}>
+              Gambling should always remain an enjoyable leisure activity. If it stops being fun or begins to cause problems
+              in your life, it is time to seek help. You are never alone, and support is always available.
+            </p>
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Warning Signs</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            It's important to recognize when gambling might be becoming a problem. Watch out for these warning signs:
-          </p>
-          <ul className="text-gray-700 space-y-2 mb-6">
-            <li>• Spending more time or money gambling than you intended</li>
-            <li>• Feeling anxious, depressed, or guilty about your gambling</li>
-            <li>• Lying to family or friends about your gambling activities</li>
-            <li>• Borrowing money or selling possessions to fund gambling</li>
-            <li>• Neglecting work, family, or other responsibilities</li>
-            <li>• Thinking about gambling constantly</li>
-            <li>• Feeling the need to bet more money to get the same excitement</li>
-            <li>• Being unable to stop or reduce your gambling</li>
-          </ul>
+          <Section title="Playing Responsibly">
+            <p>
+              Responsible play means enjoying casino games as entertainment while maintaining full control over your time
+              and budget. It involves understanding the risks, setting limits in advance, and knowing when to stop.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3 mt-3">
+              {[
+                ["Set Time Limits", "Decide how long you will play before you start, and keep to that boundary."],
+                ["Set Money Limits", "Only play with funds you can afford to lose. Never borrow money to play."],
+                ["Take Regular Breaks", "Step away regularly to maintain perspective and control."],
+                ["Never Chase Losses", "Accept losses as part of the entertainment cost. Chasing rarely ends well."],
+              ].map(([title, body]) => (
+                <InfoCard key={title as string} title={title as string} body={body as string} />
+              ))}
+            </div>
+          </Section>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Self-Help Tools</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Most reputable gambling sites offer tools to help you maintain control:
-          </p>
-          <div className="bg-green-50 p-6 rounded-lg mb-6">
-            <ul className="text-green-800 space-y-2">
-              <li>
-                <strong>Deposit Limits:</strong> Set daily, weekly, or monthly limits on how much you can deposit
-              </li>
-              <li>
-                <strong>Loss Limits:</strong> Set limits on how much you can lose in a specific time period
-              </li>
-              <li>
-                <strong>Session Time Limits:</strong> Set limits on how long you can play in one session
-              </li>
-              <li>
-                <strong>Reality Checks:</strong> Receive regular reminders about how long you've been playing
-              </li>
-              <li>
-                <strong>Self-Exclusion:</strong> Temporarily or permanently block yourself from gambling sites
-              </li>
+          <div className="h-px my-6" style={{ background: "rgba(184,150,90,0.1)" }} />
+
+          <Section title="Warning Signs">
+            <p>Recognise when play might be becoming a problem. Warning signs include:</p>
+            <ul className="space-y-2 mt-2">
+              {[
+                "Spending more time or money than intended",
+                "Feeling anxious, depressed, or guilty about your gambling",
+                "Concealing your gambling from family or friends",
+                "Borrowing money or selling possessions to fund play",
+                "Neglecting work, family, or other responsibilities",
+                "Feeling unable to stop or reduce your gambling",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <span className="shrink-0 w-1 h-1 rounded-full mt-2" style={{ backgroundColor: GOLD }} />
+                  {item}
+                </li>
+              ))}
             </ul>
-          </div>
+          </Section>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Getting Help</h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            If you're concerned about your gambling or that of someone you know, help is available. These organizations
-            provide free, confidential support:
-          </p>
+          <div className="h-px my-6" style={{ background: "rgba(184,150,90,0.1)" }} />
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <div className="flex items-center mb-4">
-                <Globe className="w-6 h-6 text-blue-600 mr-3" />
-                <h3 className="text-lg font-semibold text-gray-900">GambleAware</h3>
-              </div>
-              <p className="text-gray-700 text-sm mb-3">
-                Leading charity providing information, advice, and support for anyone affected by gambling problems.
-              </p>
-              <div className="space-y-2">
-                <p className="text-sm">
-                  <strong>Website:</strong> www.gambleaware.org
-                </p>
-                <p className="text-sm">
-                  <strong>Helpline:</strong> 0808 8020 133
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <div className="flex items-center mb-4">
-                <Phone className="w-6 h-6 text-green-600 mr-3" />
-                <h3 className="text-lg font-semibold text-gray-900">GamCare</h3>
-              </div>
-              <p className="text-gray-700 text-sm mb-3">
-                Provides support, information, and advice to anyone suffering from a gambling problem.
-              </p>
-              <div className="space-y-2">
-                <p className="text-sm">
-                  <strong>Website:</strong> www.gamcare.org.uk
-                </p>
-                <p className="text-sm">
-                  <strong>Helpline:</strong> 0808 8020 133
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <div className="flex items-center mb-4">
-                <Shield className="w-6 h-6 text-purple-600 mr-3" />
-                <h3 className="text-lg font-semibold text-gray-900">Gamblers Anonymous</h3>
-              </div>
-              <p className="text-gray-700 text-sm mb-3">
-                Fellowship of men and women who share their experience to help solve their gambling problem.
-              </p>
-              <div className="space-y-2">
-                <p className="text-sm">
-                  <strong>Website:</strong> www.gamblersanonymous.org.uk
-                </p>
-                <p className="text-sm">
-                  <strong>Meetings:</strong> Local support groups available
-                </p>
-              </div>
-            </div>
-
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <div className="flex items-center mb-4">
-                <Clock className="w-6 h-6 text-orange-600 mr-3" />
-                <h3 className="text-lg font-semibold text-gray-900">Gordon Moody Association</h3>
-              </div>
-              <p className="text-gray-700 text-sm mb-3">
-                Provides residential treatment and ongoing support for people with gambling addictions.
-              </p>
-              <div className="space-y-2">
-                <p className="text-sm">
-                  <strong>Website:</strong> www.gordonmoody.org.uk
-                </p>
-                <p className="text-sm">
-                  <strong>Helpline:</strong> 01384 241292
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">For Family and Friends</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Gambling problems don't just affect the gambler - they impact families and friends too. If someone you care
-            about has a gambling problem:
-          </p>
-          <ul className="text-gray-700 space-y-2 mb-6">
-            <li>• Don't ignore the problem or hope it will go away</li>
-            <li>• Encourage them to seek professional help</li>
-            <li>• Don't lend them money or pay their gambling debts</li>
-            <li>• Look after your own wellbeing</li>
-            <li>• Consider seeking support for yourself</li>
-          </ul>
-
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
-            <h3 className="text-yellow-800 font-bold mb-3">Remember</h3>
-            <p className="text-yellow-700 mb-2">
-              Gambling addiction is a recognized medical condition, not a moral failing or lack of willpower.
+          <Section title="Self-Help Tools">
+            <p>
+              Reputable licensed operators are required to offer tools to help you maintain control, including:
             </p>
-            <p className="text-yellow-700">
-              Recovery is possible with the right support and treatment. The first step is acknowledging there's a
-              problem and asking for help.
-            </p>
-          </div>
-
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">What elitebettingsiteslistuk.com expects from brands</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            We highlight firms that make harm reduction obvious—not buried in PDFs. That usually means:
-          </p>
-          <ul className="text-gray-700 space-y-2 mb-6">
-            <li>• Provide comprehensive responsible gambling tools</li>
-            <li>• Have clear policies for identifying problem gambling</li>
-            <li>• Offer easy access to support resources</li>
-            <li>• Implement strict age verification procedures</li>
-            <li>• Provide transparent terms and conditions</li>
-            <li>• Support responsible gambling organizations</li>
-          </ul>
-
-          <div className="text-center mt-8 p-6 bg-gray-50 rounded-lg">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Need Help Right Now?</h3>
-            <p className="text-gray-700 mb-4">
-              If you or someone you know needs immediate support, don't wait. Help is available 24/7.
-            </p>
-            <div className="space-y-2">
-              <p className="text-lg font-semibold text-green-600">National Gambling Helpline: 0808 8020 133</p>
-              <p className="text-sm text-gray-600">Free, confidential, and available 24 hours a day</p>
+            <div className="grid sm:grid-cols-2 gap-3 mt-3">
+              {[
+                ["Deposit Limits", "Set daily, weekly, or monthly caps on how much you can deposit."],
+                ["Session Time Limits", "Restrict how long you can play in a single session."],
+                ["Reality Checks", "Receive timed reminders about how long you have been playing."],
+                ["Self-Exclusion", "Temporarily or permanently block yourself from licensed platforms."],
+              ].map(([title, body]) => (
+                <InfoCard key={title as string} title={title as string} body={body as string} />
+              ))}
             </div>
+          </Section>
+
+          <div className="h-px my-6" style={{ background: "rgba(184,150,90,0.1)" }} />
+
+          <Section title="Support Organisations">
+            <p>
+              If you are concerned about your gambling or that of someone you know, these organisations provide
+              free, confidential support:
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3 mt-3">
+              <SupportOrg name="GambleAware" website="www.begambleaware.org" />
+              <SupportOrg name="GamCare" website="www.gamcare.org.uk" />
+              <SupportOrg name="Gamblers Anonymous" website="www.gamblersanonymous.org.uk" />
+              <SupportOrg name="Gordon Moody Association" website="www.gordonmoody.org.uk" />
+              <SupportOrg name="Gambling Therapy" website="www.gamblingtherapy.org" />
+              <SupportOrg name="GamStop" website="www.gamstop.co.uk" />
+            </div>
+          </Section>
+
+          <div className="h-px my-6" style={{ background: "rgba(184,150,90,0.1)" }} />
+
+          <Section title="For Family and Friends">
+            <ul className="space-y-2">
+              {[
+                "Do not ignore the problem or expect it to resolve itself.",
+                "Encourage the person to seek professional help.",
+                "Do not lend money or pay gambling debts.",
+                "Look after your own wellbeing — support is available for affected family members too.",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <span className="shrink-0 w-1 h-1 rounded-full mt-2" style={{ backgroundColor: GOLD }} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          {/* 18+ notice */}
+          <div
+            className="mt-8 border-l-4 px-5 py-5"
+            style={{ borderLeftColor: GOLD, backgroundColor: "rgba(184,150,90,0.05)" }}
+          >
+            <p className="font-sans font-semibold text-sm mb-1.5" style={{ color: GOLD }}>
+              18+ Only
+            </p>
+            <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.58)" }}>
+              All content on trustedcasinossitesuk.com is directed exclusively at adults aged 18 and over who are
+              legally entitled to access gambling-related material in Great Britain.
+            </p>
           </div>
         </div>
       </div>

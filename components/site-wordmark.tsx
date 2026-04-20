@@ -7,15 +7,16 @@ export function SiteWordmark({ variant, className }: { variant: WordmarkVariant;
     <span
       className={cn(
         "font-serif tracking-tight",
-        variant === "header-compact" && "text-lg sm:text-xl",
+        variant === "header-compact" && "text-xl sm:text-2xl",
         variant === "header-hero" && "text-2xl sm:text-3xl",
         variant === "footer" && "text-2xl sm:text-3xl",
         className,
       )}
     >
-      <span className="text-[#F5F0E8] font-bold">Elite Betting</span>
-      <span className="text-[#C9A84C] font-semibold"> Sites</span>
-      <span className="text-[#F5F0E8]/60 font-light text-[0.8em]"> UK</span>
+      <span className="text-[#F2ECD9] font-semibold">Trusted</span>
+      <span className="text-[#B8965A] font-light italic"> Casinos</span>
+      <span className="text-[#F2ECD9] font-semibold"> Sites</span>
+      <span className="text-[#F2ECD9]/50 font-light text-[0.8em]"> UK</span>
     </span>
   )
 }

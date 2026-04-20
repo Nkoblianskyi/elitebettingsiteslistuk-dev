@@ -1,39 +1,39 @@
 "use client"
 
-const GOLD = "#C9A84C"
-const NAVY = "#0D1B2A"
-const NAVY_CARD = "#131E2B"
-const IVORY = "#F5F0E8"
+const GOLD = "#B8965A"
+const FOREST_CARD = "#152B1E"
+const FOREST = "#0F2318"
+const PARCHMENT = "#F2ECD9"
 
 const sections = [
   {
-    title: "How We Select Britain's Premier Bookmakers",
-    lead: "Our editorial methodology is independent, rigorous, and built for the discerning UK punter.",
-    body: "Selecting a bookmaker is not a matter of headline bonuses alone — it is a question of whether the platform consistently performs across the dimensions that matter most. Our table spotlights operators that demonstrate excellence for UK customers week in, week out.",
+    title: "How We Select Britain's Premier Casinos",
+    lead: "Our editorial methodology is independent, rigorous, and built for the discerning UK player.",
+    body: "Selecting a casino platform is not a matter of headline bonuses alone — it is a question of whether the platform consistently performs across the dimensions that matter most. Our table spotlights operators that demonstrate excellence for UK customers week in, week out.",
   },
   {
     title: "Our Assessment Criteria",
-    body: "We evaluate each operator across six pillars: odds competitiveness on mainstream markets, depth of live coverage, mobile and desktop platform stability, KYC and withdrawal smoothness, clarity of promotional terms, and quality of customer support. Commercial relationships do not alter the order of merit — the ranking logic remains constant regardless of affiliate arrangements.",
+    body: "We evaluate each operator across six pillars: game library breadth and quality, live casino experience, platform stability across devices, payout processing smoothness, clarity of promotional terms, and quality of customer support. Commercial relationships do not alter the order of merit — the ranking logic remains constant regardless of affiliate arrangements.",
   },
   {
-    title: "Matching an Operator to Your Style",
-    body: "Begin with the sports you stake on consistently. If live streaming is important, prioritise operators carrying your preferred leagues. If accumulator betting is your focus, favour books with transparent settlement rules and strong acca tools. Marginal odds advantages repeated across hundreds of bets compound significantly — use our scores as orientation, then shop on the events you care about.",
+    title: "Matching a Casino to Your Preferences",
+    body: "Begin with the game types you enjoy most. If live table games are your preference, prioritise operators with wide live studio coverage. If slots are your focus, look for breadth of titles and RTP transparency. Marginal differences in bonus wagering requirements compound significantly over time — use our scores as orientation, then examine the specifics that matter most to you.",
   },
   {
     title: "Welcome Offers: Reading Between the Lines",
-    body: "Introductory free bets and enhanced odds are subject to revision. The summaries beneath each logo capture the current headline mechanic. The operator's live terms page is the binding document. Pay close attention to minimum stake thresholds, qualifying bet restrictions, excluded payment methods, expiry windows, and whether free-bet stakes are returned with winnings.",
+    body: "Introductory bonus amounts are subject to revision. The summaries beneath each logo capture the current headline mechanic. The operator's live terms page is the binding document. Pay close attention to wagering requirements, eligible games, minimum deposit thresholds, excluded payment methods, expiry windows, and whether bonus stakes are separated from withdrawable funds.",
   },
   {
-    title: "Regulation & Player Protection",
-    body: "Every operator featured holds the appropriate licence for UK customers. Licensed firms are obliged to meet standards on customer funds segregation, game fairness testing, and responsible gambling tooling — including deposit limits, reality checks, and self-exclusion pathways. Regulatory oversight does not eliminate risk, but it establishes a formal accountability framework if disputes arise.",
+    title: "Regulation and Player Protection",
+    body: "Every operator featured holds the appropriate licence for UK customers. Licensed firms are obliged to meet standards on customer funds segregation, game fairness testing, and responsible gambling tooling — including deposit limits, cooling-off periods, and self-exclusion pathways. Regulatory oversight does not eliminate risk, but it establishes a formal accountability framework if disputes arise.",
   },
   {
-    title: "Technology & Platform Quality",
-    body: "Contemporary bookmakers compete on the quality of their cash-out logic, partial settlement options, bet-builder accuracy, and low-latency in-play pricing. We assess how polished and reliable these features are across both mobile and desktop environments, because platform friction during live events translates directly into missed value.",
+    title: "Platform Quality and Game Experience",
+    body: "Contemporary casinos compete on the quality of their software providers, live dealer streaming stability, mobile optimisation, and cashout reliability. We assess how polished and consistent these features are across both mobile and desktop environments, because platform friction translates directly into a diminished gaming experience.",
   },
   {
-    title: "Responsible Gambling",
-    body: "Disciplined wagering means fixed stakes, written session limits, and no chasing of losses. Welcome offers are introductory tools, not a supplementary income. Should betting begin to feel compulsive rather than recreational, please contact the organisations listed in the footer — all services are free, confidential, and available immediately.",
+    title: "Responsible Play",
+    body: "Disciplined play means fixed session budgets, set time limits, and no chasing of losses. Welcome offers are introductory tools, not supplementary income. Should casino play begin to feel compulsive rather than recreational, please contact the organisations listed in the footer — all services are free, confidential, and available immediately.",
   },
 ]
 
@@ -41,59 +41,62 @@ export function InfoSections() {
   return (
     <div className="mt-14">
       {/* Section header */}
-      <div className="flex items-center gap-4 mb-8">
-        <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.2)" }} />
+      <div className="flex items-center gap-5 mb-8">
+        <div className="flex-1 h-px" style={{ background: "rgba(184,150,90,0.18)" }} />
         <div className="text-center px-2">
-          <p className="text-[9px] font-sans font-bold uppercase tracking-[0.35em] mb-1" style={{ color: "rgba(201,168,76,0.55)" }}>
+          <p className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-1" style={{ color: "rgba(184,150,90,0.5)" }}>
             Editorial Guide
           </p>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl" style={{ color: IVORY }}>
+          <h2 className="font-serif font-semibold text-2xl sm:text-3xl leading-tight" style={{ color: PARCHMENT }}>
             Our Methodology
           </h2>
         </div>
-        <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.2)" }} />
+        <div className="flex-1 h-px" style={{ background: "rgba(184,150,90,0.18)" }} />
       </div>
 
-      {/* Lead section */}
+      {/* Lead card */}
       <div
-        className="border px-6 py-6 sm:px-8 sm:py-7 mb-2"
-        style={{ backgroundColor: NAVY_CARD, borderColor: "rgba(201,168,76,0.25)" }}
+        className="border px-7 py-7 mb-1"
+        style={{ backgroundColor: FOREST_CARD, borderColor: "rgba(184,150,90,0.22)" }}
       >
-        <h3 className="font-serif font-bold text-xl sm:text-2xl mb-3" style={{ color: IVORY }}>
-          {sections[0].title}
-        </h3>
-        <p className="font-sans font-semibold text-sm mb-3" style={{ color: GOLD }}>
+        <div className="flex items-start gap-3 mb-3">
+          <div className="h-5 w-[2px] mt-1 shrink-0" style={{ background: GOLD }} />
+          <h3 className="font-serif font-semibold text-xl sm:text-2xl" style={{ color: PARCHMENT }}>
+            {sections[0].title}
+          </h3>
+        </div>
+        <p className="font-sans text-sm font-semibold mb-3 pl-5" style={{ color: GOLD }}>
           {sections[0].lead}
         </p>
-        <p className="font-sans text-sm leading-relaxed" style={{ color: "rgba(245,240,232,0.72)" }}>
+        <p className="font-sans text-sm leading-relaxed pl-5" style={{ color: "rgba(242,236,217,0.68)" }}>
           {sections[0].body}
         </p>
       </div>
 
-      {/* Remaining sections */}
-      <div className="space-y-px">
+      {/* Remaining sections — ledger style */}
+      <div className="border-l border-r" style={{ borderColor: "rgba(184,150,90,0.15)" }}>
         {sections.slice(1).map((section, i) => (
           <article
             key={section.title}
-            className="border-l border-r border-b px-6 py-5 sm:px-8 sm:py-6 transition-colors"
+            className="border-b px-7 py-5 sm:py-6 transition-colors hover:bg-[#1B3A2D]/30"
             style={{
-              backgroundColor: i % 2 === 0 ? NAVY_CARD : "rgba(28,43,58,0.5)",
-              borderColor: "rgba(201,168,76,0.15)",
+              backgroundColor: i % 2 === 0 ? FOREST_CARD : `${FOREST}CC`,
+              borderColor: "rgba(184,150,90,0.12)",
             }}
           >
-            <div className="flex items-start gap-4">
-              {/* Gold number */}
+            <div className="flex items-start gap-5">
+              {/* Gold ordinal */}
               <span
-                className="font-serif font-bold text-2xl leading-none shrink-0 mt-0.5 w-6 text-right"
-                style={{ color: "rgba(201,168,76,0.35)" }}
+                className="font-serif font-light text-3xl leading-none shrink-0 mt-0.5 w-7 text-right"
+                style={{ color: "rgba(184,150,90,0.28)" }}
               >
-                {i + 1}
+                {i + 2}
               </span>
               <div>
-                <h3 className="font-serif font-bold text-base sm:text-lg mb-2" style={{ color: IVORY }}>
+                <h3 className="font-serif font-semibold text-base sm:text-lg mb-2" style={{ color: PARCHMENT }}>
                   {section.title}
                 </h3>
-                <p className="font-sans text-sm leading-relaxed" style={{ color: "rgba(245,240,232,0.68)" }}>
+                <p className="font-sans text-sm leading-relaxed" style={{ color: "rgba(242,236,217,0.65)" }}>
                   {section.body}
                 </p>
               </div>
@@ -102,13 +105,13 @@ export function InfoSections() {
         ))}
       </div>
 
-      {/* Disclaimer */}
+      {/* Disclaimer bar */}
       <div
         className="mt-4 border px-5 py-4 text-center"
-        style={{ borderColor: "rgba(201,168,76,0.2)", backgroundColor: "rgba(13,27,42,0.5)" }}
+        style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(15,35,24,0.6)" }}
       >
-        <p className="text-[10px] font-sans uppercase tracking-wider leading-relaxed" style={{ color: "rgba(201,168,76,0.45)" }}>
-          Content &copy; elitebettingsiteslistuk.com &nbsp;&middot;&nbsp; All promotions are for adults 18+ in the United Kingdom.
+        <p className="font-sans text-[9px] uppercase tracking-[0.25em] leading-relaxed" style={{ color: "rgba(184,150,90,0.4)" }}>
+          Content &copy; trustedcasinossitesuk.com · All promotions are for adults 18+ in the United Kingdom.
           Identity and location verification applies. Additional restrictions may apply — consult each operator.
         </p>
       </div>

@@ -1,42 +1,38 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import type React from "react"
 
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Terms of use for elitebettingsiteslistuk.com — editorial nature of the service, age restriction (18+), accuracy disclaimer, external links, and governing law.",
-  keywords: ["terms of use", "terms and conditions", "elitebettingsiteslistuk terms", "18+ betting UK"],
+    "Terms of use for trustedcasinossitesuk.com — editorial nature of the service, age restriction (18+), accuracy disclaimer, external links, and governing law.",
+  keywords: ["terms of use", "terms and conditions", "trustedcasinossitesuk terms", "18+ casino UK"],
   openGraph: {
-    title: "Terms of Use | Elite Betting Sites UK",
-    description: "Terms of use governing access to elitebettingsiteslistuk.com.",
-    url: "https://elitebettingsiteslistuk.com/terms",
+    title: "Terms of Use | Trusted Casinos Sites UK",
+    description: "Terms of use governing access to trustedcasinossitesuk.com.",
+    url: "https://trustedcasinossitesuk.com/terms",
   },
   robots: { index: false, follow: false },
 }
 
-const GOLD = "#C9A84C"
-const NAVY_CARD = "#131E2B"
-const IVORY = "#F5F0E8"
+const GOLD = "#B8965A"
+const FOREST_CARD = "#152B1E"
+const FOREST = "#0F2318"
+const PARCHMENT = "#F2ECD9"
 
 function Section({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
   return (
     <section className="mb-7">
       <div className="flex items-baseline gap-3 mb-3">
-        <span
-          className="font-serif font-bold text-xs shrink-0"
-          style={{ color: "rgba(201,168,76,0.5)" }}
-        >
+        <span className="font-serif font-light text-xl shrink-0 w-6 text-right" style={{ color: "rgba(184,150,90,0.35)" }}>
           {number}.
         </span>
-        <h2 className="font-serif font-bold text-xl" style={{ color: IVORY }}>
+        <h2 className="font-serif font-semibold text-xl" style={{ color: PARCHMENT }}>
           {title}
         </h2>
       </div>
-      <div
-        className="font-sans text-sm leading-relaxed pl-6"
-        style={{ color: "rgba(245,240,232,0.7)" }}
-      >
+      <div className="font-sans text-sm leading-relaxed pl-9" style={{ color: "rgba(242,236,217,0.68)" }}>
         {children}
       </div>
     </section>
@@ -48,36 +44,27 @@ export default function TermsPage() {
     <div className="mx-auto max-w-4xl px-4 py-10">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-wider mb-8 transition-opacity hover:opacity-75"
-        style={{ color: "rgba(201,168,76,0.7)" }}
+        className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider mb-8 transition-opacity hover:opacity-75"
+        style={{ color: "rgba(184,150,90,0.65)" }}
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         Return to Rankings
       </Link>
 
-      <div
-        className="border"
-        style={{ backgroundColor: NAVY_CARD, borderColor: "rgba(201,168,76,0.25)" }}
-      >
+      <div className="border" style={{ backgroundColor: FOREST_CARD, borderColor: "rgba(184,150,90,0.22)" }}>
         {/* Gold top bar */}
-        <div className="h-[2px]" style={{ background: GOLD }} />
+        <div className="h-[3px]" style={{ background: GOLD }} />
 
         <div className="px-6 py-8 sm:px-10 sm:py-10">
           {/* Page heading */}
-          <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(201,168,76,0.15)" }}>
-            <p
-              className="text-[9px] font-sans font-bold uppercase tracking-[0.35em] mb-2"
-              style={{ color: "rgba(201,168,76,0.55)" }}
-            >
-              elitebettingsiteslistuk.com
+          <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
+            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              trustedcasinossitesuk.com
             </p>
-            <h1 className="font-serif font-bold text-3xl lg:text-4xl" style={{ color: IVORY }}>
+            <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
               Terms of Use
             </h1>
-            <p
-              className="font-sans text-xs mt-3"
-              style={{ color: "rgba(245,240,232,0.45)" }}
-            >
+            <p className="font-sans text-xs mt-3" style={{ color: "rgba(242,236,217,0.42)" }}>
               Last updated{" "}
               {new Date().toLocaleDateString("en-GB", {
                 day: "numeric",
@@ -87,45 +74,44 @@ export default function TermsPage() {
             </p>
           </div>
 
-          {/* Sections */}
           <div className="space-y-0">
             <Section number="1" title="Agreement">
               <p>
-                By accessing elitebettingsiteslistuk.com you agree to be bound by these Terms of Use in full.
+                By accessing trustedcasinossitesuk.com you agree to be bound by these Terms of Use in full.
                 If you do not accept them, please leave the site immediately.
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="2" title="Nature of the Service">
               <p>
-                We publish independent editorial comparisons and ratings of third-party bookmakers licensed by the
-                UK Gambling Commission. We are not a bookmaker, we do not accept wagers, and we do not hold customer
+                We publish independent editorial comparisons and ratings of third-party casinos licensed by the
+                UK Gambling Commission. We are not a casino, we do not accept wagers, and we do not hold customer
                 funds at any time.
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="3" title="Age Restriction">
               <p>
                 You must be 18 years of age or older to use this site. All content is directed solely at adults
-                in Great Britain who are legally entitled to view gambling-related advertising.
+                in Great Britain who are legally entitled to view gambling-related material.
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="4" title="Accuracy of Information">
               <p>
-                Bonus offers, odds, terms, and operator details change without notice. Editorial copy may not
+                Bonus offers, game availability, terms, and operator details change without notice. Editorial copy may not
                 reflect the most recent modifications. Always verify all information on the operator&apos;s official
-                site before placing a deposit.
+                site before making a deposit.
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="5" title="External Links">
               <p>
@@ -135,27 +121,27 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
-            <Section number="6" title="Responsible Gambling">
+            <Section number="6" title="Responsible Play">
               <p>
                 Gambling should be an enjoyable leisure activity conducted within strict financial limits. Never
-                chase losses or borrow money to bet. Free confidential support is available from GambleAware,
+                chase losses or borrow money to play. Free confidential support is available from GambleAware,
                 GamCare, and Gambling Therapy — see footer for direct links.
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="7" title="Intellectual Property">
               <p>
-                All editorial text, layout, and graphical assets produced by elitebettingsiteslistuk.com remain
+                All editorial text, layout, and graphical assets produced by trustedcasinossitesuk.com remain
                 our exclusive intellectual property. Third-party logos and trademarks are used solely for
                 nominative identification and remain the property of their respective owners.
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="8" title="Limitation of Liability">
               <p>
@@ -165,7 +151,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="9" title="Privacy">
               <p>
@@ -181,7 +167,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="10" title="Amendments">
               <p>
@@ -191,7 +177,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <div className="h-px my-5" style={{ background: "rgba(201,168,76,0.1)" }} />
+            <div className="h-px my-5" style={{ background: "rgba(184,150,90,0.08)" }} />
 
             <Section number="11" title="Governing Law">
               <p>
@@ -203,15 +189,15 @@ export default function TermsPage() {
             {/* 18+ notice */}
             <div
               className="mt-8 border-l-4 px-5 py-5"
-              style={{ borderLeftColor: GOLD, backgroundColor: "rgba(201,168,76,0.06)" }}
+              style={{ borderLeftColor: GOLD, backgroundColor: "rgba(184,150,90,0.05)" }}
             >
               <p className="font-sans font-semibold text-sm mb-1.5" style={{ color: GOLD }}>
-                18+ Only — Please Gamble Responsibly
+                18+ Only — Please Play Responsibly
               </p>
-              <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(245,240,232,0.6)" }}>
-                elitebettingsiteslistuk.com does not accept wagers or hold player funds. All betting activity takes
-                place on licensed third-party platforms subject to their own terms and conditions. Commercial links
-                on this site may generate affiliate revenue which does not influence our editorial rankings.
+              <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.58)" }}>
+                trustedcasinossitesuk.com does not operate a casino or hold player funds. All gaming activity takes
+                place on licensed third-party platforms subject to their own terms. Commercial links on this site may
+                generate affiliate revenue which does not influence our editorial rankings.
               </p>
             </div>
           </div>

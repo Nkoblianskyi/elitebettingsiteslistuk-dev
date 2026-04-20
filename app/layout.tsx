@@ -1,50 +1,45 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Inter } from "next/font/google"
+import { Cormorant_Garamond, Lato } from "next/font/google"
 import "./globals.css"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800", "900"],
-  variable: "--font-playfair",
-})
-
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+  variable: "--font-cormorant",
+})
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-lato",
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elitebettingsiteslistuk.com"),
+  metadataBase: new URL("https://trustedcasinossitesuk.com"),
   title: {
-    default: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
-    template: "%s | Elite Betting Sites UK",
+    default: "Trusted Casinos Sites UK — Premier Casino Rankings 2026",
+    template: "%s | Trusted Casinos Sites UK",
   },
   description:
-    "elitebettingsiteslistuk.com compares the finest UK-licensed bookmakers: exclusive welcome offers, odds quality, and expert ratings curated for discerning punters.",
+    "trustedcasinossitesuk.com compares the finest UK-licensed casinos: exclusive welcome offers, game selection, and expert ratings curated for discerning players.",
   keywords: [
-    "best betting sites UK",
-    "top UK bookmakers 2025",
-    "elite betting sites",
-    "UK online bookmakers",
-    "best bookmakers UK",
-    "sports betting UK",
-    "UK gambling sites",
-    "betting site reviews UK",
-    "licensed bookmakers UK",
+    "best casino sites UK",
+    "top UK casinos 2026",
+    "trusted casino sites",
+    "UK online casinos",
+    "best casinos UK",
+    "casino reviews UK",
+    "licensed casinos UK",
     "UK Gambling Commission approved",
-    "welcome offers UK bookmakers",
-    "best odds UK",
-    "horse racing betting UK",
-    "football betting sites UK",
-    "online betting UK",
+    "welcome offers UK casinos",
+    "online casino UK",
   ],
-  authors: [{ name: "elitebettingsiteslistuk.com" }],
-  creator: "elitebettingsiteslistuk.com",
-  publisher: "elitebettingsiteslistuk.com",
+  authors: [{ name: "trustedcasinossitesuk.com" }],
+  creator: "trustedcasinossitesuk.com",
+  publisher: "trustedcasinossitesuk.com",
   robots: {
     index: true,
     follow: true,
@@ -52,18 +47,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Elite Betting Sites UK",
-    url: "https://elitebettingsiteslistuk.com",
-    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
+    siteName: "Trusted Casinos Sites UK",
+    url: "https://trustedcasinossitesuk.com",
+    title: "Trusted Casinos Sites UK — Premier Casino Rankings 2026",
     description:
-      "Independent comparison of the UK's finest licensed bookmakers: welcome offers, odds quality, and expert ratings for discerning punters.",
+      "Independent comparison of the UK's finest licensed casinos: welcome offers, game quality, and expert ratings for discerning players.",
     locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elite Betting Sites UK — Premier Bookmaker Rankings 2026",
+    title: "Trusted Casinos Sites UK — Premier Casino Rankings 2026",
     description:
-      "Independent comparison of the UK's finest licensed bookmakers: welcome offers, odds quality, and expert ratings.",
+      "Independent comparison of the UK's finest licensed casinos: welcome offers, game quality, and expert ratings.",
   },
 }
 
@@ -73,8 +68,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} bg-[#0D1B2A]`}>
-      <body className="font-sans bg-[#0D1B2A] text-[#F5F0E8] antialiased">
+    <html lang="en" className={`${cormorant.variable} ${lato.variable} bg-[#0F2318]`}>
+      <body className="font-sans bg-[#0F2318] text-[#F2ECD9] antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

@@ -1,44 +1,85 @@
 import Link from "next/link"
 import { SiteWordmark } from "@/components/site-wordmark"
 
+const GOLD = "#B8965A"
+const FOREST = "#0F2318"
+
+const nav = [
+  { href: "/about", label: "About" },
+  { href: "/responsible-gaming", label: "Responsible Play" },
+  { href: "/terms", label: "Terms" },
+]
+
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b bg-[#0D1B2A]" style={{ borderColor: "rgba(201,168,76,0.25)" }}>
+    <header className="sticky top-0 z-40" style={{ backgroundColor: FOREST, borderBottom: "1px solid rgba(184,150,90,0.18)" }}>
       {/* Thin gold top line */}
-      <div className="h-px w-full bg-[#C9A84C] opacity-60" />
+      <div className="h-[3px] w-full" style={{ background: GOLD }} />
 
-      <div className="mx-auto max-w-5xl px-4 py-4 xl:max-w-6xl">
-        <div className="flex items-center justify-between">
-          {/* Left decorative line */}
-          <div className="hidden md:block flex-1 h-px opacity-20" style={{ background: "linear-gradient(to right, transparent, #C9A84C)" }} />
+      <div className="mx-auto max-w-5xl px-4 xl:max-w-6xl">
+        <div className="flex items-center justify-between py-4 gap-6">
 
+          {/* Left nav */}
+          <nav className="hidden md:flex items-center gap-6" aria-label="Primary navigation left">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-sans text-[10px] font-bold uppercase tracking-[0.22em] transition-opacity hover:opacity-100"
+                style={{ color: "rgba(242,236,217,0.45)" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Centre logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 transition-opacity hover:opacity-80 mx-4 md:mx-8"
+            className="flex flex-col items-center gap-1 transition-opacity hover:opacity-80 mx-auto md:mx-0"
           >
-            {/* Crown / crest icon */}
-            <div className="flex flex-col items-center gap-0.5 shrink-0">
-              <svg width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M14 2L18 10L24 5L22 16H6L4 5L10 10L14 2Z" stroke="#C9A84C" strokeWidth="1.4" fill="none" strokeLinejoin="round"/>
-                <rect x="5" y="17" width="18" height="3" rx="0.5" fill="#C9A84C" opacity="0.7"/>
-              </svg>
-            </div>
-            <SiteWordmark variant="header-compact" className="md:hidden" />
+            {/* Hunt-club crest */}
+            <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              {/* Shield outline */}
+              <path d="M17 2 L30 6 L30 18 Q30 26 17 30 Q4 26 4 18 L4 6 Z" stroke="#B8965A" strokeWidth="1.2" fill="none" strokeLinejoin="round"/>
+              {/* Inner field */}
+              <path d="M17 5 L27 8.5 L27 17.5 Q27 24 17 27 Q7 24 7 17.5 L7 8.5 Z" fill="rgba(184,150,90,0.08)" stroke="#B8965A" strokeWidth="0.6"/>
+              {/* Cross */}
+              <line x1="17" y1="8" x2="17" y2="24" stroke="#B8965A" strokeWidth="0.8" strokeOpacity="0.6"/>
+              <line x1="10" y1="16" x2="24" y2="16" stroke="#B8965A" strokeWidth="0.8" strokeOpacity="0.6"/>
+              {/* Crown points */}
+              <path d="M10 7 L13 11 L17 4 L21 11 L24 7" stroke="#B8965A" strokeWidth="1" fill="none" strokeLinejoin="round"/>
+            </svg>
             <SiteWordmark variant="header-hero" className="hidden md:inline" />
+            <SiteWordmark variant="header-compact" className="md:hidden" />
           </Link>
 
-          {/* Right decorative line */}
-          <div className="hidden md:block flex-1 h-px opacity-20" style={{ background: "linear-gradient(to left, transparent, #C9A84C)" }} />
+          {/* Right: tagline / mobile placeholder */}
+          <div className="hidden md:flex flex-col items-end gap-1">
+            <p className="font-sans text-[9px] uppercase tracking-[0.3em]" style={{ color: "rgba(184,150,90,0.45)" }}>
+              United Kingdom
+            </p>
+            <p className="font-sans text-[9px] uppercase tracking-[0.22em]" style={{ color: "rgba(242,236,217,0.28)" }}>
+              GC Licensed Operators
+            </p>
+          </div>
+
+          {/* Mobile spacer */}
+          <div className="md:hidden w-8" />
         </div>
 
-        {/* Tagline */}
-        <p className="text-center text-[10px] tracking-[0.3em] uppercase text-[#C9A84C]/60 font-sans mt-1 hidden md:block">
-          Curated Rankings · Licensed Operators · United Kingdom
-        </p>
+        {/* Tagline bar */}
+        <div className="hidden md:flex items-center justify-center gap-4 pb-3">
+          <div className="h-px flex-1 opacity-15" style={{ background: GOLD }} />
+          <p className="font-sans text-[8px] uppercase tracking-[0.4em]" style={{ color: "rgba(184,150,90,0.4)" }}>
+            Curated Rankings · Licensed Operators · United Kingdom
+          </p>
+          <div className="h-px flex-1 opacity-15" style={{ background: GOLD }} />
+        </div>
       </div>
 
-      {/* Bottom gold hairline */}
-      <div className="h-px w-full opacity-20" style={{ background: "linear-gradient(to right, transparent, #C9A84C 30%, #C9A84C 70%, transparent)" }} />
+      {/* Bottom hairline */}
+      <div className="h-px w-full opacity-12" style={{ background: `linear-gradient(to right, transparent, ${GOLD} 30%, ${GOLD} 70%, transparent)` }} />
     </header>
   )
 }
