@@ -17,7 +17,6 @@ const TRUST_STATS = [
   { value: "6", label: "Reviewed Sites" },
   { value: "18+", label: "Age Requirement" },
   { value: "UKGC", label: "Licensed Only" },
-  { value: "2025", label: "Updated Ratings" },
 ]
 
 export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSectionProps) {
@@ -104,30 +103,36 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
         </div>
 
         {/* Row 3: trust strip + disclosures */}
-        <div className="flex flex-wrap items-center justify-between gap-y-2">
+        <div className="flex items-end justify-between gap-x-4">
           {/* Trust indicators */}
           <div
-            className="inline-flex gap-0"
+            className="inline-flex gap-0 shrink-0"
             style={{ border: "1px solid rgba(201,168,76,0.18)" }}
           >
             {TRUST_STATS.map((stat, i) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-center px-3 sm:px-4 py-1.5"
+                className="flex flex-col items-center py-1.5"
                 style={{
                   borderRight: i < TRUST_STATS.length - 1 ? "1px solid rgba(201,168,76,0.18)" : "none",
                   backgroundColor: "rgba(13,13,13,0.7)",
+                  paddingLeft: "clamp(8px, 2vw, 18px)",
+                  paddingRight: "clamp(8px, 2vw, 18px)",
                 }}
               >
                 <span
                   className="font-serif font-light leading-none"
-                  style={{ color: "#C9A84C", fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}
+                  style={{ color: "#C9A84C", fontSize: "clamp(0.8rem, 2.5vw, 1.2rem)" }}
                 >
                   {stat.value}
                 </span>
                 <span
-                  className="font-sans uppercase tracking-[0.25em] mt-0.5"
-                  style={{ color: "rgba(237,228,204,0.35)", fontSize: "6px" }}
+                  className="font-sans uppercase mt-0.5"
+                  style={{
+                    color: "rgba(237,228,204,0.35)",
+                    fontSize: "clamp(5px, 1vw, 7px)",
+                    letterSpacing: "0.2em",
+                  }}
                 >
                   {stat.label}
                 </span>
@@ -135,22 +140,22 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             ))}
           </div>
 
-          {/* Disclosure links */}
-          <div className="flex items-center gap-x-3">
+          {/* Disclosure links — stack vertically on very small screens */}
+          <div className="flex flex-col items-end gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
             <button
               type="button"
               onClick={onAdvertiserModalOpen}
-              className="font-sans text-[8px] font-bold uppercase tracking-[0.25em] underline underline-offset-2 transition-opacity hover:opacity-80"
-              style={{ color: "rgba(201,168,76,0.42)" }}
+              className="font-sans font-bold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
+              style={{ color: "rgba(201,168,76,0.42)", fontSize: "clamp(6px, 1.2vw, 8px)", letterSpacing: "0.25em" }}
             >
               Advertiser Disclosure
             </button>
-            <span style={{ color: "rgba(201,168,76,0.2)", fontSize: "9px" }}>|</span>
+            <span className="hidden sm:inline" style={{ color: "rgba(201,168,76,0.2)", fontSize: "9px" }}>|</span>
             <button
               type="button"
               onClick={onTermsModalOpen}
-              className="font-sans text-[8px] font-bold uppercase tracking-[0.25em] underline underline-offset-2 transition-opacity hover:opacity-80"
-              style={{ color: "rgba(201,168,76,0.42)" }}
+              className="font-sans font-bold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
+              style={{ color: "rgba(201,168,76,0.42)", fontSize: "clamp(6px, 1.2vw, 8px)", letterSpacing: "0.25em" }}
             >
               18+ Terms Apply
             </button>
