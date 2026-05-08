@@ -14,16 +14,29 @@ const RANK_LABEL: Record<number, string> = {
   3: "Highly Commended",
 }
 
-function ScoreBar({ score }: { score: number }) {
-  const pct = (score / 10) * 100
+function ScoreStars({ score }: { score: number }) {
+  const stars = []
+  const fullStars = Math.floor(score)
+  const hasHalf = score % 1 >= 0.5
+  
+  for (let i = 0; i < 5; i++) {
+    if (i < fullStars) {
+      stars.push(<span key={i} style={{ color: "#C8A86B" }}>★</span>)
+    } else if (i === fullStars && hasHalf) {
+      stars.push(<span key={i} style={{ color: "#C8A86B" }}>★</span>)
+    } else {
+      stars.push(<span key={i} style={{ color: "rgba(200,168,107,0.18)" }}>★</span>)
+    }
+  }
+
   return (
-    <div style={{ width: "100%" }}>
-      <div style={{ position: "relative", height: 2, backgroundColor: "rgba(200,168,107,0.22)", width: "100%" }}>
-        <div style={{ position: "absolute", inset: 0, width: `${pct}%`, backgroundColor: "#C8A86B" }} />
+    <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 6 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 20, lineHeight: 1, letterSpacing: 1 }}>
+        {stars}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, textTransform: "uppercase", letterSpacing: "0.26em", color: "rgba(200,168,107,0.75)" }}>
-          Score
+          Rating
         </span>
         <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 700, color: "rgba(200,168,107,0.85)" }}>
           {score.toFixed(1)}/10
@@ -166,12 +179,12 @@ export function Card({ site, rank }: SiteCardProps) {
           minWidth: 162,
           borderRight: "1px solid rgba(200,168,107,0.20)",
         }}>
-          <ScoreBar score={site.score} />
+          <ScoreStars score={site.score} />
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
             color: "rgba(255,255,255,0.60)",
-            marginTop: 10,
+            marginTop: 6,
           }}>{site.reviews.toLocaleString("en-GB")} verified reviews</p>
         </div>
 
@@ -240,7 +253,7 @@ export function Card({ site, rank }: SiteCardProps) {
           </div>
 
           <div style={{ flex: 1, minWidth: 0 }}>
-            <ScoreBar score={site.score} />
+            <ScoreStars score={site.score} />
           </div>
         </div>
 
