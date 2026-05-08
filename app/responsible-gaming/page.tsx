@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
 }
 
-const GOLD = "#C9A84C"
-const FOREST_CARD = "#111111"
-const PARCHMENT = "#EDE4CC"
+const GOLD = "#B8935A"
+const FOREST_CARD = "#0d0d1a"
+const PARCHMENT = "#EEE5D0"
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (

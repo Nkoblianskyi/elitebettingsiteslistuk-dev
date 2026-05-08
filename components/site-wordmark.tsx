@@ -20,10 +20,10 @@ export function SiteWordmark({ variant = "header", className }: { variant?: Word
         display: "inline-block",
       }}
     >
-      <span style={{ color: "#C9A84C" }}>UK</span>
-      <span style={{ color: "#EDE4CC" }}> Best</span>
-      <span style={{ color: "#C9A84C" }}> Casino</span>
-      <span style={{ color: "#EDE4CC" }}> Sites</span>
+      <span style={{ color: "#B8935A" }}>UK</span>
+      <span style={{ color: "#EEE5D0" }}> Best</span>
+      <span style={{ color: "#B8935A" }}> Casino</span>
+      <span style={{ color: "#EEE5D0" }}> Sites</span>
     </span>
   )
 }

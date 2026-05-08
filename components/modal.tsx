@@ -20,7 +20,7 @@ function ScoreDots({ score }: { score: number }) {
           style={{
             width: i < filled ? 8 : 5,
             height: i < filled ? 8 : 5,
-            backgroundColor: i < filled ? "#C9A84C" : "rgba(201,168,76,0.15)",
+            backgroundColor: i < filled ? "#B8935A" : "rgba(184,147,90,0.15)",
             transition: "all 0.1s",
           }}
         />
@@ -52,7 +52,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
         alignItems: "center",
         justifyContent: "center",
         padding: "16px",
-        backgroundColor: "rgba(10,10,10,0.94)",
+        backgroundColor: "rgba(7,7,15,0.94)",
         backdropFilter: "blur(14px)",
       }}
       onClick={() => setIsOpen(false)}
@@ -71,14 +71,14 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          border: "1px solid rgba(201,168,76,0.20)",
-          backgroundColor: "#111111",
-          color: "rgba(201,168,76,0.55)",
+          border: "1px solid rgba(184,147,90,0.20)",
+          backgroundColor: "#0d0d1a",
+          color: "rgba(184,147,90,0.55)",
           cursor: "pointer",
           transition: "border-color 0.15s",
         }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#C9A84C" }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.20)" }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#B8935A" }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(184,147,90,0.20)" }}
       >
         <X style={{ width: 14, height: 14 }} />
       </button>
@@ -89,19 +89,19 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
           position: "relative",
           width: "100%",
           maxWidth: 400,
-          backgroundColor: "#111111",
-          border: "1px solid rgba(201,168,76,0.32)",
+          backgroundColor: "#0d0d1a",
+          border: "1px solid rgba(184,147,90,0.32)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Gold top line */}
-        <div style={{ height: 2, backgroundColor: "#C9A84C" }} />
+        <div style={{ height: 2, backgroundColor: "#B8935A" }} />
 
         {/* Header */}
         <div style={{
           padding: "22px 32px 20px",
           textAlign: "center",
-          borderBottom: "1px solid rgba(201,168,76,0.10)",
+          borderBottom: "1px solid rgba(184,147,90,0.10)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
@@ -109,7 +109,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.50em",
-            color: "rgba(201,168,76,0.42)",
+            color: "rgba(184,147,90,0.42)",
             marginBottom: 10,
           }}>
             ukbestcasinosites.com
@@ -119,9 +119,9 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
             fontWeight: 700,
             fontSize: "clamp(1.5rem,3.5vw,2rem)",
             lineHeight: 1.1,
-            color: "#EDE4CC",
+            color: "#EEE5D0",
           }}>
-            Today&apos;s Top <em style={{ color: "#C9A84C" }}>Offer</em>
+            Today&apos;s Top <em style={{ color: "#B8935A" }}>Offer</em>
           </h2>
         </div>
 
@@ -130,7 +130,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
           display: "flex",
           justifyContent: "center",
           padding: "22px 32px 18px",
-          borderBottom: "1px solid rgba(201,168,76,0.09)",
+          borderBottom: "1px solid rgba(184,147,90,0.09)",
         }}>
           <div style={{
             display: "flex",
@@ -155,7 +155,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
           alignItems: "center",
           gap: 10,
           padding: "20px 32px 16px",
-          borderBottom: "1px solid rgba(201,168,76,0.09)",
+          borderBottom: "1px solid rgba(184,147,90,0.09)",
         }}>
           <ScoreDots score={site.score} />
           <div style={{ textAlign: "center" }}>
@@ -163,7 +163,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
               fontFamily: "var(--font-playfair),Georgia,serif",
               fontWeight: 700,
               fontSize: "1.7rem",
-              color: "#C9A84C",
+              color: "#B8935A",
               lineHeight: 1,
             }}>{site.score.toFixed(1)}</span>
             <span style={{
@@ -171,7 +171,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
               fontSize: 8,
               textTransform: "uppercase",
               letterSpacing: "0.35em",
-              color: "rgba(201,168,76,0.38)",
+              color: "rgba(184,147,90,0.38)",
               marginLeft: 8,
             }}>/ 10</span>
           </div>
@@ -181,7 +181,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
         <div style={{
           padding: "18px 32px 22px",
           textAlign: "center",
-          borderBottom: "1px solid rgba(201,168,76,0.09)",
+          borderBottom: "1px solid rgba(184,147,90,0.09)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
@@ -189,21 +189,21 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.42em",
-            color: "rgba(201,168,76,0.42)",
+            color: "rgba(184,147,90,0.42)",
             marginBottom: 12,
           }}>Welcome Offer</p>
           <p style={{
             fontFamily: "var(--font-playfair),Georgia,serif",
             fontWeight: 700,
             fontSize: "clamp(1.6rem,4vw,2.2rem)",
-            color: "#EDE4CC",
+            color: "#EEE5D0",
             lineHeight: 1.05,
             marginBottom: 7,
           }}>{site.bonus}</p>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 12,
-            color: "rgba(237,228,204,0.40)",
+            color: "rgba(238,229,208,0.40)",
           }}>{site.welcomeOffer ?? site.bonus}</p>
         </div>
 
@@ -217,8 +217,8 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
               display: "block",
               width: "100%",
               textAlign: "center",
-              backgroundColor: "#C9A84C",
-              color: "#0A0A0A",
+              backgroundColor: "#B8935A",
+              color: "#07070f",
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 11,
               fontWeight: 700,
@@ -229,7 +229,7 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
               transition: "background-color 0.15s",
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#DDB95E" }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#C9A84C" }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#B8935A" }}
           >
             Claim Offer Now
           </Link>
@@ -239,27 +239,27 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
         <div style={{
           padding: "12px 32px",
           textAlign: "center",
-          borderTop: "1px solid rgba(201,168,76,0.08)",
-          backgroundColor: "rgba(10,10,10,0.5)",
+          borderTop: "1px solid rgba(184,147,90,0.08)",
+          backgroundColor: "rgba(7,7,15,0.5)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
             lineHeight: 1.65,
-            color: "rgba(237,228,204,0.20)",
+            color: "rgba(238,229,208,0.20)",
             marginBottom: 4,
           }}>{site.terms}</p>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
-            color: "rgba(237,228,204,0.28)",
+            color: "rgba(238,229,208,0.28)",
           }}>
             18+ &nbsp;·&nbsp; T&amp;Cs apply &nbsp;·&nbsp;{" "}
             <a
               href="https://www.gambleaware.org"
               target="_blank"
               rel="noreferrer"
-              style={{ color: "rgba(201,168,76,0.48)", textDecoration: "underline", textUnderlineOffset: 3 }}
+              style={{ color: "rgba(184,147,90,0.48)", textDecoration: "underline", textUnderlineOffset: 3 }}
             >
               BeGambleAware.org
             </a>

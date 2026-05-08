@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-const GOLD = "#C9A84C"
-const PARCHMENT = "#EDE4CC"
+const GOLD = "#B8935A"
+const PARCHMENT = "#EEE5D0"
 
 function PolicySection({ num, title, children }: { num: number; title: string; children: React.ReactNode }) {
   return (
@@ -95,7 +95,7 @@ export default function CookiePolicyPage() {
 
       {/* Card */}
       <div style={{
-        backgroundColor: "#111111",
+        backgroundColor: "#0d0d1a",
         border: "1px solid rgba(201,168,76,0.18)",
       }}>
         <div style={{ height: 2, backgroundColor: GOLD }} />

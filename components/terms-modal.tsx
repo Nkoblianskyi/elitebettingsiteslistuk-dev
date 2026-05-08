@@ -45,13 +45,13 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
           flexDirection: "column",
           overflow: "hidden",
           backgroundColor: "#131313",
-          border: "1px solid rgba(201,168,76,0.22)",
+          border: "1px solid rgba(184,147,90,0.22)",
         }}
         className="sm:max-h-[86vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Gold top rule */}
-        <div style={{ height: 2, backgroundColor: "#C9A84C", flexShrink: 0 }} />
+        <div style={{ height: 2, backgroundColor: "#B8935A", flexShrink: 0 }} />
 
         {/* Header */}
         <div style={{
@@ -61,7 +61,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
           justifyContent: "space-between",
           gap: 16,
           padding: "22px 28px",
-          borderBottom: "1px solid rgba(201,168,76,0.10)",
+          borderBottom: "1px solid rgba(184,147,90,0.10)",
         }}>
           <div>
             <p style={{
@@ -70,7 +70,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.46em",
-              color: "rgba(201,168,76,0.46)",
+              color: "rgba(184,147,90,0.46)",
               marginBottom: 8,
             }}>Age Restriction &amp; Rules</p>
             <h2
@@ -79,7 +79,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
                 fontFamily: "var(--font-playfair),Georgia,serif",
                 fontWeight: 700,
                 fontSize: "1.55rem",
-                color: "#EDE4CC",
+                color: "#EEE5D0",
                 lineHeight: 1.1,
               }}
             >
@@ -97,15 +97,15 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               justifyContent: "center",
               width: 32,
               height: 32,
-              border: "1px solid rgba(201,168,76,0.20)",
+              border: "1px solid rgba(184,147,90,0.20)",
               backgroundColor: "transparent",
-              color: "rgba(237,228,204,0.40)",
+              color: "rgba(238,229,208,0.40)",
               cursor: "pointer",
               marginTop: 4,
               transition: "border-color 0.15s",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.55)" }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.20)" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(184,147,90,0.55)" }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(184,147,90,0.20)" }}
           >
             <X style={{ width: 13, height: 13 }} />
           </button>
@@ -124,8 +124,8 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
           {/* Age restriction callout */}
           <div style={{
             padding: "14px 18px",
-            borderLeft: "2px solid #C9A84C",
-            backgroundColor: "rgba(201,168,76,0.05)",
+            borderLeft: "2px solid #B8935A",
+            backgroundColor: "rgba(184,147,90,0.05)",
           }}>
             <p style={{
               fontFamily: "var(--font-inter),sans-serif",
@@ -133,16 +133,16 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.40em",
-              color: "rgba(201,168,76,0.50)",
+              color: "rgba(184,147,90,0.50)",
               marginBottom: 8,
             }}>Age Restriction</p>
             <p style={{
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 13,
               lineHeight: 1.75,
-              color: "rgba(237,228,204,0.62)",
+              color: "rgba(238,229,208,0.62)",
             }}>
-              You must be <strong style={{ color: "#EDE4CC" }}>18 years of age or older</strong> to use this site.
+              You must be <strong style={{ color: "#EEE5D0" }}>18 years of age or older</strong> to use this site.
               This platform discusses real-money casino play. Persons under 18 must leave immediately.
             </p>
           </div>
@@ -155,7 +155,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.42em",
-              color: "rgba(201,168,76,0.44)",
+              color: "rgba(184,147,90,0.44)",
               marginBottom: 14,
             }}>Responsible Play</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -165,7 +165,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
                     flexShrink: 0,
                     width: 1,
                     height: 16,
-                    backgroundColor: "#C9A84C",
+                    backgroundColor: "#B8935A",
                     opacity: 0.55,
                     marginTop: 2,
                   }} />
@@ -173,7 +173,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
                     fontFamily: "var(--font-inter),sans-serif",
                     fontSize: 13,
                     lineHeight: 1.6,
-                    color: "rgba(237,228,204,0.58)",
+                    color: "rgba(238,229,208,0.58)",
                   }}>{item}</span>
                 </div>
               ))}
@@ -188,14 +188,14 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.42em",
-              color: "rgba(201,168,76,0.44)",
+              color: "rgba(184,147,90,0.44)",
               marginBottom: 14,
             }}>General Terms</p>
             <p style={{
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 13,
               lineHeight: 1.75,
-              color: "rgba(237,228,204,0.58)",
+              color: "rgba(238,229,208,0.58)",
               marginBottom: 12,
             }}>
               Operator offers change without notice. Always verify current bonus terms on the operator&apos;s
@@ -206,7 +206,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 11,
               lineHeight: 1.7,
-              color: "rgba(237,228,204,0.32)",
+              color: "rgba(238,229,208,0.32)",
             }}>
               This site provides no legal or financial advice. Refer to our full Terms page for comprehensive
               rules governing use of ukbestcasinosites.com.
@@ -220,8 +220,8 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
           flexShrink: 0,
           padding: "12px 28px",
           textAlign: "center",
-          borderTop: "1px solid rgba(201,168,76,0.09)",
-          backgroundColor: "rgba(10,10,10,0.5)",
+          borderTop: "1px solid rgba(184,147,90,0.09)",
+          backgroundColor: "rgba(7,7,15,0.5)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
@@ -229,7 +229,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.36em",
-            color: "rgba(201,168,76,0.36)",
+            color: "rgba(184,147,90,0.36)",
           }}>
             18+ &nbsp;·&nbsp; Wagering &amp; T&amp;Cs apply &nbsp;·&nbsp; Play responsibly
           </p>

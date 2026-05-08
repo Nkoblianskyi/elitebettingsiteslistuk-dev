@@ -25,18 +25,18 @@ const articles = [
   },
 ]
 
-const DIVIDER = "1px solid rgba(201,168,76,0.08)"
+const DIVIDER = "1px solid rgba(184,147,90,0.08)"
 
 export function InfoSections() {
   return (
     <section
       className="w-full"
-      style={{ borderTop: "1px solid rgba(201,168,76,0.1)" }}
+      style={{ borderTop: "1px solid rgba(184,147,90,0.1)" }}
     >
       {/* Pull-quote banner */}
       <div
         className="w-full"
-        style={{ borderBottom: "1px solid rgba(201,168,76,0.08)", backgroundColor: "#0F0F0F" }}
+        style={{ borderBottom: "1px solid rgba(184,147,90,0.08)", backgroundColor: "#0d0d1a" }}
       >
         <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-16 flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
           {/* Big quote */}
@@ -46,7 +46,7 @@ export function InfoSections() {
                 fontFamily: "var(--font-playfair), Georgia, serif",
                 fontSize: "clamp(4rem, 8vw, 7rem)",
                 lineHeight: 0.8,
-                color: "rgba(201,168,76,0.1)",
+                color: "rgba(184,147,90,0.1)",
                 userSelect: "none",
                 marginBottom: "-16px",
               }}
@@ -61,23 +61,23 @@ export function InfoSections() {
                   fontStyle: "italic",
                   fontSize: "clamp(1.6rem, 2.8vw, 2.6rem)",
                   lineHeight: 1.1,
-                  color: "#EDE4CC",
+                  color: "#EEE5D0",
                 }}
               >
                 Rigorous assessment.
                 <br />
-                <em style={{ color: "#C9A84C" }}>Independent</em>
+                <em style={{ color: "#B8935A" }}>Independent</em>
                 <br />
                 editorial.
               </p>
             </blockquote>
-            <div style={{ width: "40px", height: "2px", backgroundColor: "#C9A84C", marginTop: "28px", marginBottom: "20px" }} />
+            <div style={{ width: "40px", height: "2px", backgroundColor: "#B8935A", marginTop: "28px", marginBottom: "20px" }} />
             <p
               style={{
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: "12px",
                 lineHeight: 1.8,
-                color: "rgba(237,228,204,0.4)",
+                color: "rgba(238,229,208,0.4)",
               }}
             >
               ukbestcasinosites.com is an independent editorial platform.
@@ -111,7 +111,7 @@ export function InfoSections() {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "0.38em",
-                    color: "rgba(201,168,76,0.55)",
+                    color: "rgba(184,147,90,0.55)",
                     marginBottom: "6px",
                   }}
                 >
@@ -121,7 +121,7 @@ export function InfoSections() {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontSize: "12px",
-                    color: "rgba(237,228,204,0.5)",
+                    color: "rgba(238,229,208,0.5)",
                   }}
                 >
                   {item.desc}
@@ -148,7 +148,7 @@ export function InfoSections() {
                 fontStyle: "italic",
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 lineHeight: 1,
-                color: "rgba(201,168,76,0.18)",
+                color: "rgba(184,147,90,0.18)",
                 flexShrink: 0,
                 width: "52px",
                 paddingTop: "4px",
@@ -166,7 +166,7 @@ export function InfoSections() {
                   fontWeight: 700,
                   textTransform: "uppercase",
                   letterSpacing: "0.42em",
-                  color: "rgba(201,168,76,0.5)",
+                  color: "rgba(184,147,90,0.5)",
                   marginBottom: "10px",
                 }}
               >
@@ -177,7 +177,7 @@ export function InfoSections() {
                   fontFamily: "var(--font-playfair), Georgia, serif",
                   fontWeight: 700,
                   fontSize: "clamp(1.15rem, 2vw, 1.5rem)",
-                  color: "#EDE4CC",
+                  color: "#EEE5D0",
                   marginBottom: "14px",
                   lineHeight: 1.15,
                 }}
@@ -189,7 +189,7 @@ export function InfoSections() {
                   fontFamily: "var(--font-inter), sans-serif",
                   fontSize: "13px",
                   lineHeight: 1.8,
-                  color: "rgba(237,228,204,0.52)",
+                  color: "rgba(238,229,208,0.52)",
                   maxWidth: "680px",
                 }}
               >
