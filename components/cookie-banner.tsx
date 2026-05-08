@@ -2,85 +2,147 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { X } from "lucide-react"
 
 export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const consent = localStorage.getItem("cookieConsent")
-    if (!consent) setIsVisible(true)
+    if (!consent) setVisible(true)
   }, [])
 
-  const handleAccept = () => {
-    localStorage.setItem("cookieConsent", "accepted")
-    setIsVisible(false)
-  }
+  const accept = () => { localStorage.setItem("cookieConsent", "accepted"); setVisible(false) }
+  const decline = () => { localStorage.setItem("cookieConsent", "declined"); setVisible(false) }
 
-  const handleDecline = () => {
-    localStorage.setItem("cookieConsent", "declined")
-    setIsVisible(false)
-  }
-
-  if (!isVisible) return null
+  if (!visible) return null
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50"
+      role="dialog"
+      aria-modal="false"
+      aria-label="Cookie consent"
       style={{
-        backgroundColor: "#0A0D0B",
-        borderTop: "1px solid rgba(201,168,76,0.2)",
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        backgroundColor: "#0C0C0C",
+        borderTop: "1px solid rgba(201,168,76,0.18)",
       }}
     >
-      {/* Gold rule */}
-      <div className="top-rule w-full" />
+      {/* Gold top accent */}
+      <div style={{ height: 1, backgroundColor: "#C9A84C", opacity: 0.6 }} />
 
-      <div className="mx-auto max-w-5xl xl:max-w-6xl px-6 md:px-10 lg:px-0 py-5">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-16" style={{ paddingTop: 18, paddingBottom: 18 }}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
 
           {/* Text */}
-          <div className="flex-1 min-w-0">
-            <p
-              className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-1.5"
-              style={{ color: "rgba(201,168,76,0.5)" }}
-            >
-              Cookie Notice — ukbestcasinosites.com
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 8,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.44em",
+              color: "rgba(201,168,76,0.48)",
+              marginBottom: 6,
+            }}>
+              Cookie Notice
             </p>
-            <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(237,228,204,0.52)" }}>
-              This site uses essential cookies to function and, with your consent, analytics cookies to improve
-              the experience. Declining restricts non-essential scripts only.{" "}
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 12,
+              lineHeight: 1.7,
+              color: "rgba(237,228,204,0.46)",
+            }}>
+              We use essential cookies to operate this site and, with your consent, analytics cookies to measure
+              performance. Declining restricts non-essential scripts only.{" "}
               <Link
                 href="/cookie-policy"
-                className="underline underline-offset-2 transition-opacity hover:opacity-80"
-                style={{ color: "#C9A84C" }}
+                style={{ color: "#C9A84C", textDecoration: "underline", textUnderlineOffset: 3 }}
               >
                 Cookie Policy
               </Link>
             </p>
           </div>
 
-          {/* Actions */}
-          <div className="flex gap-3 shrink-0">
+          {/* Buttons */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
             <button
               type="button"
-              onClick={handleDecline}
-              className="border px-5 py-2.5 font-sans text-[10px] font-semibold uppercase tracking-[0.25em] transition-opacity hover:opacity-70"
+              onClick={decline}
               style={{
-                borderColor: "rgba(201,168,76,0.2)",
-                color: "rgba(237,228,204,0.5)",
+                fontFamily: "var(--font-inter),sans-serif",
+                fontSize: 9,
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.26em",
+                color: "rgba(237,228,204,0.40)",
+                border: "1px solid rgba(201,168,76,0.18)",
                 backgroundColor: "transparent",
+                padding: "10px 18px",
+                cursor: "pointer",
+                transition: "border-color 0.15s, color 0.15s",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => {
+                const b = e.currentTarget as HTMLButtonElement
+                b.style.borderColor = "rgba(201,168,76,0.4)"
+                b.style.color = "rgba(237,228,204,0.65)"
+              }}
+              onMouseLeave={(e) => {
+                const b = e.currentTarget as HTMLButtonElement
+                b.style.borderColor = "rgba(201,168,76,0.18)"
+                b.style.color = "rgba(237,228,204,0.40)"
               }}
             >
               Essential Only
             </button>
             <button
               type="button"
-              onClick={handleAccept}
-              className="px-6 py-2.5 font-sans text-[10px] font-semibold uppercase tracking-[0.25em] transition-opacity hover:opacity-85"
-              style={{ backgroundColor: "#C9A84C", color: "#0C0F0D" }}
+              onClick={accept}
+              style={{
+                fontFamily: "var(--font-inter),sans-serif",
+                fontSize: 9,
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.26em",
+                color: "#0A0A0A",
+                backgroundColor: "#C9A84C",
+                border: "1px solid #C9A84C",
+                padding: "10px 22px",
+                cursor: "pointer",
+                transition: "background-color 0.15s",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#DDB95E" }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#C9A84C" }}
             >
               Accept All
             </button>
+            <button
+              type="button"
+              onClick={decline}
+              aria-label="Dismiss"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 32,
+                height: 32,
+                border: "1px solid rgba(201,168,76,0.16)",
+                backgroundColor: "transparent",
+                color: "rgba(201,168,76,0.45)",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+            >
+              <X style={{ width: 13, height: 13 }} />
+            </button>
           </div>
+
         </div>
       </div>
     </div>

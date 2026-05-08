@@ -2,117 +2,229 @@
 
 import { X } from "lucide-react"
 
-const GOLD = "#C9A84C"
-const BG = "#0D0D0D"
-const CARD = "#141414"
-const PARCHMENT = "#EDE4CC"
-
 interface AdvertiserDisclosureModalProps {
   isOpen: boolean
   onClose: () => void
 }
+
+const CRITERIA = [
+  "Valid UK Gambling Commission licence",
+  "Game library breadth and software quality",
+  "Bonus transparency and clear wagering requirements",
+  "Payout speed and reliability",
+  "Platform stability and customer support quality",
+  "Player protection tools and responsible gaming features",
+]
 
 export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclosureModalProps) {
   if (!isOpen) return null
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4"
-      style={{ backgroundColor: "rgba(0,0,0,0.82)", backdropFilter: "blur(4px)" }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 60,
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "center",
+        padding: 0,
+        backgroundColor: "rgba(0,0,0,0.85)",
+        backdropFilter: "blur(6px)",
+      }}
+      className="sm:items-center sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="adv-disclosure-title"
       onClick={onClose}
     >
       <div
-        className="w-full sm:max-w-lg max-h-[92vh] sm:max-h-[86vh] flex flex-col overflow-hidden"
-        style={{ backgroundColor: CARD, border: "1px solid rgba(201,168,76,0.22)" }}
+        style={{
+          width: "100%",
+          maxWidth: 520,
+          maxHeight: "92vh",
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
+          backgroundColor: "#131313",
+          border: "1px solid rgba(201,168,76,0.22)",
+        }}
+        className="sm:max-h-[86vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Gold top rule */}
-        <div className="h-[2px] shrink-0" style={{ background: GOLD }} />
+        <div style={{ height: 2, backgroundColor: "#C9A84C", flexShrink: 0 }} />
 
         {/* Header */}
-        <div
-          className="shrink-0 flex items-center justify-between gap-3 px-6 py-5 sm:px-8"
-          style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}
-        >
+        <div style={{
+          flexShrink: 0,
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: 16,
+          padding: "22px 28px",
+          borderBottom: "1px solid rgba(201,168,76,0.10)",
+        }}>
           <div>
-            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.45em] mb-1" style={{ color: "rgba(201,168,76,0.5)" }}>
-              Transparency Notice
-            </p>
-            <h2 id="adv-disclosure-title" className="font-serif font-semibold text-2xl" style={{ color: PARCHMENT }}>
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 8,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.46em",
+              color: "rgba(201,168,76,0.46)",
+              marginBottom: 8,
+            }}>Transparency Notice</p>
+            <h2
+              id="adv-disclosure-title"
+              style={{
+                fontFamily: "var(--font-playfair),Georgia,serif",
+                fontWeight: 700,
+                fontSize: "1.55rem",
+                color: "#EDE4CC",
+                lineHeight: 1.1,
+              }}
+            >
               Advertiser Disclosure
             </h2>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-8 w-8 shrink-0 items-center justify-center transition-opacity hover:opacity-60"
-            style={{ border: "1px solid rgba(201,168,76,0.22)", color: "rgba(237,228,204,0.45)" }}
             aria-label="Close"
+            style={{
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 32,
+              height: 32,
+              border: "1px solid rgba(201,168,76,0.20)",
+              backgroundColor: "transparent",
+              color: "rgba(237,228,204,0.40)",
+              cursor: "pointer",
+              marginTop: 4,
+              transition: "border-color 0.15s",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.55)" }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.20)" }}
           >
-            <X className="w-3.5 h-3.5" />
+            <X style={{ width: 13, height: 13 }} />
           </button>
         </div>
 
         {/* Body */}
-        <div
-          className="flex-1 overflow-y-auto px-6 py-6 sm:px-8 space-y-6 font-sans text-sm leading-relaxed"
-          style={{ color: "rgba(237,228,204,0.62)" }}
-        >
+        <div style={{
+          flex: 1,
+          overflowY: "auto",
+          padding: "24px 28px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 24,
+        }}>
+
           {/* Highlighted notice */}
-          <div
-            className="px-5 py-4"
-            style={{ borderLeft: `2px solid ${GOLD}`, backgroundColor: "rgba(201,168,76,0.05)" }}
-          >
-            <p>
-              <strong style={{ color: PARCHMENT }}>ukbestcasinosites.com</strong> may receive remuneration when
-              you navigate to an operator via our links. That revenue supports our editorial research, hosting, and
-              operational costs — it does not influence ranking order.
+          <div style={{
+            padding: "14px 18px",
+            borderLeft: "2px solid #C9A84C",
+            backgroundColor: "rgba(201,168,76,0.05)",
+          }}>
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 13,
+              lineHeight: 1.75,
+              color: "rgba(237,228,204,0.62)",
+            }}>
+              <strong style={{ color: "#EDE4CC" }}>ukbestcasinosites.com</strong> may receive remuneration when
+              you navigate to an operator via our links. That revenue supports our editorial research, hosting,
+              and operational costs — it does not influence ranking order or scores.
             </p>
           </div>
 
+          {/* Editorial independence */}
           <div>
-            <h3 className="font-sans text-[9px] font-semibold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.5)" }}>
-              Editorial Independence
-            </h3>
-            <p className="mb-4">Rankings are determined exclusively by the following criteria:</p>
-            <div className="space-y-2.5">
-              {[
-                "Valid licence issued by the UK Gambling Commission",
-                "Game library breadth and software quality",
-                "Bonus transparency and payout speed",
-                "Platform stability and customer support quality",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="shrink-0 w-px h-4 mt-0.5" style={{ background: GOLD, opacity: 0.6 }} />
-                  <span>{item}</span>
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 8,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.42em",
+              color: "rgba(201,168,76,0.44)",
+              marginBottom: 14,
+            }}>Editorial Independence</p>
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 13,
+              lineHeight: 1.75,
+              color: "rgba(237,228,204,0.58)",
+              marginBottom: 14,
+            }}>Rankings are determined exclusively by the following criteria:</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {CRITERIA.map((item) => (
+                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: 1,
+                    height: 16,
+                    backgroundColor: "#C9A84C",
+                    opacity: 0.55,
+                    marginTop: 2,
+                  }} />
+                  <span style={{
+                    fontFamily: "var(--font-inter),sans-serif",
+                    fontSize: 13,
+                    lineHeight: 1.6,
+                    color: "rgba(237,228,204,0.58)",
+                  }}>{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Responsibility */}
           <div>
-            <h3 className="font-sans text-[9px] font-semibold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.5)" }}>
-              Your Responsibility
-            </h3>
-            <p>
-              Always verify the current offer directly on the operator&apos;s own website before depositing. Offers
-              and terms change without notice. Play only within limits you are comfortable with.
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 8,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.42em",
+              color: "rgba(201,168,76,0.44)",
+              marginBottom: 14,
+            }}>Your Responsibility</p>
+            <p style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 13,
+              lineHeight: 1.75,
+              color: "rgba(237,228,204,0.58)",
+            }}>
+              Always verify the current offer directly on the operator&apos;s own website before depositing.
+              Offers and terms change without notice. Play only within limits you are comfortable with.
             </p>
           </div>
+
         </div>
 
         {/* Footer */}
-        <div
-          className="shrink-0 px-6 py-3 sm:px-8 text-center"
-          style={{ borderTop: "1px solid rgba(201,168,76,0.12)", backgroundColor: BG }}
-        >
-          <p className="font-sans text-[9px] font-semibold uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.4)" }}>
+        <div style={{
+          flexShrink: 0,
+          padding: "12px 28px",
+          textAlign: "center",
+          borderTop: "1px solid rgba(201,168,76,0.09)",
+          backgroundColor: "rgba(10,10,10,0.5)",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-inter),sans-serif",
+            fontSize: 8,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.36em",
+            color: "rgba(201,168,76,0.36)",
+          }}>
             18+ &nbsp;·&nbsp; United Kingdom &nbsp;·&nbsp; Responsible Play
           </p>
         </div>
+
       </div>
     </div>
   )

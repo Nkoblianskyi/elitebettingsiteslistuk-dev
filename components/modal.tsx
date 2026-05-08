@@ -10,25 +10,20 @@ interface Top3ModalProps {
   casinoSites: BettingSite[]
 }
 
-function StarRating({ score }: { score: number }) {
-  // score is out of 10, map to 5 stars
+function ScoreDots({ score }: { score: number }) {
   const filled = Math.round((score / 10) * 5)
   return (
-    <div className="flex items-center justify-center gap-1" aria-label={`Rating ${score} out of 10`}>
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }} aria-label={`Rating ${score} out of 10`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg
+        <div
           key={i}
-          width="18" height="18" viewBox="0 0 18 18" fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polygon
-            points="9,1 11.5,6.5 17.5,7.3 13,11.6 14.3,17.5 9,14.5 3.7,17.5 5,11.6 0.5,7.3 6.5,6.5"
-            fill={i < filled ? "#C9A84C" : "none"}
-            stroke="#C9A84C"
-            strokeWidth="1"
-            strokeLinejoin="round"
-          />
-        </svg>
+          style={{
+            width: i < filled ? 8 : 5,
+            height: i < filled ? 8 : 5,
+            backgroundColor: i < filled ? "#C9A84C" : "rgba(201,168,76,0.15)",
+            transition: "all 0.1s",
+          }}
+        />
       ))}
     </div>
   )
@@ -49,112 +44,223 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-      style={{ backgroundColor: "rgba(13,13,13,0.93)", backdropFilter: "blur(12px)" }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 50,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "16px",
+        backgroundColor: "rgba(10,10,10,0.94)",
+        backdropFilter: "blur(14px)",
+      }}
+      onClick={() => setIsOpen(false)}
     >
-      {/* Close button */}
+      {/* Close — top right */}
       <button
         type="button"
         onClick={() => setIsOpen(false)}
-        className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center border transition-colors hover:border-[#C9A84C]"
-        style={{ borderColor: "rgba(201,168,76,0.22)", backgroundColor: "#111111", color: "#C9A84C" }}
-        aria-label="Close"
+        aria-label="Close modal"
+        style={{
+          position: "absolute",
+          top: 20,
+          right: 20,
+          width: 36,
+          height: 36,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid rgba(201,168,76,0.20)",
+          backgroundColor: "#111111",
+          color: "rgba(201,168,76,0.55)",
+          cursor: "pointer",
+          transition: "border-color 0.15s",
+        }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#C9A84C" }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.20)" }}
       >
-        <X className="w-4 h-4" />
+        <X style={{ width: 14, height: 14 }} />
       </button>
 
-      {/* Modal card */}
+      {/* Card */}
       <div
-        className="relative w-full max-w-sm sm:max-w-md"
-        style={{ backgroundColor: "#111111", border: "1px solid rgba(201,168,76,0.35)" }}
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: 400,
+          backgroundColor: "#111111",
+          border: "1px solid rgba(201,168,76,0.32)",
+        }}
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Top accent line */}
-        <div className="h-0.5 w-full" style={{ background: "#C9A84C" }} />
+        {/* Gold top line */}
+        <div style={{ height: 2, backgroundColor: "#C9A84C" }} />
 
         {/* Header */}
-        <div
-          className="px-8 py-5 text-center"
-          style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}
-        >
-          <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.5em] mb-2" style={{ color: "rgba(201,168,76,0.45)" }}>
+        <div style={{
+          padding: "22px 32px 20px",
+          textAlign: "center",
+          borderBottom: "1px solid rgba(201,168,76,0.10)",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-inter),sans-serif",
+            fontSize: 8,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.50em",
+            color: "rgba(201,168,76,0.42)",
+            marginBottom: 10,
+          }}>
             ukbestcasinosites.com
           </p>
-          <h2
-            className="font-serif font-semibold leading-tight"
-            style={{ color: "#EDE4CC", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
-          >
-            Today&apos;s Top&nbsp;<em style={{ color: "#C9A84C" }}>Offer</em>
+          <h2 style={{
+            fontFamily: "var(--font-playfair),Georgia,serif",
+            fontWeight: 700,
+            fontSize: "clamp(1.5rem,3.5vw,2rem)",
+            lineHeight: 1.1,
+            color: "#EDE4CC",
+          }}>
+            Today&apos;s Top <em style={{ color: "#C9A84C" }}>Offer</em>
           </h2>
         </div>
 
         {/* Logo */}
-        <div className="flex justify-center px-8 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(201,168,76,0.1)" }}>
-          <div
-            className="flex items-center justify-center rounded-sm overflow-hidden"
-            style={{ background: "#fff", height: "64px", width: "160px" }}
-          >
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "22px 32px 18px",
+          borderBottom: "1px solid rgba(201,168,76,0.09)",
+        }}>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 64,
+            width: 168,
+            backgroundColor: "#ffffff",
+          }}>
             <img
               src={site.logo}
               alt={site.name}
-              className="max-h-12 max-w-[148px] w-auto object-contain"
+              style={{ maxHeight: 50, maxWidth: 152, width: "auto", objectFit: "contain" }}
             />
           </div>
         </div>
 
-        {/* Stars + score */}
-        <div className="flex flex-col items-center gap-1.5 px-8 pt-5 pb-3">
-          <StarRating score={site.score} />
-          <span
-            className="font-serif font-light leading-none"
-            style={{ color: "#C9A84C", fontSize: "1.6rem" }}
-          >
-            {site.score.toFixed(1)}
-          </span>
-          <span className="font-sans text-[8px] uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.45)" }}>
-            out of 10
-          </span>
+        {/* Score */}
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 10,
+          padding: "20px 32px 16px",
+          borderBottom: "1px solid rgba(201,168,76,0.09)",
+        }}>
+          <ScoreDots score={site.score} />
+          <div style={{ textAlign: "center" }}>
+            <span style={{
+              fontFamily: "var(--font-playfair),Georgia,serif",
+              fontWeight: 700,
+              fontSize: "1.7rem",
+              color: "#C9A84C",
+              lineHeight: 1,
+            }}>{site.score.toFixed(1)}</span>
+            <span style={{
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 8,
+              textTransform: "uppercase",
+              letterSpacing: "0.35em",
+              color: "rgba(201,168,76,0.38)",
+              marginLeft: 8,
+            }}>/ 10</span>
+          </div>
         </div>
 
-        {/* Offer block */}
-        <div className="px-8 pt-2 pb-6 text-center" style={{ borderTop: "1px solid rgba(201,168,76,0.1)" }}>
-          <p className="font-sans text-[9px] font-bold uppercase tracking-[0.4em] mb-3 mt-4" style={{ color: "rgba(201,168,76,0.45)" }}>
-            Welcome Offer
-          </p>
-          <p
-            className="font-serif font-semibold leading-tight mb-2"
-            style={{ color: "#EDE4CC", fontSize: "clamp(1.6rem, 4vw, 2.2rem)" }}
-          >
-            {site.bonus}
-          </p>
-          <p className="font-sans text-sm" style={{ color: "rgba(237,228,204,0.45)" }}>
-            {site.welcomeOffer ?? site.bonus}
-          </p>
+        {/* Offer */}
+        <div style={{
+          padding: "18px 32px 22px",
+          textAlign: "center",
+          borderBottom: "1px solid rgba(201,168,76,0.09)",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-inter),sans-serif",
+            fontSize: 8,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.42em",
+            color: "rgba(201,168,76,0.42)",
+            marginBottom: 12,
+          }}>Welcome Offer</p>
+          <p style={{
+            fontFamily: "var(--font-playfair),Georgia,serif",
+            fontWeight: 700,
+            fontSize: "clamp(1.6rem,4vw,2.2rem)",
+            color: "#EDE4CC",
+            lineHeight: 1.05,
+            marginBottom: 7,
+          }}>{site.bonus}</p>
+          <p style={{
+            fontFamily: "var(--font-inter),sans-serif",
+            fontSize: 12,
+            color: "rgba(237,228,204,0.40)",
+          }}>{site.welcomeOffer ?? site.bonus}</p>
         </div>
 
         {/* CTA */}
-        <div className="px-8 pb-6">
+        <div style={{ padding: "20px 32px" }}>
           <Link
             href={site.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full text-center font-sans font-bold text-sm uppercase tracking-[0.3em] py-4 transition-all hover:opacity-90"
-            style={{ backgroundColor: "#C9A84C", color: "#0D0D0D" }}
+            style={{
+              display: "block",
+              width: "100%",
+              textAlign: "center",
+              backgroundColor: "#C9A84C",
+              color: "#0A0A0A",
+              fontFamily: "var(--font-inter),sans-serif",
+              fontSize: 11,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.30em",
+              padding: "15px 0",
+              textDecoration: "none",
+              transition: "background-color 0.15s",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#DDB95E" }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#C9A84C" }}
           >
             Claim Offer Now
           </Link>
         </div>
 
-        {/* Terms */}
-        <div
-          className="px-8 py-3 text-center"
-          style={{ borderTop: "1px solid rgba(201,168,76,0.08)", backgroundColor: "rgba(13,13,13,0.4)" }}
-        >
-          <p className="font-sans text-[8px] leading-relaxed" style={{ color: "rgba(237,228,204,0.22)" }}>
-            {site.terms}
-          </p>
-          <p className="font-sans text-[8px] mt-1" style={{ color: "rgba(237,228,204,0.3)" }}>
-            18+ &nbsp;|&nbsp; T&amp;Cs apply &nbsp;|&nbsp;{" "}
-            <a href="https://www.gambleaware.org" target="_blank" rel="noreferrer" className="underline underline-offset-2" style={{ color: "rgba(201,168,76,0.5)" }}>
+        {/* Legal footer */}
+        <div style={{
+          padding: "12px 32px",
+          textAlign: "center",
+          borderTop: "1px solid rgba(201,168,76,0.08)",
+          backgroundColor: "rgba(10,10,10,0.5)",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-inter),sans-serif",
+            fontSize: 8,
+            lineHeight: 1.65,
+            color: "rgba(237,228,204,0.20)",
+            marginBottom: 4,
+          }}>{site.terms}</p>
+          <p style={{
+            fontFamily: "var(--font-inter),sans-serif",
+            fontSize: 8,
+            color: "rgba(237,228,204,0.28)",
+          }}>
+            18+ &nbsp;·&nbsp; T&amp;Cs apply &nbsp;·&nbsp;{" "}
+            <a
+              href="https://www.gambleaware.org"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "rgba(201,168,76,0.48)", textDecoration: "underline", textUnderlineOffset: 3 }}
+            >
               BeGambleAware.org
             </a>
           </p>
