@@ -2,118 +2,122 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Tokens ──────────────────────────────────────────── */
 :root {
-  --c-bg:        #0A0A0A;
-  --c-surface:   #111111;
-  --c-card:      #161616;
-  --c-card-hi:   #1C1C1C;
-  --c-border:    rgba(212,168,83,0.18);
-  --c-border-hi: rgba(212,168,83,0.40);
+  --bg:        #0C1510;
+  --surface:   #111E18;
+  --card:      #162019;
+  --card-hi:   #1D2B22;
+  --gold:      #C8A86B;
+  --gold-hi:   #DEC07E;
+  --text:      #FFFFFF;
+  --text-sub:  rgba(255,255,255,0.62);
+  --text-muted:rgba(255,255,255,0.35);
+  --sage:      #8BB8A0;
+  --sage-dim:  rgba(139,184,160,0.45);
+  --border:    rgba(200,168,107,0.18);
+  --border-hi: rgba(200,168,107,0.42);
 
-  --c-gold:      #D4A853;
-  --c-gold-hi:   #E8BF6E;
-  --c-gold-dim:  rgba(212,168,83,0.65);
-  --c-gold-faint:rgba(212,168,83,0.15);
-
-  --c-cream:     #F5F0E8;
-  --c-cream-dim: rgba(245,240,232,0.72);
-  --c-cream-lo:  rgba(245,240,232,0.42);
-
-  /* shadcn compat */
-  --background:0 0% 4%;
-  --foreground:38 50% 94%;
-  --card:0 0% 8%;
-  --card-foreground:38 50% 94%;
-  --popover:0 0% 4%;
-  --popover-foreground:38 50% 94%;
-  --primary:38 62% 58%;
-  --primary-foreground:0 0% 4%;
-  --secondary:0 0% 11%;
-  --secondary-foreground:38 50% 94%;
-  --muted:0 0% 11%;
-  --muted-foreground:0 0% 58%;
-  --accent:38 62% 58%;
-  --accent-foreground:0 0% 4%;
-  --destructive:0 55% 38%;
-  --destructive-foreground:38 50% 94%;
-  --border:0 0% 16%;
-  --input:0 0% 11%;
-  --ring:38 62% 58%;
-  --radius:0rem;
+  --background:          150 28% 7%;
+  --foreground:          0 0% 100%;
+  --card:                150 22% 10%;
+  --card-foreground:     0 0% 100%;
+  --popover:             150 28% 7%;
+  --popover-foreground:  0 0% 100%;
+  --primary:             38 50% 60%;
+  --primary-foreground:  150 28% 7%;
+  --secondary:           150 15% 14%;
+  --secondary-foreground:0 0% 100%;
+  --muted:               150 15% 14%;
+  --muted-foreground:    0 0% 52%;
+  --accent:              38 50% 60%;
+  --accent-foreground:   150 28% 7%;
+  --destructive:         0 55% 38%;
+  --destructive-foreground:0 0% 100%;
+  --border:              150 12% 20%;
+  --input:               150 15% 14%;
+  --ring:                38 50% 60%;
+  --radius:              0rem;
 }
 
-/* ─── Reset ───────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; border-color: hsl(var(--border)); }
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
-  background-color: #0A0A0A;
+  background-color: #0C1510;
   color-scheme: dark;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0A0A0A;
-  color: #F5F0E8;
+  background-color: #0C1510;
+  color: #FFFFFF;
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection { background-color: var(--c-gold); color: var(--c-bg); }
+::selection { background-color: #C8A86B; color: #0C1510; }
 
-/* ─── Type ────────────────────────────────────────────── */
-h1,h2,h3,h4,h5,h6,.font-serif {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), Georgia, serif;
-  font-weight: 700;
+  color: #FFFFFF;
   line-height: 1.1;
-  color: var(--c-cream);
 }
 
-/* ─── Utilities ───────────────────────────────────────── */
-.eyebrow {
+/* ── CTA button ─────────────────────────────────────────── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #C8A86B;
+  color: #0C1510;
   font-family: var(--font-inter), sans-serif;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.48em;
-  color: var(--c-gold-dim);
-}
-
-.footer-link {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  color: var(--c-cream-lo);
+  letter-spacing: 0.22em;
+  border: none;
+  cursor: pointer;
   text-decoration: none;
-  display: block;
-  line-height: 1;
-  transition: color 0.15s;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+  border-radius: 0;
 }
-.footer-link:hover { color: var(--c-gold); }
+.btn-gold:hover { background-color: #DEC07E; }
 
-/* legal pages */
+/* ── Nav links ──────────────────────────────────────────── */
+.nav-link {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.50);
+  text-decoration: none;
+  transition: color 0.15s;
+  display: block;
+}
+.nav-link:hover { color: #C8A86B; }
+
+/* ── Legal pages ────────────────────────────────────────── */
 .legal-h2 {
   font-family: var(--font-playfair), Georgia, serif;
   font-weight: 700;
-  font-size: clamp(1.1rem,1.8vw,1.35rem);
-  color: var(--c-cream);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: #FFFFFF;
   margin-bottom: 14px;
   margin-top: 44px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--c-border);
+  border-bottom: 1px solid rgba(200,168,107,0.18);
 }
 .legal-p {
   font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.85;
-  color: var(--c-cream-dim);
+  color: rgba(255,255,255,0.62);
   margin-bottom: 14px;
 }
 .legal-li {
   font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.8;
-  color: var(--c-cream-dim);
+  color: rgba(255,255,255,0.62);
   padding-left: 18px;
   position: relative;
   margin-bottom: 6px;
@@ -125,5 +129,5 @@ h1,h2,h3,h4,h5,h6,.font-serif {
   top: 11px;
   width: 6px;
   height: 1px;
-  background-color: var(--c-gold);
+  background-color: #C8A86B;
 }

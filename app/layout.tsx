@@ -21,7 +21,7 @@ const inter = Inter({
 })
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0A",
+  themeColor: "#0C1510",
   colorScheme: "dark",
 }
 
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${playfair.variable} ${inter.variable}`} style={{ backgroundColor: "#0A0A0A" }}>
-      <body style={{ backgroundColor: "#0A0A0A", color: "#F5F0E8", fontFamily: "var(--font-inter), system-ui, sans-serif" }} className="antialiased">
+    <html lang="en-GB" className={`${playfair.variable} ${inter.variable}`} style={{ backgroundColor: "#0C1510" }}>
+      <body style={{ backgroundColor: "#0C1510", color: "#FFFFFF", fontFamily: "var(--font-inter), system-ui, sans-serif" }} className="antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

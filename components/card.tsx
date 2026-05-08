@@ -18,14 +18,14 @@ function ScoreBar({ score }: { score: number }) {
   const pct = (score / 10) * 100
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ position: "relative", height: 2, backgroundColor: "rgba(212,168,83,0.22)", width: "100%" }}>
-        <div style={{ position: "absolute", inset: 0, width: `${pct}%`, backgroundColor: "#D4A853" }} />
+      <div style={{ position: "relative", height: 2, backgroundColor: "rgba(200,168,107,0.22)", width: "100%" }}>
+        <div style={{ position: "absolute", inset: 0, width: `${pct}%`, backgroundColor: "#C8A86B" }} />
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
-        <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, textTransform: "uppercase", letterSpacing: "0.26em", color: "rgba(212,168,83,0.62)" }}>
+        <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, textTransform: "uppercase", letterSpacing: "0.26em", color: "rgba(200,168,107,0.75)" }}>
           Score
         </span>
-        <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 700, color: "rgba(212,168,83,0.72)" }}>
+        <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 700, color: "rgba(200,168,107,0.85)" }}>
           {score.toFixed(1)}/10
         </span>
       </div>
@@ -35,9 +35,9 @@ function ScoreBar({ score }: { score: number }) {
 
 export function Card({ site, rank }: SiteCardProps) {
   const isTop3 = rank <= 3
-  const ba = isTop3 ? (rank === 1 ? "0.38" : "0.22") : "0.11"
-  const topBorder = rank === 1 ? "#D4A853" : isTop3 ? "rgba(212,168,83,0.35)" : `rgba(212,168,83,${ba})`
-  const cardBg = rank === 1 ? "#161616" : "#161616"
+  const ba = isTop3 ? (rank === 1 ? "0.42" : "0.24") : "0.13"
+  const topBorder = rank === 1 ? "#C8A86B" : isTop3 ? "rgba(200,168,107,0.36)" : `rgba(200,168,107,${ba})`
+  const cardBg = rank === 1 ? "#162019" : "#111E18"
 
   return (
     <div style={{ width: "100%" }}>
@@ -49,31 +49,31 @@ export function Card({ site, rank }: SiteCardProps) {
           alignItems: "center",
           gap: 14,
           padding: "7px 20px",
-          backgroundColor: rank === 1 ? "rgba(212,168,83,0.07)" : "rgba(212,168,83,0.03)",
+          backgroundColor: rank === 1 ? "rgba(200,168,107,0.07)" : "rgba(200,168,107,0.03)",
           borderTop: `1px solid ${topBorder}`,
-          borderLeft: `1px solid rgba(212,168,83,${ba})`,
-          borderRight: `1px solid rgba(212,168,83,${ba})`,
+          borderLeft: `1px solid rgba(200,168,107,${ba})`,
+          borderRight: `1px solid rgba(200,168,107,${ba})`,
         }}>
-          <div style={{ flex: 1, height: 1, backgroundColor: `rgba(212,168,83,${rank === 1 ? "0.20" : "0.09"})` }} />
+          <div style={{ flex: 1, height: 1, backgroundColor: `rgba(200,168,107,${rank === 1 ? "0.20" : "0.09"})` }} />
           <span style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.46em",
-            color: rank === 1 ? "#D4A853" : "rgba(212,168,83,0.70)",
+            color: rank === 1 ? "#C8A86B" : "rgba(200,168,107,0.70)",
           }}>
             {RANK_LABEL[rank]}
           </span>
-          <div style={{ flex: 1, height: 1, backgroundColor: `rgba(212,168,83,${rank === 1 ? "0.20" : "0.09"})` }} />
+          <div style={{ flex: 1, height: 1, backgroundColor: `rgba(200,168,107,${rank === 1 ? "0.20" : "0.09"})` }} />
         </div>
       )}
 
       {/* ══ DESKTOP ══ */}
       <div className="hidden md:flex items-stretch" style={{
         backgroundColor: cardBg,
-        border: `1px solid rgba(212,168,83,${ba})`,
-        borderTop: isTop3 ? "none" : `1px solid rgba(212,168,83,${ba})`,
+        border: `1px solid rgba(200,168,107,${ba})`,
+        borderTop: isTop3 ? "none" : `1px solid rgba(200,168,107,${ba})`,
         transition: "border-color 0.2s",
       }}>
 
@@ -84,8 +84,8 @@ export function Card({ site, rank }: SiteCardProps) {
           alignItems: "center",
           justifyContent: "center",
           width: 70,
-          borderRight: "1px solid rgba(212,168,83,0.20)",
-          backgroundColor: rank === 1 ? "rgba(212,168,83,0.04)" : "transparent",
+          borderRight: "1px solid rgba(200,168,107,0.20)",
+          backgroundColor: rank === 1 ? "rgba(200,168,107,0.04)" : "transparent",
         }}>
           <span style={{
             fontFamily: "var(--font-playfair),Georgia,serif",
@@ -93,7 +93,7 @@ export function Card({ site, rank }: SiteCardProps) {
             fontWeight: 400,
             fontSize: "clamp(1.9rem,3.1vw,2.8rem)",
             lineHeight: 1,
-            color: rank === 1 ? "#D4A853" : "rgba(212,168,83,0.55)",
+            color: rank === 1 ? "#C8A86B" : "rgba(200,168,107,0.55)",
             userSelect: "none",
           }}>{rank}</span>
         </div>
@@ -106,7 +106,7 @@ export function Card({ site, rank }: SiteCardProps) {
           justifyContent: "center",
           width: 144,
           padding: "20px 14px",
-          borderRight: "1px solid rgba(212,168,83,0.20)",
+          borderRight: "1px solid rgba(200,168,107,0.20)",
         }}>
           <div style={{
             display: "flex",
@@ -129,7 +129,7 @@ export function Card({ site, rank }: SiteCardProps) {
           justifyContent: "center",
           textAlign: "center",
           padding: "22px 28px",
-          borderRight: "1px solid rgba(212,168,83,0.20)",
+          borderRight: "1px solid rgba(200,168,107,0.20)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
@@ -137,7 +137,7 @@ export function Card({ site, rank }: SiteCardProps) {
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.42em",
-            color: "rgba(212,168,83,0.70)",
+            color: "rgba(200,168,107,0.70)",
             marginBottom: 10,
           }}>Welcome Offer</p>
           <p style={{
@@ -145,13 +145,13 @@ export function Card({ site, rank }: SiteCardProps) {
             fontWeight: 700,
             fontSize: "clamp(1.1rem,2.1vw,1.55rem)",
             lineHeight: 1.05,
-            color: "#F5F0E8",
+            color: "#FFFFFF",
             marginBottom: 6,
           }}>{site.bonus}</p>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 11,
-            color: "rgba(245,240,232,0.65)",
+            color: "rgba(255,255,255,0.72)",
             lineHeight: 1.55,
           }}>{site.welcomeOffer ?? site.bonus}</p>
         </div>
@@ -164,13 +164,13 @@ export function Card({ site, rank }: SiteCardProps) {
           justifyContent: "center",
           padding: "22px 24px",
           minWidth: 162,
-          borderRight: "1px solid rgba(212,168,83,0.20)",
+          borderRight: "1px solid rgba(200,168,107,0.20)",
         }}>
           <ScoreBar score={site.score} />
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
-            color: "rgba(245,240,232,0.50)",
+            color: "rgba(255,255,255,0.60)",
             marginTop: 10,
           }}>{site.reviews.toLocaleString("en-GB")} verified reviews</p>
         </div>
@@ -186,29 +186,8 @@ export function Card({ site, rank }: SiteCardProps) {
           padding: "22px 24px",
           minWidth: 158,
         }}>
-          <Link
-            href={site.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              width: "100%",
-              textAlign: "center",
-              backgroundColor: "#D4A853",
-              color: "#0A0A0A",
-              fontFamily: "var(--font-inter),sans-serif",
-              fontSize: 10,
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "0.26em",
-              padding: "14px 0",
-              textDecoration: "none",
-              transition: "background-color 0.15s",
-              whiteSpace: "nowrap",
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#E8BF6E" }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#D4A853" }}
-          >
+          <style>{`.cta-lnk{display:block;width:100%;text-align:center;background-color:#C8A86B;color:#0C1510;font-family:var(--font-inter),sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.26em;padding:14px 0;text-decoration:none;transition:background-color .15s;white-space:nowrap}.cta-lnk:hover{background-color:#DEC07E}`}</style>
+          <Link href={site.link} target="_blank" rel="noopener noreferrer" className="cta-lnk">
             Claim Offer
           </Link>
           <span style={{
@@ -216,16 +195,16 @@ export function Card({ site, rank }: SiteCardProps) {
             fontSize: 8,
             textTransform: "uppercase",
             letterSpacing: "0.20em",
-            color: "rgba(212,168,83,0.55)",
+            color: "rgba(200,168,107,0.55)",
           }}>T&amp;Cs apply · 18+</span>
         </div>
       </div>
 
       {/* ══ MOBILE ══ */}
       <div className="md:hidden" style={{
-        backgroundColor: "#161616",
-        border: `1px solid rgba(212,168,83,${ba})`,
-        borderTop: isTop3 ? "none" : `1px solid rgba(212,168,83,${ba})`,
+        backgroundColor: "#111E18",
+        border: `1px solid rgba(200,168,107,${ba})`,
+        borderTop: isTop3 ? "none" : `1px solid rgba(200,168,107,${ba})`,
       }}>
         {/* Row 1: rank + logo + score */}
         <div style={{
@@ -233,7 +212,7 @@ export function Card({ site, rank }: SiteCardProps) {
           alignItems: "center",
           gap: 12,
           padding: "14px 16px 12px",
-          borderBottom: "1px solid rgba(212,168,83,0.07)",
+          borderBottom: "1px solid rgba(200,168,107,0.07)",
         }}>
           <span style={{
             fontFamily: "var(--font-playfair),Georgia,serif",
@@ -241,7 +220,7 @@ export function Card({ site, rank }: SiteCardProps) {
             fontWeight: 400,
             fontSize: "1.6rem",
             lineHeight: 1,
-            color: rank === 1 ? "#D4A853" : "rgba(212,168,83,0.28)",
+            color: rank === 1 ? "#C8A86B" : "rgba(200,168,107,0.28)",
             flexShrink: 0,
             width: 26,
             textAlign: "center",
@@ -269,21 +248,21 @@ export function Card({ site, rank }: SiteCardProps) {
         <div style={{
           padding: "13px 16px",
           textAlign: "center",
-          borderBottom: "1px solid rgba(212,168,83,0.07)",
+          borderBottom: "1px solid rgba(200,168,107,0.07)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
             textTransform: "uppercase",
             letterSpacing: "0.34em",
-            color: "rgba(212,168,83,0.38)",
+            color: "rgba(200,168,107,0.38)",
             marginBottom: 6,
           }}>Welcome Offer</p>
           <p style={{
             fontFamily: "var(--font-playfair),Georgia,serif",
             fontWeight: 700,
             fontSize: "1.2rem",
-            color: "#F5F0E8",
+            color: "#FFFFFF",
             lineHeight: 1.1,
           }}>{site.bonus}</p>
         </div>
@@ -298,8 +277,8 @@ export function Card({ site, rank }: SiteCardProps) {
               display: "block",
               width: "100%",
               textAlign: "center",
-              backgroundColor: "#D4A853",
-              color: "#0A0A0A",
+              backgroundColor: "#C8A86B",
+              color: "#0C1510",
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 10,
               fontWeight: 700,
@@ -314,7 +293,7 @@ export function Card({ site, rank }: SiteCardProps) {
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 8,
-            color: "rgba(245,240,232,0.50)",
+            color: "rgba(255,255,255,0.60)",
             marginTop: 8,
             textAlign: "center",
             lineHeight: 1.55,
@@ -325,16 +304,16 @@ export function Card({ site, rank }: SiteCardProps) {
       {/* ── Terms strip ── */}
       <div style={{
         padding: "7px 20px",
-        borderLeft: `1px solid rgba(212,168,83,${ba})`,
-        borderRight: `1px solid rgba(212,168,83,${ba})`,
-        borderBottom: `1px solid rgba(212,168,83,${ba})`,
-        backgroundColor: "rgba(10,10,10,0.55)",
+        borderLeft: `1px solid rgba(200,168,107,${ba})`,
+        borderRight: `1px solid rgba(200,168,107,${ba})`,
+        borderBottom: `1px solid rgba(200,168,107,${ba})`,
+        backgroundColor: "rgba(12,21,16,0.55)",
       }}>
         <p style={{
           fontFamily: "var(--font-inter),sans-serif",
           fontSize: 8,
           lineHeight: 1.7,
-          color: "rgba(245,240,232,0.50)",
+          color: "rgba(255,255,255,0.60)",
         }}>{site.terms}</p>
       </div>
 

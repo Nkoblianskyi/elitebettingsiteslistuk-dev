@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-const GOLD = "#D4A853"
-const FOREST_CARD = "#161616"
-const PARCHMENT = "#F5F0E8"
+const GOLD = "#C8A86B"
+const FOREST_CARD = "#162019"
+const PARCHMENT = "#FFFFFF"
 
 function Section({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
   return (

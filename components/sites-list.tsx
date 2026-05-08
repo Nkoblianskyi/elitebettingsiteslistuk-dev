@@ -11,7 +11,7 @@ export function SitesList() {
       {/* Section header */}
       <div
         className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-6"
-        style={{ borderBottom: "1px solid rgba(212,168,83,0.1)" }}
+        style={{ borderBottom: "1px solid rgba(200,168,107,0.1)" }}
       >
         <div>
           <p
@@ -21,7 +21,7 @@ export function SitesList() {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.44em",
-              color: "rgba(212,168,83,0.5)",
+              color: "rgba(200,168,107,0.5)",
               marginBottom: "10px",
             }}
           >
@@ -32,7 +32,7 @@ export function SitesList() {
               fontFamily: "var(--font-playfair), Georgia, serif",
               fontWeight: 700,
               fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
-              color: "#F5F0E8",
+              color: "#FFFFFF",
               lineHeight: 1.1,
             }}
           >
@@ -43,7 +43,7 @@ export function SitesList() {
           style={{
             fontFamily: "var(--font-inter), sans-serif",
             fontSize: "10px",
-            color: "rgba(245,240,232,0.3)",
+            color: "rgba(255,255,255,0.3)",
             maxWidth: "260px",
             lineHeight: 1.6,
           }}
@@ -67,7 +67,7 @@ export function SitesList() {
           fontSize: "8px",
           textTransform: "uppercase",
           letterSpacing: "0.38em",
-          color: "rgba(212,168,83,0.28)",
+          color: "rgba(200,168,107,0.28)",
           textAlign: "center",
         }}
       >

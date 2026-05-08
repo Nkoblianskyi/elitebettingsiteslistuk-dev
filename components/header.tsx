@@ -16,10 +16,10 @@ export function Header() {
   return (
     <header
       className="sticky top-0 z-40"
-      style={{ backgroundColor: "#0A0A0A", borderBottom: "1px solid rgba(212,168,83,0.13)" }}
+      style={{ backgroundColor: "#0C1510", borderBottom: "1px solid rgba(200,168,107,0.13)" }}
     >
       {/* 2px gold top accent */}
-      <div style={{ height: "2px", backgroundColor: "#D4A853", width: "100%" }} />
+      <div style={{ height: "2px", backgroundColor: "#C8A86B", width: "100%" }} />
 
       <div
         className="flex items-center justify-between px-6 md:px-10 lg:px-16"
@@ -32,41 +32,18 @@ export function Header() {
 
         {/* Centre: tagline — desktop only */}
         <div className="hidden lg:flex flex-1 items-center justify-center gap-5 px-8">
-          <div className="flex-1 h-px" style={{ background: "rgba(212,168,83,0.1)" }} />
-          <span
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "8px",
-              fontWeight: 500,
-              textTransform: "uppercase",
-              letterSpacing: "0.42em",
-              color: "rgba(212,168,83,0.55)",
-            }}
-          >
+          <div className="flex-1 h-px" style={{ background: "rgba(200,168,107,0.1)" }} />
+          <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.42em", color: "rgba(200,168,107,0.55)" }}>
             United Kingdom · UKGC Licensed Operators
           </span>
-          <div className="flex-1 h-px" style={{ background: "rgba(212,168,83,0.1)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(200,168,107,0.1)" }} />
         </div>
 
         {/* Right: nav — desktop */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+          <style>{`.hdr-nav-lnk{font-family:var(--font-inter),sans-serif;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:rgba(255,255,255,0.40);transition:color .15s;text-decoration:none}.hdr-nav-lnk:hover{color:#C8A86B}`}</style>
           {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              style={{
-                fontFamily: "var(--font-inter), sans-serif",
-                fontSize: "10px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.28em",
-                color: "rgba(245,240,232,0.4)",
-                transition: "color 0.15s",
-                textDecoration: "none",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#D4A853")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,240,232,0.4)")}
-            >
+            <Link key={item.href} href={item.href} className="hdr-nav-lnk">
               {item.label}
             </Link>
           ))}
@@ -79,42 +56,26 @@ export function Header() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <span className="block w-5 h-px" style={{ backgroundColor: menuOpen ? "#D4A853" : "rgba(245,240,232,0.5)" }} />
-          <span className="block w-5 h-px" style={{ backgroundColor: menuOpen ? "#D4A853" : "rgba(245,240,232,0.5)" }} />
-          <span className="block w-3 h-px" style={{ backgroundColor: menuOpen ? "#D4A853" : "rgba(245,240,232,0.5)" }} />
+          <span className="block w-5 h-px" style={{ backgroundColor: menuOpen ? "#C8A86B" : "rgba(255,255,255,0.5)" }} />
+          <span className="block w-5 h-px" style={{ backgroundColor: menuOpen ? "#C8A86B" : "rgba(255,255,255,0.5)" }} />
+          <span className="block w-3 h-px" style={{ backgroundColor: menuOpen ? "#C8A86B" : "rgba(255,255,255,0.5)" }} />
         </button>
       </div>
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <nav
-          className="md:hidden"
-          style={{ backgroundColor: "#0A0A0A", borderTop: "1px solid rgba(212,168,83,0.1)" }}
-          aria-label="Mobile navigation"
-        >
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "16px 24px",
-                borderBottom: "1px solid rgba(212,168,83,0.07)",
-                fontFamily: "var(--font-inter), sans-serif",
-                fontSize: "11px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.3em",
-                color: "rgba(245,240,232,0.55)",
-                textDecoration: "none",
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+      <nav
+        className="md:hidden"
+        style={{ backgroundColor: "#0C1510", borderTop: "1px solid rgba(200,168,107,0.1)" }}
+        aria-label="Mobile navigation"
+      >
+        <style>{`.mob-lnk{display:flex;align-items:center;padding:16px 24px;border-bottom:1px solid rgba(200,168,107,0.07);font-family:var(--font-inter),sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:rgba(255,255,255,0.55);text-decoration:none}`}</style>
+        {NAV.map((item) => (
+          <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className="mob-lnk">
+            {item.label}
+          </Link>
+        ))}
+      </nav>
       )}
     </header>
   )
