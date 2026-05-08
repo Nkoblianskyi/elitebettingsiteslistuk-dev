@@ -6,7 +6,7 @@ import type { BettingSite } from "../types"
 
 export function SitesList() {
   return (
-    <section className="w-full py-12 px-6 md:px-10 lg:px-0">
+    <section className="w-full py-12">
 
       {/* Section header */}
       <div

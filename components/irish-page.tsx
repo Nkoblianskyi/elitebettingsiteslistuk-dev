@@ -25,8 +25,9 @@ export default function IrishPage() {
 
       <MainLayout>
         <SitesList />
-        <InfoSections />
       </MainLayout>
+
+      <InfoSections />
 
       <Modal bettingSites={bettingSites} casinoSites={[]} />
       <CookieBanner />
