@@ -179,36 +179,48 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
           </div>
 
           {/* Disclosure links */}
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            {[
-              { label: "Advertiser Disclosure", action: onAdvertiserModalOpen },
-              { label: "18+ Terms Apply",        action: onTermsModalOpen },
-            ].map(({ label: lbl, action }, i) => (
-              <>
-                {i > 0 && <span key="sep" style={{ color: "rgba(201,168,76,0.18)", fontSize: 10 }}>|</span>}
-                <button
-                  key={lbl}
-                  type="button"
-                  onClick={action}
-                  style={{
-                    fontFamily: "var(--font-inter), sans-serif",
-                    fontSize: 8,
-                    fontWeight: 600,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.30em",
-                    color: "rgba(201,168,76,0.45)",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    textDecoration: "underline",
-                    textUnderlineOffset: 3,
-                    padding: 0,
-                  }}
-                >
-                  {lbl}
-                </button>
-              </>
-            ))}
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <button
+              type="button"
+              onClick={onAdvertiserModalOpen}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: 8,
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.30em",
+                color: "rgba(201,168,76,0.45)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+                padding: 0,
+              }}
+            >
+              Advertiser Disclosure
+            </button>
+            <span style={{ color: "rgba(201,168,76,0.18)", fontSize: 10, userSelect: "none" }}>|</span>
+            <button
+              type="button"
+              onClick={onTermsModalOpen}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: 8,
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.30em",
+                color: "rgba(201,168,76,0.45)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+                padding: 0,
+              }}
+            >
+              18+ Terms Apply
+            </button>
           </div>
         </div>
 
