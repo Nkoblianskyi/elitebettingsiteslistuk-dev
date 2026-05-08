@@ -4,42 +4,42 @@
 
 /* ─── Tokens ──────────────────────────────────────────── */
 :root {
-  --c-bg:        #07070f;
-  --c-surface:   #0d0d1a;
-  --c-card:      #10101e;
-  --c-card-hi:   #14142a;
-  --c-border:    rgba(172,148,90,0.13);
-  --c-border-hi: rgba(172,148,90,0.30);
+  --c-bg:        #0A0A0A;
+  --c-surface:   #111111;
+  --c-card:      #161616;
+  --c-card-hi:   #1C1C1C;
+  --c-border:    rgba(212,168,83,0.18);
+  --c-border-hi: rgba(212,168,83,0.40);
 
-  --c-gold:      #B8935A;
-  --c-gold-hi:   #CCA870;
-  --c-gold-dim:  rgba(184,147,90,0.50);
-  --c-gold-faint:rgba(184,147,90,0.13);
+  --c-gold:      #D4A853;
+  --c-gold-hi:   #E8BF6E;
+  --c-gold-dim:  rgba(212,168,83,0.65);
+  --c-gold-faint:rgba(212,168,83,0.15);
 
-  --c-cream:     #EEE5D0;
-  --c-cream-dim: rgba(238,229,208,0.52);
-  --c-cream-lo:  rgba(238,229,208,0.22);
+  --c-cream:     #F5F0E8;
+  --c-cream-dim: rgba(245,240,232,0.72);
+  --c-cream-lo:  rgba(245,240,232,0.42);
 
   /* shadcn compat */
-  --background:240 20% 4%;
-  --foreground:38 30% 88%;
-  --card:240 20% 6%;
-  --card-foreground:38 30% 88%;
-  --popover:240 20% 4%;
-  --popover-foreground:38 30% 88%;
-  --primary:38 45% 52%;
-  --primary-foreground:240 20% 4%;
-  --secondary:240 10% 10%;
-  --secondary-foreground:38 30% 88%;
-  --muted:240 10% 10%;
-  --muted-foreground:240 5% 48%;
-  --accent:38 45% 52%;
-  --accent-foreground:240 20% 4%;
+  --background:0 0% 4%;
+  --foreground:38 50% 94%;
+  --card:0 0% 8%;
+  --card-foreground:38 50% 94%;
+  --popover:0 0% 4%;
+  --popover-foreground:38 50% 94%;
+  --primary:38 62% 58%;
+  --primary-foreground:0 0% 4%;
+  --secondary:0 0% 11%;
+  --secondary-foreground:38 50% 94%;
+  --muted:0 0% 11%;
+  --muted-foreground:0 0% 58%;
+  --accent:38 62% 58%;
+  --accent-foreground:0 0% 4%;
   --destructive:0 55% 38%;
-  --destructive-foreground:38 30% 88%;
-  --border:240 10% 14%;
-  --input:240 10% 10%;
-  --ring:38 45% 52%;
+  --destructive-foreground:38 50% 94%;
+  --border:0 0% 16%;
+  --input:0 0% 11%;
+  --ring:38 62% 58%;
   --radius:0rem;
 }
 
@@ -47,14 +47,14 @@
 *, *::before, *::after { box-sizing: border-box; border-color: hsl(var(--border)); }
 
 html {
-  background-color: var(--c-bg);
+  background-color: #0A0A0A;
   color-scheme: dark;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--c-bg);
-  color: var(--c-cream);
+  background-color: #0A0A0A;
+  color: #F5F0E8;
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

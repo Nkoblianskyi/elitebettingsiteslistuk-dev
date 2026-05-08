@@ -47,13 +47,13 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           flexDirection: "column",
           overflow: "hidden",
           backgroundColor: "#131313",
-          border: "1px solid rgba(184,147,90,0.22)",
+          border: "1px solid rgba(212,168,83,0.22)",
         }}
         className="sm:max-h-[86vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Gold top rule */}
-        <div style={{ height: 2, backgroundColor: "#B8935A", flexShrink: 0 }} />
+        <div style={{ height: 2, backgroundColor: "#D4A853", flexShrink: 0 }} />
 
         {/* Header */}
         <div style={{
@@ -63,7 +63,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           justifyContent: "space-between",
           gap: 16,
           padding: "22px 28px",
-          borderBottom: "1px solid rgba(184,147,90,0.10)",
+          borderBottom: "1px solid rgba(212,168,83,0.10)",
         }}>
           <div>
             <p style={{
@@ -72,7 +72,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.46em",
-              color: "rgba(184,147,90,0.46)",
+              color: "rgba(212,168,83,0.46)",
               marginBottom: 8,
             }}>Transparency Notice</p>
             <h2
@@ -81,7 +81,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
                 fontFamily: "var(--font-playfair),Georgia,serif",
                 fontWeight: 700,
                 fontSize: "1.55rem",
-                color: "#EEE5D0",
+                color: "#F5F0E8",
                 lineHeight: 1.1,
               }}
             >
@@ -99,15 +99,15 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
               justifyContent: "center",
               width: 32,
               height: 32,
-              border: "1px solid rgba(184,147,90,0.20)",
+              border: "1px solid rgba(212,168,83,0.20)",
               backgroundColor: "transparent",
-              color: "rgba(238,229,208,0.40)",
+              color: "rgba(245,240,232,0.40)",
               cursor: "pointer",
               marginTop: 4,
               transition: "border-color 0.15s",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(184,147,90,0.55)" }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(184,147,90,0.20)" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(212,168,83,0.55)" }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(212,168,83,0.20)" }}
           >
             <X style={{ width: 13, height: 13 }} />
           </button>
@@ -126,16 +126,16 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           {/* Highlighted notice */}
           <div style={{
             padding: "14px 18px",
-            borderLeft: "2px solid #B8935A",
-            backgroundColor: "rgba(184,147,90,0.05)",
+            borderLeft: "2px solid #D4A853",
+            backgroundColor: "rgba(212,168,83,0.05)",
           }}>
             <p style={{
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 13,
               lineHeight: 1.75,
-              color: "rgba(238,229,208,0.62)",
+              color: "rgba(245,240,232,0.62)",
             }}>
-              <strong style={{ color: "#EEE5D0" }}>ukbestcasinosites.com</strong> may receive remuneration when
+              <strong style={{ color: "#F5F0E8" }}>ukbestcasinosites.com</strong> may receive remuneration when
               you navigate to an operator via our links. That revenue supports our editorial research, hosting,
               and operational costs — it does not influence ranking order or scores.
             </p>
@@ -149,14 +149,14 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.42em",
-              color: "rgba(184,147,90,0.44)",
+              color: "rgba(212,168,83,0.44)",
               marginBottom: 14,
             }}>Editorial Independence</p>
             <p style={{
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 13,
               lineHeight: 1.75,
-              color: "rgba(238,229,208,0.58)",
+              color: "rgba(245,240,232,0.58)",
               marginBottom: 14,
             }}>Rankings are determined exclusively by the following criteria:</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -166,7 +166,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
                     flexShrink: 0,
                     width: 1,
                     height: 16,
-                    backgroundColor: "#B8935A",
+                    backgroundColor: "#D4A853",
                     opacity: 0.55,
                     marginTop: 2,
                   }} />
@@ -174,7 +174,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
                     fontFamily: "var(--font-inter),sans-serif",
                     fontSize: 13,
                     lineHeight: 1.6,
-                    color: "rgba(238,229,208,0.58)",
+                    color: "rgba(245,240,232,0.58)",
                   }}>{item}</span>
                 </div>
               ))}
@@ -189,14 +189,14 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.42em",
-              color: "rgba(184,147,90,0.44)",
+              color: "rgba(212,168,83,0.44)",
               marginBottom: 14,
             }}>Your Responsibility</p>
             <p style={{
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 13,
               lineHeight: 1.75,
-              color: "rgba(238,229,208,0.58)",
+              color: "rgba(245,240,232,0.58)",
             }}>
               Always verify the current offer directly on the operator&apos;s own website before depositing.
               Offers and terms change without notice. Play only within limits you are comfortable with.
@@ -210,8 +210,8 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           flexShrink: 0,
           padding: "12px 28px",
           textAlign: "center",
-          borderTop: "1px solid rgba(184,147,90,0.09)",
-          backgroundColor: "rgba(7,7,15,0.5)",
+          borderTop: "1px solid rgba(212,168,83,0.09)",
+          backgroundColor: "rgba(10,10,10,0.5)",
         }}>
           <p style={{
             fontFamily: "var(--font-inter),sans-serif",
@@ -219,7 +219,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.36em",
-            color: "rgba(184,147,90,0.36)",
+            color: "rgba(212,168,83,0.36)",
           }}>
             18+ &nbsp;·&nbsp; United Kingdom &nbsp;·&nbsp; Responsible Play
           </p>

@@ -114,15 +114,15 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
           />
           <div style={{
             position: "absolute", inset: 0,
-            background: "linear-gradient(118deg, #07070f 0%, rgba(7,7,15,0.97) 28%, rgba(7,7,15,0.78) 60%, rgba(7,7,15,0.25) 100%)",
+            background: "linear-gradient(118deg, #0A0A0A 0%, rgba(10,10,10,0.97) 28%, rgba(10,10,10,0.78) 60%, rgba(10,10,10,0.25) 100%)",
           }} />
           <div style={{
             position: "absolute", bottom: 0, left: 0, right: 0, height: "55%",
-            background: "linear-gradient(to top, #07070f 0%, transparent 100%)",
+            background: "linear-gradient(to top, #0A0A0A 0%, transparent 100%)",
           }} />
           <div style={{
             position: "absolute", inset: 0, pointerEvents: "none",
-            background: "radial-gradient(ellipse 55% 80% at -8% 10%, rgba(184,147,90,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 55% 80% at -8% 10%, rgba(212,168,83,0.07) 0%, transparent 70%)",
           }} />
         </div>
 
@@ -147,14 +147,14 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
           {/* ── Row 1: Eyebrow ── */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 24, height: 1, backgroundColor: "#B8935A", flexShrink: 0 }} />
+              <div style={{ width: 24, height: 1, backgroundColor: "#D4A853", flexShrink: 0 }} />
               <span style={{
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: 8,
                 fontWeight: 700,
                 textTransform: "uppercase",
                 letterSpacing: "0.48em",
-                color: "rgba(184,147,90,0.65)",
+                color: "rgba(212,168,83,0.65)",
               }}>
                 ukbestcasinosites.com
               </span>
@@ -167,7 +167,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                 fontSize: 8,
                 textTransform: "uppercase",
                 letterSpacing: "0.28em",
-                color: "rgba(238,229,208,0.2)",
+                color: "rgba(245,240,232,0.2)",
               }}
             >
               Updated {label}
@@ -182,7 +182,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.52em",
-              color: "rgba(184,147,90,0.48)",
+              color: "rgba(212,168,83,0.48)",
               marginBottom: 8,
             }}>
               Independent Rankings · 2026
@@ -194,12 +194,12 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                 fontFamily: "var(--font-playfair), Georgia, serif",
                 fontWeight: 800,
                 letterSpacing: "-0.02em",
-                color: "#EEE5D0",
+                color: "#F5F0E8",
                 margin: 0,
               }}
             >
               Britain&apos;s Finest{" "}
-              <em style={{ color: "#B8935A", fontStyle: "italic" }}>Casino</em>
+              <em style={{ color: "#D4A853", fontStyle: "italic" }}>Casino</em>
               {" "}
               <span style={{ fontWeight: 400, fontStyle: "italic" }}>Sites Ranked</span>
             </h1>
@@ -210,7 +210,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
               style={{
                 fontFamily: "var(--font-inter), sans-serif",
                 fontSize: "clamp(12px, 1.2vw, 14px)",
-                color: "rgba(238,229,208,0.4)",
+                color: "rgba(245,240,232,0.4)",
                 lineHeight: 1.7,
                 maxWidth: "38rem",
                 marginTop: 12,
@@ -230,9 +230,9 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                   fontWeight: 700,
                   textTransform: "uppercase",
                   letterSpacing: "0.34em",
-                  color: "rgba(184,147,90,0.58)",
-                  border: "1px solid rgba(184,147,90,0.16)",
-                  backgroundColor: "rgba(184,147,90,0.04)",
+                  color: "rgba(212,168,83,0.58)",
+                  border: "1px solid rgba(212,168,83,0.16)",
+                  backgroundColor: "rgba(212,168,83,0.04)",
                   padding: "4px 10px",
                 }}>
                   {b.label}
@@ -245,22 +245,22 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 10 }}>
 
             {/* Stat strip */}
-            <div style={{ display: "inline-flex", border: "1px solid rgba(184,147,90,0.2)" }}>
+            <div style={{ display: "inline-flex", border: "1px solid rgba(212,168,83,0.2)" }}>
               {STATS.map(({ v, l }, i) => (
                 <div key={l} style={{
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   padding: "7px 16px",
-                  borderRight: i < 2 ? "1px solid rgba(184,147,90,0.14)" : "none",
-                  backgroundColor: "rgba(7,7,15,0.72)",
+                  borderRight: i < 2 ? "1px solid rgba(212,168,83,0.14)" : "none",
+                  backgroundColor: "rgba(10,10,10,0.72)",
                 }}>
                   <span style={{
                     fontFamily: "var(--font-playfair), Georgia, serif",
                     fontWeight: 700,
                     fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
                     lineHeight: 1,
-                    color: "#B8935A",
+                    color: "#D4A853",
                   }}>{v}</span>
                   <span
                     className="hero-stat-label"
@@ -269,7 +269,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                       fontSize: 6,
                       textTransform: "uppercase",
                       letterSpacing: "0.22em",
-                      color: "rgba(238,229,208,0.26)",
+                      color: "rgba(245,240,232,0.55)",
                       marginTop: 4,
                     }}
                   >{l}</span>
@@ -288,7 +288,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                   fontWeight: 600,
                   textTransform: "uppercase",
                   letterSpacing: "0.30em",
-                  color: "rgba(184,147,90,0.42)",
+                  color: "rgba(212,168,83,0.42)",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
@@ -299,7 +299,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
               >
                 Advertiser Disclosure
               </button>
-              <span style={{ color: "rgba(184,147,90,0.16)", fontSize: 10, userSelect: "none" }}>|</span>
+              <span style={{ color: "rgba(212,168,83,0.16)", fontSize: 10, userSelect: "none" }}>|</span>
               <button
                 type="button"
                 onClick={onTermsModalOpen}
@@ -309,7 +309,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                   fontWeight: 600,
                   textTransform: "uppercase",
                   letterSpacing: "0.30em",
-                  color: "rgba(184,147,90,0.42)",
+                  color: "rgba(212,168,83,0.42)",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
@@ -326,7 +326,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
         </div>
 
         {/* Bottom rule */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 1, backgroundColor: "rgba(184,147,90,0.16)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 1, backgroundColor: "rgba(212,168,83,0.16)" }} />
       </section>
     </>
   )

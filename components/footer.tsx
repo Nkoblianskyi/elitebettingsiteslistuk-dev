@@ -30,7 +30,7 @@ const NAV_LABEL_STYLE: React.CSSProperties = {
   fontWeight: 700,
   textTransform: "uppercase",
   letterSpacing: "0.46em",
-  color: "rgba(184,147,90,0.36)",
+  color: "rgba(212,168,83,0.60)",
   marginBottom: 18,
   display: "block",
 }
@@ -38,7 +38,7 @@ const NAV_LABEL_STYLE: React.CSSProperties = {
 const NAV_LINK_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-inter),sans-serif",
   fontSize: 12,
-  color: "rgba(238,229,208,0.38)",
+  color: "rgba(245,240,232,0.65)",
   textDecoration: "none",
   display: "block",
   lineHeight: 1,
@@ -47,10 +47,10 @@ const NAV_LINK_STYLE: React.CSSProperties = {
 
 export function Footer() {
   return (
-    <footer style={{ backgroundColor: "#090909", borderTop: "1px solid rgba(184,147,90,0.10)" }}>
+    <footer style={{ backgroundColor: "#090909", borderTop: "1px solid rgba(212,168,83,0.10)" }}>
 
       {/* Thin gold top rule */}
-      <div style={{ height: 1, backgroundColor: "#B8935A", opacity: 0.65 }} />
+      <div style={{ height: 1, backgroundColor: "#D4A853", opacity: 0.65 }} />
 
       <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-16" style={{ paddingTop: 72, paddingBottom: 64 }}>
 
@@ -64,7 +64,7 @@ export function Footer() {
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 12,
               lineHeight: 1.88,
-              color: "rgba(238,229,208,0.28)",
+              color: "rgba(245,240,232,0.28)",
               marginBottom: 24,
             }}>
               An independent editorial comparison platform for UK-licensed casino operators.
@@ -73,7 +73,7 @@ export function Footer() {
             </p>
             <div style={{
               display: "inline-flex",
-              border: "1px solid rgba(184,147,90,0.14)",
+              border: "1px solid rgba(212,168,83,0.14)",
               padding: "6px 14px",
             }}>
               <span style={{
@@ -81,7 +81,7 @@ export function Footer() {
                 fontSize: 8,
                 textTransform: "uppercase",
                 letterSpacing: "0.44em",
-                color: "rgba(184,147,90,0.3)",
+                color: "rgba(212,168,83,0.3)",
               }}>18+ · UKGC Licensed Only</span>
             </div>
           </div>
@@ -117,7 +117,7 @@ export function Footer() {
               fontFamily: "var(--font-inter),sans-serif",
               fontSize: 11,
               lineHeight: 1.72,
-              color: "rgba(238,229,208,0.24)",
+              color: "rgba(245,240,232,0.24)",
               marginBottom: 18,
             }}>
               Gambling can be addictive. Please play responsibly and only within your means.
@@ -148,7 +148,7 @@ export function Footer() {
         </div>
 
         {/* ── Divider ── */}
-        <div style={{ height: 1, backgroundColor: "rgba(184,147,90,0.07)", margin: "52px 0 36px" }} />
+        <div style={{ height: 1, backgroundColor: "rgba(212,168,83,0.07)", margin: "52px 0 36px" }} />
 
         {/* ── Bottom bar ── */}
         <div className="flex flex-col md:flex-row gap-5 items-start md:items-end justify-between">
@@ -156,7 +156,7 @@ export function Footer() {
             fontFamily: "var(--font-inter),sans-serif",
             fontSize: 10,
             lineHeight: 1.95,
-            color: "rgba(238,229,208,0.2)",
+            color: "rgba(245,240,232,0.2)",
             maxWidth: 660,
           }}>
             Commercial links on this site may generate affiliate revenue. This does not influence our editorial
@@ -168,7 +168,7 @@ export function Footer() {
             fontSize: 9,
             textTransform: "uppercase",
             letterSpacing: "0.36em",
-            color: "rgba(184,147,90,0.22)",
+            color: "rgba(212,168,83,0.22)",
             flexShrink: 0,
           }}>
             &copy; {new Date().getFullYear()} ukbestcasinosites.com
