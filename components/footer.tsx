@@ -1,5 +1,6 @@
 "use client"
 
+import type React from "react"
 import Link from "next/link"
 import { SiteWordmark } from "@/components/site-wordmark"
 
@@ -43,8 +44,6 @@ const NAV_LINK_STYLE: React.CSSProperties = {
   lineHeight: 1,
   transition: "color 0.15s",
 }
-
-import type React from "react"
 
 export function Footer() {
   return (
