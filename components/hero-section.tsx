@@ -13,8 +13,12 @@ function getDate() {
   }
 }
 
-const BADGES = ["UKGC Licensed", "Independent", "18+ Only", "No Paid Placements"]
-const STATS  = [{ v: "6", l: "Ranked" }, { v: "18+", l: "Age Req." }, { v: "UKGC", l: "Licensed" }]
+const TRUST_BADGES = [
+  { icon: "🛡", label: "UKGC Licensed" },
+  { icon: "✔", label: "Expert Verified" },
+  { icon: "🔒", label: "No Paid Rankings" },
+  { icon: "18+", label: "Responsible Play" },
+]
 
 export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSectionProps) {
   const { iso, label } = getDate()
@@ -22,125 +26,223 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
   return (
     <>
       <style>{`
-        .h-wrap { height: 250px; }
-        @media (min-width: 768px) { .h-wrap { height: clamp(300px, 35vw, 400px); } }
-        .h-title { font-size: 1.6rem; line-height: 1.0; }
-        @media (min-width: 480px) { .h-title { font-size: 2.1rem; } }
-        @media (min-width: 768px) { .h-title { font-size: clamp(2.4rem, 3.8vw, 3.6rem); } }
-        .h-desc   { display: none; }
-        @media (min-width: 768px) { .h-desc { display: block; } }
-        .h-badges { display: none; }
-        @media (min-width: 600px) { .h-badges { display: flex; } }
-        .h-date   { display: none; }
-        @media (min-width: 560px) { .h-date { display: block; } }
-        .h-disc   { display: none; }
-        @media (min-width: 520px) { .h-disc { display: flex; } }
-        .h-stl    { display: none; }
-        @media (min-width: 440px) { .h-stl { display: block; } }
+        .h-section {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          height: 250px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media (min-width: 768px) {
+          .h-section { height: clamp(300px, 36vw, 400px); }
+        }
+
+        .h-eyebrow {
+          font-family: var(--font-inter), sans-serif;
+          font-size: 9px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5em;
+          color: #C8A86B;
+          margin-bottom: 14px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .h-eyebrow::before, .h-eyebrow::after {
+          content: "";
+          display: block;
+          height: 1px;
+          width: 32px;
+          background: #C8A86B;
+          opacity: 0.5;
+          flex-shrink: 0;
+        }
+
+        .h-title {
+          font-family: var(--font-playfair), Georgia, serif;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          color: #FFFFFF;
+          margin: 0;
+          line-height: 1.0;
+          font-size: clamp(2rem, 6vw, 4rem);
+        }
+        .h-title em {
+          font-style: italic;
+          color: #C8A86B;
+        }
+
+        .h-sub {
+          display: none;
+        }
+        @media (min-width: 640px) {
+          .h-sub {
+            display: block;
+            font-family: var(--font-inter), sans-serif;
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.7;
+            margin-top: 14px;
+          }
+        }
+
+        .h-badges {
+          display: none;
+        }
+        @media (min-width: 560px) {
+          .h-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 18px;
+          }
+        }
+
+        .h-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 14px;
+          border: 1px solid rgba(200,168,107,0.35);
+          background: rgba(200,168,107,0.06);
+          font-family: var(--font-inter), sans-serif;
+          font-size: 9px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.22em;
+          color: rgba(255,255,255,0.82);
+        }
+        .h-badge-icon {
+          font-size: 10px;
+          color: #C8A86B;
+          font-style: normal;
+        }
+
+        .h-bottom {
+          position: absolute;
+          bottom: 14px;
+          left: 0;
+          right: 0;
+          display: none;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+        }
+        @media (min-width: 480px) {
+          .h-bottom { display: flex; }
+        }
+        .h-disc-btn {
+          font-family: var(--font-inter), sans-serif;
+          font-size: 9px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.26em;
+          color: rgba(200,168,107,0.45);
+          background: none;
+          border: none;
+          cursor: pointer;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+          padding: 0;
+        }
+        .h-disc-btn:hover { color: rgba(200,168,107,0.75); }
+        .h-date-txt {
+          font-family: var(--font-inter), sans-serif;
+          font-size: 9px;
+          text-transform: uppercase;
+          letter-spacing: 0.26em;
+          color: rgba(255,255,255,0.22);
+        }
       `}</style>
 
-      <section className="h-wrap" style={{ position: "relative", overflow: "hidden", width: "100%", display: "flex", flexDirection: "column" }}>
+      <section className="h-section">
 
-        {/* ── Background ───────────────────────────────────── */}
+        {/* Background */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <img
-            src="/hero-casino.jpg" alt="" aria-hidden
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", filter: "brightness(0.25) saturate(0.65)" }}
+            src="/hero-casino.jpg"
+            alt=""
+            aria-hidden
+            style={{
+              width: "100%", height: "100%",
+              objectFit: "cover", objectPosition: "center 35%",
+              filter: "brightness(0.20) saturate(0.55)",
+            }}
           />
-          {/* deep green directional overlay */}
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(112deg, rgba(12,21,16,0.99) 0%, rgba(12,21,16,0.95) 32%, rgba(12,21,16,0.72) 62%, rgba(12,21,16,0.15) 100%)" }} />
-          {/* bottom fade */}
-          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "52%", background: "linear-gradient(to top, #0C1510 0%, transparent 100%)" }} />
-          {/* gold accent — left vertical line */}
-          <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: 3, background: "linear-gradient(to bottom, transparent 5%, #C8A86B 25%, #C8A86B 75%, transparent 95%)" }} />
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to bottom, rgba(12,21,16,0.55) 0%, rgba(12,21,16,0.80) 60%, rgba(12,21,16,1) 100%)",
+          }} />
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "radial-gradient(ellipse 80% 70% at 50% 40%, rgba(12,21,16,0) 0%, rgba(12,21,16,0.65) 100%)",
+          }} />
         </div>
 
-        {/* ── Content ──────────────────────────────────────── */}
+        {/* Gold top line */}
         <div style={{
-          position: "relative", zIndex: 10, flex: 1, width: "100%", maxWidth: 1152,
-          margin: "0 auto", padding: "14px 24px 12px",
-          display: "flex", flexDirection: "column", justifyContent: "space-between",
-          height: "100%", boxSizing: "border-box",
+          position: "absolute", top: 0, left: 0, right: 0,
+          height: 2,
+          background: "linear-gradient(to right, transparent 0%, #C8A86B 30%, #C8A86B 70%, transparent 100%)",
+          opacity: 0.7,
+        }} />
+
+        {/* Centered content */}
+        <div style={{
+          position: "relative", zIndex: 10,
+          width: "100%", maxWidth: 720,
+          padding: "0 24px",
+          textAlign: "center",
+          display: "flex", flexDirection: "column", alignItems: "center",
         }}>
 
-          {/* Row 1 — eyebrow */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 22, height: 1, backgroundColor: "#C8A86B", flexShrink: 0 }} />
-              <span style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.46em", color: "rgba(200,168,107,0.65)" }}>
-                ukbestcasinosites.com
+          <p className="h-eyebrow">
+            UK&apos;s #1 Casino Comparison 2026
+          </p>
+
+          <h1 className="h-title">
+            Best <em>Casino</em> Sites in the UK
+          </h1>
+
+          <p className="h-sub">
+            Hand-picked, independently verified operators — ranked by licensing,
+            bonuses, game quality, and payout reliability.
+          </p>
+
+          <div className="h-badges">
+            {TRUST_BADGES.map((b) => (
+              <span key={b.label} className="h-badge">
+                <em className="h-badge-icon">{b.icon}</em>
+                {b.label}
               </span>
-            </div>
-            <time dateTime={iso} className="h-date" style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, textTransform: "uppercase", letterSpacing: "0.28em", color: "rgba(255,255,255,0.28)" }}>
-              Updated {label}
-            </time>
+            ))}
           </div>
 
-          {/* Row 2 — headline block */}
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "10px 0" }}>
-            <p style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.50em", color: "rgba(200,168,107,0.50)", marginBottom: 10 }}>
-              Independent Rankings · 2026
-            </p>
-
-            <h1 className="h-title" style={{ fontFamily: "var(--font-playfair),Georgia,serif", fontWeight: 800, letterSpacing: "-0.02em", color: "#FFFFFF", margin: 0 }}>
-              UK Best{" "}
-              <em style={{ color: "#C8A86B", fontStyle: "italic" }}>Casino</em>
-              {" "}Sites
-            </h1>
-
-            <p className="h-desc" style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 13, color: "rgba(255,255,255,0.58)", lineHeight: 1.72, maxWidth: "38rem", marginTop: 12 }}>
-              Six independently verified criteria — licensing, game quality, bonus clarity, payout speed, reliability and player protection.
-            </p>
-
-            <div className="h-badges" style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 12 }}>
-              {BADGES.map((b) => (
-                <span key={b} style={{
-                  fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 600,
-                  textTransform: "uppercase", letterSpacing: "0.26em",
-                  color: "#C8A86B", border: "1px solid rgba(200,168,107,0.22)",
-                  backgroundColor: "rgba(200,168,107,0.06)", padding: "5px 10px",
-                }}>
-                  {b}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 3 — stats + disclosures */}
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
-
-            <div style={{ display: "inline-flex", border: "1px solid rgba(200,168,107,0.22)" }}>
-              {STATS.map(({ v, l }, i) => (
-                <div key={l} style={{
-                  display: "flex", flexDirection: "column", alignItems: "center",
-                  padding: "8px clamp(12px,2.4vw,26px)",
-                  borderRight: i < STATS.length - 1 ? "1px solid rgba(200,168,107,0.16)" : "none",
-                  backgroundColor: "rgba(12,21,16,0.75)",
-                }}>
-                  <span style={{ fontFamily: "var(--font-playfair),Georgia,serif", fontWeight: 700, fontSize: "clamp(0.95rem,2vw,1.3rem)", lineHeight: 1, color: "#C8A86B" }}>
-                    {v}
-                  </span>
-                  <span className="h-stl" style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 6, textTransform: "uppercase", letterSpacing: "0.22em", color: "rgba(255,255,255,0.38)", marginTop: 4 }}>
-                    {l}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="h-disc" style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <button type="button" onClick={onAdvertiserModalOpen} style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.28em", color: "rgba(200,168,107,0.55)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline", textUnderlineOffset: 3, padding: 0 }}>
-                Advertiser Disclosure
-              </button>
-              <span style={{ color: "rgba(200,168,107,0.22)", fontSize: 10, userSelect: "none" }}>|</span>
-              <button type="button" onClick={onTermsModalOpen} style={{ fontFamily: "var(--font-inter),sans-serif", fontSize: 8, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.28em", color: "rgba(200,168,107,0.55)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline", textUnderlineOffset: 3, padding: 0 }}>
-                18+ Terms Apply
-              </button>
-            </div>
-
-          </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 1, backgroundColor: "rgba(200,168,107,0.16)" }} />
+        {/* Bottom: disclosures + date */}
+        <div className="h-bottom">
+          <button type="button" onClick={onAdvertiserModalOpen} className="h-disc-btn">
+            Advertiser Disclosure
+          </button>
+          <span style={{ color: "rgba(200,168,107,0.2)", fontSize: 12 }}>|</span>
+          <button type="button" onClick={onTermsModalOpen} className="h-disc-btn">
+            18+ Terms Apply
+          </button>
+          <span style={{ color: "rgba(200,168,107,0.2)", fontSize: 12 }}>|</span>
+          <time dateTime={iso} className="h-date-txt">Updated {label}</time>
+        </div>
+
+        {/* Bottom border */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0,
+          height: 1,
+          background: "linear-gradient(to right, transparent 0%, rgba(200,168,107,0.25) 50%, transparent 100%)",
+        }} />
       </section>
     </>
   )
