@@ -1,64 +1,73 @@
-/* ukbestcasinosites.com — Playfair Display + Inter */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 5%;
-    --foreground: 42 30% 88%;
-    --card: 0 0% 7%;
-    --card-foreground: 42 30% 88%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 42 30% 88%;
-    --primary: 42 55% 54%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 42 30% 88%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 42 15% 52%;
-    --accent: 42 55% 54%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 55% 38%;
-    --destructive-foreground: 42 30% 88%;
-    --border: 0 0% 13%;
-    --input: 0 0% 10%;
-    --ring: 42 55% 54%;
-    --radius: 0rem;
-
-    /* Brand tokens */
-    --ink:          #0D0D0D;
-    --ink-mid:      #151515;
-    --ink-panel:    #111111;
-    --ink-surface:  #1A1A18;
-    --gold:         #C9A84C;
-    --gold-dim:     #8A6E2E;
-    --gold-pale:    #E8D49A;
-    --parchment:    #EDE4CC;
-    --parchment-dim:#B5AD99;
-    --rule:         rgba(201,168,76,0.15);
-  }
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+  --background: 0 0% 5%;
+  --foreground: 42 30% 88%;
+  --card: 0 0% 7%;
+  --card-foreground: 42 30% 88%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 42 30% 88%;
+  --primary: 42 55% 54%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 42 30% 88%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 42 15% 52%;
+  --accent: 42 55% 54%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 55% 38%;
+  --destructive-foreground: 42 30% 88%;
+  --border: 0 0% 13%;
+  --input: 0 0% 10%;
+  --ring: 42 55% 54%;
+  --radius: 0rem;
 }
 
-@layer base {
-  * { @apply border-border; }
-  html { background-color: var(--ink); scroll-behavior: smooth; }
-  body { background-color: var(--ink); color: var(--parchment); }
-
-  ::selection {
-    background-color: var(--gold);
-    color: var(--ink);
-  }
+/* ── Base reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: hsl(var(--border));
 }
 
+html {
+  background-color: #0D0D0D;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0D0D0D;
+  color: #EDE4CC;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #C9A84C;
+  color: #0D0D0D;
+}
+
+/* ── Font class helpers ─────────────────────────────────────── */
+.font-serif,
+h1, h2, h3 {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+
+/* ── Decorative rules ───────────────────────────────────────── */
 .gold-rule {
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  background: linear-gradient(to right, transparent, #C9A84C, transparent);
 }
 
 .top-rule {
   height: 2px;
-  background: var(--gold);
+  background: #C9A84C;
 }
 
 .rank-numeral {
@@ -73,5 +82,16 @@
 .pull-quote {
   font-family: var(--font-playfair), Georgia, serif;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+.footer-link {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  color: rgba(237,228,204,0.42);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-link:hover {
+  color: #C9A84C;
 }

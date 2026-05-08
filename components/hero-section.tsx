@@ -14,9 +14,9 @@ function getRatingDate() {
 }
 
 const TRUST_STATS = [
-  { value: "6", label: "Reviewed Sites" },
-  { value: "18+", label: "Age Requirement" },
-  { value: "UKGC", label: "Licensed Only" },
+  { value: "6",    label: "Ranked Sites"      },
+  { value: "18+",  label: "Age Requirement"   },
+  { value: "UKGC", label: "Licensed Only"     },
 ]
 
 export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSectionProps) {
@@ -24,114 +24,145 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
 
   return (
     <section
-      className="hero-root w-full relative overflow-hidden"
+      className="w-full relative overflow-hidden"
       style={{
-        height: "250px",
-        maxHeight: "250px",
-        borderBottom: "1px solid rgba(201,168,76,0.12)",
+        minHeight: "clamp(280px, 40vw, 480px)",
+        borderBottom: "1px solid rgba(201,168,76,0.15)",
       }}
     >
-      <style>{`
-        @media (min-width: 768px) {
-          .hero-root {
-            height: 350px !important;
-            max-height: 350px !important;
-          }
-        }
-      `}</style>
-
-      {/* Background image with dark overlay */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
           src="/hero-casino.jpg"
           alt=""
           aria-hidden
           className="w-full h-full object-cover object-center"
+          style={{ filter: "brightness(0.35) saturate(0.7)" }}
         />
+        {/* Left gradient */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.88) 55%, rgba(13,13,13,0.55) 100%)" }}
+          style={{
+            background:
+              "linear-gradient(105deg, rgba(13,13,13,1) 0%, rgba(13,13,13,0.92) 45%, rgba(13,13,13,0.5) 75%, rgba(13,13,13,0.15) 100%)",
+          }}
+        />
+        {/* Bottom fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0"
+          style={{ height: "40%", background: "linear-gradient(to top, #0D0D0D, transparent)" }}
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full max-w-6xl mx-auto px-5 sm:px-10 flex flex-col justify-between py-4 sm:py-6">
-
-        {/* Row 1: eyebrow + date */}
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-          <div className="flex items-center gap-2">
-            <div className="h-px w-5 shrink-0" style={{ background: "#C9A84C" }} />
-            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(201,168,76,0.6)" }}>
-              ukbestcasinosites.com
-            </p>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="font-sans text-[8px] uppercase tracking-[0.3em]" style={{ color: "rgba(201,168,76,0.45)" }}>
-              Updated
-            </span>
-            <time
-              dateTime={iso}
-              className="font-sans text-[8px] uppercase tracking-[0.2em]"
-              style={{ color: "rgba(237,228,204,0.45)" }}
+      <div
+        className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 lg:px-16 flex flex-col justify-between"
+        style={{ paddingTop: "clamp(28px, 4vw, 56px)", paddingBottom: "clamp(28px, 4vw, 52px)", minHeight: "clamp(280px, 40vw, 480px)" }}
+      >
+        {/* Eyebrow row */}
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-px shrink-0" style={{ background: "#C9A84C" }} />
+            <span
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "9px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.45em",
+                color: "rgba(201,168,76,0.7)",
+              }}
             >
-              {label}
-            </time>
+              ukbestcasinosites.com
+            </span>
           </div>
-        </div>
-
-        {/* Row 2: main headline */}
-        <div>
-          <h1
-            className="font-serif font-semibold leading-[0.9] text-balance"
+          <time
+            dateTime={iso}
             style={{
-              color: "#EDE4CC",
-              fontSize: "clamp(1.55rem, 4vw, 3rem)",
-              letterSpacing: "-0.01em",
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "9px",
+              textTransform: "uppercase",
+              letterSpacing: "0.3em",
+              color: "rgba(237,228,204,0.35)",
             }}
           >
-            Britain&apos;s Best
+            Updated {label}
+          </time>
+        </div>
+
+        {/* Main headline */}
+        <div style={{ marginTop: "clamp(20px, 4vw, 48px)", marginBottom: "clamp(20px, 3vw, 40px)" }}>
+          <h1
+            style={{
+              fontFamily: "var(--font-playfair), Georgia, serif",
+              fontWeight: 700,
+              fontSize: "clamp(2rem, 5.5vw, 4.2rem)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.02em",
+              color: "#EDE4CC",
+            }}
+          >
+            Britain&apos;s&nbsp;Finest
             <br />
-            <em style={{ color: "#C9A84C" }}>Casino</em>{" "}Sites Ranked
+            <em style={{ color: "#C9A84C", fontStyle: "italic" }}>Casino&nbsp;</em>
+            Sites Ranked
           </h1>
           <p
-            className="font-sans leading-relaxed mt-1.5"
-            style={{ color: "rgba(237,228,204,0.44)", fontSize: "clamp(10px, 1.3vw, 13px)", maxWidth: "38rem" }}
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "clamp(12px, 1.4vw, 14px)",
+              color: "rgba(237,228,204,0.5)",
+              lineHeight: 1.7,
+              marginTop: "clamp(12px, 1.5vw, 20px)",
+              maxWidth: "36rem",
+            }}
           >
             Independently assessed UK-licensed platforms, ranked across game quality,
             bonus transparency, payout reliability, and player protection.
           </p>
         </div>
 
-        {/* Row 3: trust strip + disclosures */}
-        <div className="flex flex-col gap-2">
-          {/* Trust indicators */}
+        {/* Bottom row: trust strip + disclosures */}
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          {/* Trust stats */}
           <div
-            className="inline-flex gap-0 self-start"
-            style={{ border: "1px solid rgba(201,168,76,0.18)" }}
+            className="inline-flex"
+            style={{ border: "1px solid rgba(201,168,76,0.22)" }}
           >
             {TRUST_STATS.map((stat, i) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-center py-1.5"
                 style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  paddingTop: "10px",
+                  paddingBottom: "10px",
+                  paddingLeft: "clamp(14px, 2.5vw, 28px)",
+                  paddingRight: "clamp(14px, 2.5vw, 28px)",
                   borderRight: i < TRUST_STATS.length - 1 ? "1px solid rgba(201,168,76,0.18)" : "none",
-                  backgroundColor: "rgba(13,13,13,0.7)",
-                  paddingLeft: "clamp(8px, 2vw, 18px)",
-                  paddingRight: "clamp(8px, 2vw, 18px)",
+                  backgroundColor: "rgba(13,13,13,0.75)",
                 }}
               >
                 <span
-                  className="font-serif font-semibold leading-none"
-                  style={{ color: "#C9A84C", fontSize: "clamp(0.8rem, 2.5vw, 1.2rem)" }}
+                  style={{
+                    fontFamily: "var(--font-playfair), Georgia, serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+                    lineHeight: 1,
+                    color: "#C9A84C",
+                  }}
                 >
                   {stat.value}
                 </span>
                 <span
-                  className="font-sans uppercase mt-0.5"
                   style={{
-                    color: "rgba(237,228,204,0.35)",
-                    fontSize: "clamp(5px, 1vw, 7px)",
-                    letterSpacing: "0.2em",
+                    fontFamily: "var(--font-inter), sans-serif",
+                    fontSize: "7px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.22em",
+                    color: "rgba(237,228,204,0.38)",
+                    marginTop: "4px",
                   }}
                 >
                   {stat.label}
@@ -140,28 +171,49 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             ))}
           </div>
 
-          {/* Disclosure links */}
-          <div className="flex items-center gap-x-3">
+          {/* Disclosures */}
+          <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={onAdvertiserModalOpen}
-              className="font-sans font-semibold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
-              style={{ color: "rgba(201,168,76,0.42)", fontSize: "clamp(6px, 1.2vw, 8px)", letterSpacing: "0.25em" }}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "8px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.28em",
+                color: "rgba(201,168,76,0.5)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+              }}
             >
               Advertiser Disclosure
             </button>
-            <span style={{ color: "rgba(201,168,76,0.2)", fontSize: "9px" }}>|</span>
+            <span style={{ color: "rgba(201,168,76,0.2)", fontSize: "10px" }}>|</span>
             <button
               type="button"
               onClick={onTermsModalOpen}
-              className="font-sans font-semibold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
-              style={{ color: "rgba(201,168,76,0.42)", fontSize: "clamp(6px, 1.2vw, 8px)", letterSpacing: "0.25em" }}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "8px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.28em",
+                color: "rgba(201,168,76,0.5)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+              }}
             >
               18+ Terms Apply
             </button>
           </div>
         </div>
-
       </div>
     </section>
   )

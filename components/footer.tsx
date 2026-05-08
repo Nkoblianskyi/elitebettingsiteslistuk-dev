@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { SiteWordmark } from "@/components/site-wordmark"
 
@@ -24,29 +26,39 @@ const RG_LINKS = [
 export function Footer() {
   return (
     <footer
-      className="w-full mt-0"
-      style={{ backgroundColor: "#0A0D0B", borderTop: "1px solid rgba(201,168,76,0.12)" }}
+      className="w-full"
+      style={{ backgroundColor: "#080B09", borderTop: "1px solid rgba(201,168,76,0.13)" }}
     >
-      {/* Single gold rule */}
-      <div className="top-rule w-full" />
+      {/* Gold top rule */}
+      <div style={{ height: "2px", backgroundColor: "#C9A84C", width: "100%" }} />
 
       {/* Three-column editorial layout */}
-      <div className="mx-auto max-w-5xl xl:max-w-6xl px-6 md:px-10 lg:px-0 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-16 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
 
           {/* Col 1: Brand + description */}
           <div>
             <SiteWordmark variant="footer" className="block mb-6" />
             <p
-              className="font-sans text-xs leading-loose mb-6"
-              style={{ color: "rgba(237,228,204,0.38)" }}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "12px",
+                lineHeight: 1.8,
+                color: "rgba(237,228,204,0.38)",
+                marginBottom: "20px",
+              }}
             >
-              An independent editorial comparison platform for UK-licensed casino platforms.
+              An independent editorial comparison platform for UK-licensed casino operators.
               We do not accept wagers or hold player funds.
             </p>
             <p
-              className="font-sans text-[8px] uppercase tracking-[0.35em]"
-              style={{ color: "rgba(201,168,76,0.35)" }}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "8px",
+                textTransform: "uppercase",
+                letterSpacing: "0.4em",
+                color: "rgba(201,168,76,0.32)",
+              }}
             >
               ukbestcasinosites.com
             </p>
@@ -56,8 +68,15 @@ export function Footer() {
           <div className="flex gap-12 md:gap-8 md:justify-center">
             <div>
               <p
-                className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-5"
-                style={{ color: "rgba(201,168,76,0.4)" }}
+                style={{
+                  fontFamily: "var(--font-inter), sans-serif",
+                  fontSize: "8px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.42em",
+                  color: "rgba(201,168,76,0.42)",
+                  marginBottom: "18px",
+                }}
               >
                 Site
               </p>
@@ -66,8 +85,7 @@ export function Footer() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="font-sans text-xs transition-colors hover:text-[#C9A84C]"
-                    style={{ color: "rgba(237,228,204,0.45)" }}
+                    className="footer-link"
                   >
                     {item.label}
                   </Link>
@@ -76,8 +94,15 @@ export function Footer() {
             </div>
             <div>
               <p
-                className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-5"
-                style={{ color: "rgba(201,168,76,0.4)" }}
+                style={{
+                  fontFamily: "var(--font-inter), sans-serif",
+                  fontSize: "8px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.42em",
+                  color: "rgba(201,168,76,0.42)",
+                  marginBottom: "18px",
+                }}
               >
                 Legal
               </p>
@@ -86,8 +111,7 @@ export function Footer() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="font-sans text-xs transition-colors hover:text-[#C9A84C]"
-                    style={{ color: "rgba(237,228,204,0.45)" }}
+                    className="footer-link"
                   >
                     {item.label}
                   </Link>
@@ -99,8 +123,15 @@ export function Footer() {
           {/* Col 3: Responsible gambling */}
           <div>
             <p
-              className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-5"
-              style={{ color: "rgba(201,168,76,0.4)" }}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "8px",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.42em",
+                color: "rgba(201,168,76,0.42)",
+                marginBottom: "18px",
+              }}
             >
               Responsible Play
             </p>
@@ -111,10 +142,10 @@ export function Footer() {
                   href={rg.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-2 transition-opacity hover:opacity-100"
-                  style={{ backgroundColor: "rgba(255,255,255,0.06)", opacity: 0.7 }}
+                  className="block transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "rgba(255,255,255,0.07)", padding: "8px 10px", opacity: 0.72 }}
                 >
-                  <img src={rg.img} alt={rg.alt} className="h-6 w-auto object-contain" />
+                  <img src={rg.img} alt={rg.alt} style={{ height: "24px", width: "auto", objectFit: "contain" }} />
                 </Link>
               ))}
             </div>
@@ -122,21 +153,32 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px my-12" style={{ background: "rgba(201,168,76,0.08)" }} />
+        <div style={{ height: "1px", backgroundColor: "rgba(201,168,76,0.08)", margin: "40px 0" }} />
 
         {/* Bottom row: disclaimer + copyright */}
         <div className="flex flex-col md:flex-row gap-4 md:items-end justify-between">
           <p
-            className="font-sans text-[10px] leading-loose max-w-2xl"
-            style={{ color: "rgba(237,228,204,0.28)" }}
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "10px",
+              lineHeight: 1.9,
+              color: "rgba(237,228,204,0.26)",
+              maxWidth: "680px",
+            }}
           >
             Commercial links may generate affiliate revenue which does not influence editorial rankings.
             All casino activity takes place on licensed third-party platforms under their own terms.
             Identity and location verification applies. 18+ only. UK residents.
           </p>
           <p
-            className="font-sans text-[9px] uppercase tracking-[0.3em] shrink-0"
-            style={{ color: "rgba(201,168,76,0.3)" }}
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "9px",
+              textTransform: "uppercase",
+              letterSpacing: "0.32em",
+              color: "rgba(201,168,76,0.28)",
+              flexShrink: 0,
+            }}
           >
             &copy; {new Date().getFullYear()} ukbestcasinosites.com
           </p>

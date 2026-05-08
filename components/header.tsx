@@ -14,34 +14,58 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40" style={{ backgroundColor: "#0C0F0D", borderBottom: "1px solid rgba(201,168,76,0.12)" }}>
-      {/* Single 2px gold rule at the very top */}
-      <div className="top-rule w-full" />
+    <header
+      className="sticky top-0 z-40"
+      style={{ backgroundColor: "#0D0D0D", borderBottom: "1px solid rgba(201,168,76,0.13)" }}
+    >
+      {/* 2px gold top accent */}
+      <div style={{ height: "2px", backgroundColor: "#C9A84C", width: "100%" }} />
 
-      <div className="flex items-center justify-between px-6 md:px-10 lg:px-16" style={{ height: "56px" }}>
-
+      <div
+        className="flex items-center justify-between px-6 md:px-10 lg:px-16"
+        style={{ height: "60px" }}
+      >
         {/* Left: wordmark */}
-        <Link href="/" className="shrink-0 hover:opacity-80 transition-opacity">
+        <Link href="/" className="shrink-0 transition-opacity hover:opacity-75">
           <SiteWordmark variant="header" />
         </Link>
 
-        {/* Centre: date rule — desktop only */}
-        <div className="hidden lg:flex flex-1 items-center justify-center gap-6 px-8">
-          <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.12)" }} />
-          <span className="font-sans text-[9px] uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.35)" }}>
-            United Kingdom · GC Licensed Operators
+        {/* Centre: tagline — desktop only */}
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-5 px-8">
+          <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.1)" }} />
+          <span
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "8px",
+              fontWeight: 500,
+              textTransform: "uppercase",
+              letterSpacing: "0.42em",
+              color: "rgba(201,168,76,0.32)",
+            }}
+          >
+            United Kingdom · UKGC Licensed Operators
           </span>
-          <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.12)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.1)" }} />
         </div>
 
-        {/* Right: nav links — desktop */}
+        {/* Right: nav — desktop */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:text-[#C9A84C]"
-              style={{ color: "rgba(237,228,204,0.42)" }}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "10px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.28em",
+                color: "rgba(237,228,204,0.4)",
+                transition: "color 0.15s",
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#C9A84C")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(237,228,204,0.4)")}
             >
               {item.label}
             </Link>
@@ -55,17 +79,17 @@ export function Header() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <span className="block w-5 h-px" style={{ background: menuOpen ? "#C9A84C" : "rgba(237,228,204,0.5)" }} />
-          <span className="block w-5 h-px" style={{ background: menuOpen ? "#C9A84C" : "rgba(237,228,204,0.5)" }} />
-          <span className="block w-4 h-px" style={{ background: menuOpen ? "#C9A84C" : "rgba(237,228,204,0.5)" }} />
+          <span className="block w-5 h-px" style={{ backgroundColor: menuOpen ? "#C9A84C" : "rgba(237,228,204,0.5)" }} />
+          <span className="block w-5 h-px" style={{ backgroundColor: menuOpen ? "#C9A84C" : "rgba(237,228,204,0.5)" }} />
+          <span className="block w-3 h-px" style={{ backgroundColor: menuOpen ? "#C9A84C" : "rgba(237,228,204,0.5)" }} />
         </button>
       </div>
 
-      {/* Mobile menu drawer */}
+      {/* Mobile drawer */}
       {menuOpen && (
         <nav
-          className="md:hidden border-t"
-          style={{ backgroundColor: "#0C0F0D", borderColor: "rgba(201,168,76,0.12)" }}
+          className="md:hidden"
+          style={{ backgroundColor: "#0D0D0D", borderTop: "1px solid rgba(201,168,76,0.1)" }}
           aria-label="Mobile navigation"
         >
           {NAV.map((item) => (
@@ -73,8 +97,19 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="flex items-center px-6 py-4 border-b font-sans text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors hover:text-[#C9A84C]"
-              style={{ borderColor: "rgba(201,168,76,0.08)", color: "rgba(237,228,204,0.55)" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "16px 24px",
+                borderBottom: "1px solid rgba(201,168,76,0.07)",
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "11px",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.3em",
+                color: "rgba(237,228,204,0.55)",
+                textDecoration: "none",
+              }}
             >
               {item.label}
             </Link>
