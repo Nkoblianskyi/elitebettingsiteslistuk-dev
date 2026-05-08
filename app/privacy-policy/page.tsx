@@ -6,12 +6,12 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy policy for trustedcasinossitesuk.com — how we handle personal data, legal bases under UK GDPR, your rights, and how to contact us.",
-  keywords: ["privacy policy", "UK GDPR", "data protection", "trustedcasinossitesuk privacy"],
+    "Privacy policy for ukbestcasinosites.com — how we handle personal data, legal bases under UK GDPR, your rights, and how to contact us.",
+  keywords: ["privacy policy", "UK GDPR", "data protection", "ukbestcasinosites privacy"],
   openGraph: {
-    title: "Privacy Policy | Trusted Casinos Sites UK",
-    description: "How trustedcasinossitesuk.com handles your personal data under UK GDPR.",
-    url: "https://trustedcasinossitesuk.com/privacy-policy",
+    title: "Privacy Policy | UK Best Casino Sites",
+    description: "How ukbestcasinosites.com handles your personal data under UK GDPR.",
+    url: "https://ukbestcasinosites.com/privacy-policy",
   },
   robots: { index: false, follow: false },
 }
@@ -56,8 +56,8 @@ export default function PrivacyPolicyPage() {
         <div className="px-6 py-8 sm:px-10 sm:py-10">
           {/* Heading */}
           <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
-              trustedcasinossitesuk.com
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              ukbestcasinosites.com
             </p>
             <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
               Privacy Policy
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
 
           <Section title="Who We Are">
             <p>
-              trustedcasinossitesuk.com publishes independent editorial comparisons of UK-licensed online casinos.
+              ukbestcasinosites.com publishes independent editorial comparisons of UK-licensed online casinos.
               This policy explains what personal data may come into contact with our systems and how we handle it.
             </p>
           </Section>
@@ -189,11 +189,11 @@ export default function PrivacyPolicyPage() {
             <p>
               For data-related enquiries, please contact the publisher at{" "}
               <a
-                href="mailto:info@trustedcasinossitesuk.com"
+                href="mailto:info@ukbestcasinosites.com"
                 className="underline underline-offset-2 font-medium transition-opacity hover:opacity-75"
                 style={{ color: GOLD }}
               >
-                info@trustedcasinossitesuk.com
+                info@ukbestcasinosites.com
               </a>
               .
             </p>

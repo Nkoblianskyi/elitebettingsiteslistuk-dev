@@ -40,7 +40,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] transition-colors hover:text-[#C9A84C]"
+              className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] transition-colors hover:text-[#C9A84C]"
               style={{ color: "rgba(237,228,204,0.42)" }}
             >
               {item.label}
@@ -73,7 +73,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="flex items-center px-6 py-4 border-b font-sans text-[11px] font-bold uppercase tracking-[0.28em] transition-colors hover:text-[#C9A84C]"
+              className="flex items-center px-6 py-4 border-b font-sans text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors hover:text-[#C9A84C]"
               style={{ borderColor: "rgba(201,168,76,0.08)", color: "rgba(237,228,204,0.55)" }}
             >
               {item.label}

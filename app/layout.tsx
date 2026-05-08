@@ -1,50 +1,50 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Cormorant_Garamond, Lato } from "next/font/google"
+import { Playfair_Display, Inter } from "next/font/google"
 import "./globals.css"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-playfair",
 })
 
-const lato = Lato({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-  variable: "--font-lato",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://trustedcasinossitesuk.com"),
+  metadataBase: new URL("https://ukbestcasinosites.com"),
   title: {
-    default: "Trusted Casinos Sites UK — Independent Casino Rankings 2026",
-    template: "%s | Trusted Casinos Sites UK",
+    default: "UK Best Casino Sites — Independent Casino Rankings 2026",
+    template: "%s | UK Best Casino Sites",
   },
   description:
-    "An independent editorial guide to the UK's foremost licensed casino platforms. Expert analysis of welcome offers, game quality, and player protection.",
+    "An independent editorial guide to the UK's foremost licensed casino platforms. Expert analysis of welcome offers, game quality, payout speed, and player protection.",
   keywords: [
     "best casino sites UK",
     "top UK casinos 2026",
-    "trusted casino sites",
+    "UK best casino sites",
     "UK online casinos",
     "casino reviews UK",
     "licensed casinos UK",
     "UK Gambling Commission approved",
     "online casino UK",
   ],
-  authors: [{ name: "trustedcasinossitesuk.com" }],
-  creator: "trustedcasinossitesuk.com",
-  publisher: "trustedcasinossitesuk.com",
+  authors: [{ name: "ukbestcasinosites.com" }],
+  creator: "ukbestcasinosites.com",
+  publisher: "ukbestcasinosites.com",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: "website",
-    siteName: "Trusted Casinos Sites UK",
-    url: "https://trustedcasinossitesuk.com",
-    title: "Trusted Casinos Sites UK — Independent Casino Rankings 2026",
+    siteName: "UK Best Casino Sites",
+    url: "https://ukbestcasinosites.com",
+    title: "UK Best Casino Sites — Independent Casino Rankings 2026",
     description:
       "Independent editorial guide to the UK's foremost licensed casino platforms.",
     locale: "en_GB",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${lato.variable} bg-[#0C0F0D]`}>
+    <html lang="en" className={`${playfair.variable} ${inter.variable} bg-[#0C0F0D]`}>
       <body className="font-sans bg-[#0C0F0D] text-[#EDE4CC] antialiased">
         <Header />
         <main>{children}</main>

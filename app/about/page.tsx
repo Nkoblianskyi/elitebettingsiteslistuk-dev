@@ -6,18 +6,18 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn how trustedcasinossitesuk.com independently ranks UK-licensed casinos using six editorial pillars — game library, live casino, platform stability, payout speed, promotions, and support.",
+    "Learn how ukbestcasinosites.com independently ranks UK-licensed casinos using six editorial pillars — game library, live casino, platform stability, payout speed, promotions, and support.",
   keywords: [
-    "about trusted casinos sites UK",
+    "about UK best casino sites",
     "UK casino comparison methodology",
     "independent casino reviews",
     "editorial standards UK gambling",
   ],
   openGraph: {
-    title: "About Us | Trusted Casinos Sites UK",
+    title: "About Us | UK Best Casino Sites",
     description:
       "Independent editorial platform dedicated to helping UK players make informed decisions about licensed casinos.",
-    url: "https://trustedcasinossitesuk.com/about",
+    url: "https://ukbestcasinosites.com/about",
   },
 }
 
@@ -44,8 +44,8 @@ function PageShell({ title, subtitle, children }: { title: string; subtitle?: st
         <div className="px-6 py-8 sm:px-10 sm:py-10">
           {/* Page heading */}
           <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
-              trustedcasinossitesuk.com
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              ukbestcasinosites.com
             </p>
             <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
               {title}
@@ -84,14 +84,14 @@ export default function AboutPage() {
   return (
     <PageShell
       title="About Us"
-      subtitle="Trusted Casinos Sites UK is an independent editorial platform dedicated to helping UK players make informed decisions about licensed online casinos."
+      subtitle="UK Best Casino Sites is an independent editorial platform dedicated to helping UK players make informed decisions about licensed online casinos."
     >
       <div className="space-y-0">
         <Section title="Why We Exist">
           <p>
-            The UK online casino market is expansive, fast-moving, and — for a newcomer — often difficult to navigate. Every
-            operator promotes its headline welcome bonus while the fine print shifts without notice.
-            trustedcasinossitesuk.com exists to cut through that noise: one authoritative table, consistent scoring criteria,
+            The UK online casino market is expansive, fast-moving, and — for a newcomer — often difficult to navigate.
+            Every operator promotes its headline welcome bonus while the fine print shifts without notice.
+            ukbestcasinosites.com exists to cut through that noise: one authoritative table, consistent scoring criteria,
             and plain-English editorial notes so you can compare platforms on equal terms before you open a single account.
           </p>
         </Section>
@@ -107,11 +107,11 @@ export default function AboutPage() {
           </p>
           <div
             className="border mt-4 px-5 py-4"
-            style={{ borderColor: "rgba(184,150,90,0.18)",         backgroundColor: "rgba(17,17,17,0.6)" }}
+            style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(17,17,17,0.6)" }}
           >
             <ul className="space-y-2 text-xs" style={{ color: "rgba(242,236,217,0.62)" }}>
               {[
-                ["Licensing", "Only operators with appropriate UK authorisation are considered."],
+                ["Licensing", "Only operators with appropriate UK Gambling Commission authorisation are considered."],
                 ["Player Safety", "Deposit limits, cooling-off periods, and self-exclusion must be readily accessible."],
                 ["Game Quality", "Software provider breadth and verified RTP transparency are assessed."],
                 ["Payment Rails", "Common UK banking methods and withdrawal speed are evaluated."],
@@ -167,7 +167,7 @@ export default function AboutPage() {
             18+ Only
           </p>
           <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.58)" }}>
-            trustedcasinossitesuk.com does not operate a casino or accept wagers. All gaming activity takes place on
+            ukbestcasinosites.com does not operate a casino or accept wagers. All gaming activity takes place on
             licensed third-party platforms under their own terms and conditions.
           </p>
         </div>

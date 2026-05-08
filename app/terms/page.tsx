@@ -6,12 +6,12 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Terms of use for trustedcasinossitesuk.com — editorial nature of the service, age restriction (18+), accuracy disclaimer, external links, and governing law.",
-  keywords: ["terms of use", "terms and conditions", "trustedcasinossitesuk terms", "18+ casino UK"],
+    "Terms of use for ukbestcasinosites.com — editorial nature of the service, age restriction (18+), accuracy disclaimer, external links, and governing law.",
+  keywords: ["terms of use", "terms and conditions", "ukbestcasinosites terms", "18+ casino UK"],
   openGraph: {
-    title: "Terms of Use | Trusted Casinos Sites UK",
-    description: "Terms of use governing access to trustedcasinossitesuk.com.",
-    url: "https://trustedcasinossitesuk.com/terms",
+    title: "Terms of Use | UK Best Casino Sites",
+    description: "Terms of use governing access to ukbestcasinosites.com.",
+    url: "https://ukbestcasinosites.com/terms",
   },
   robots: { index: false, follow: false },
 }
@@ -24,7 +24,7 @@ function Section({ number, title, children }: { number: string; title: string; c
   return (
     <section className="mb-7">
       <div className="flex items-baseline gap-3 mb-3">
-        <span className="font-serif font-light text-xl shrink-0 w-6 text-right" style={{ color: "rgba(184,150,90,0.35)" }}>
+        <span className="font-serif font-semibold text-xl shrink-0 w-6 text-right" style={{ color: "rgba(184,150,90,0.35)" }}>
           {number}.
         </span>
         <h2 className="font-serif font-semibold text-xl" style={{ color: PARCHMENT }}>
@@ -57,8 +57,8 @@ export default function TermsPage() {
         <div className="px-6 py-8 sm:px-10 sm:py-10">
           {/* Page heading */}
           <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
-              trustedcasinossitesuk.com
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              ukbestcasinosites.com
             </p>
             <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
               Terms of Use
@@ -76,7 +76,7 @@ export default function TermsPage() {
           <div className="space-y-0">
             <Section number="1" title="Agreement">
               <p>
-                By accessing trustedcasinossitesuk.com you agree to be bound by these Terms of Use in full.
+                By accessing ukbestcasinosites.com you agree to be bound by these Terms of Use in full.
                 If you do not accept them, please leave the site immediately.
               </p>
             </Section>
@@ -134,7 +134,7 @@ export default function TermsPage() {
 
             <Section number="7" title="Intellectual Property">
               <p>
-                All editorial text, layout, and graphical assets produced by trustedcasinossitesuk.com remain
+                All editorial text, layout, and graphical assets produced by ukbestcasinosites.com remain
                 our exclusive intellectual property. Third-party logos and trademarks are used solely for
                 nominative identification and remain the property of their respective owners.
               </p>
@@ -194,7 +194,7 @@ export default function TermsPage() {
                 18+ Only — Please Play Responsibly
               </p>
               <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.58)" }}>
-                trustedcasinossitesuk.com does not operate a casino or hold player funds. All gaming activity takes
+                ukbestcasinosites.com does not operate a casino or hold player funds. All gaming activity takes
                 place on licensed third-party platforms subject to their own terms. Commercial links on this site may
                 generate affiliate revenue which does not influence our editorial rankings.
               </p>

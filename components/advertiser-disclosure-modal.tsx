@@ -38,10 +38,10 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}
         >
           <div>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.45em] mb-1" style={{ color: "rgba(201,168,76,0.5)" }}>
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.45em] mb-1" style={{ color: "rgba(201,168,76,0.5)" }}>
               Transparency Notice
             </p>
-            <h2 id="adv-disclosure-title" className="font-serif font-light text-2xl" style={{ color: PARCHMENT }}>
+            <h2 id="adv-disclosure-title" className="font-serif font-semibold text-2xl" style={{ color: PARCHMENT }}>
               Advertiser Disclosure
             </h2>
           </div>
@@ -67,14 +67,14 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
             style={{ borderLeft: `2px solid ${GOLD}`, backgroundColor: "rgba(201,168,76,0.05)" }}
           >
             <p>
-              <strong style={{ color: PARCHMENT }}>trustedcasinossitesuk.com</strong> may receive remuneration when
+              <strong style={{ color: PARCHMENT }}>ukbestcasinosites.com</strong> may receive remuneration when
               you navigate to an operator via our links. That revenue supports our editorial research, hosting, and
               operational costs — it does not influence ranking order.
             </p>
           </div>
 
           <div>
-            <h3 className="font-sans text-[9px] font-bold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.5)" }}>
+            <h3 className="font-sans text-[9px] font-semibold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.5)" }}>
               Editorial Independence
             </h3>
             <p className="mb-4">Rankings are determined exclusively by the following criteria:</p>
@@ -94,7 +94,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           </div>
 
           <div>
-            <h3 className="font-sans text-[9px] font-bold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.5)" }}>
+            <h3 className="font-sans text-[9px] font-semibold uppercase tracking-[0.4em] mb-3" style={{ color: "rgba(201,168,76,0.5)" }}>
               Your Responsibility
             </h3>
             <p>
@@ -109,7 +109,7 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
           className="shrink-0 px-6 py-3 sm:px-8 text-center"
           style={{ borderTop: "1px solid rgba(201,168,76,0.12)", backgroundColor: BG }}
         >
-          <p className="font-sans text-[9px] font-bold uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.4)" }}>
+          <p className="font-sans text-[9px] font-semibold uppercase tracking-[0.35em]" style={{ color: "rgba(201,168,76,0.4)" }}>
             18+ &nbsp;·&nbsp; United Kingdom &nbsp;·&nbsp; Responsible Play
           </p>
         </div>

@@ -6,12 +6,12 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
-    "Cookie policy for trustedcasinossitesuk.com — what cookies we use, how to control them, and the difference between session and persistent cookies.",
-  keywords: ["cookie policy", "cookies", "trustedcasinossitesuk cookies", "browser cookies"],
+    "Cookie policy for ukbestcasinosites.com — what cookies we use, how to control them, and the difference between session and persistent cookies.",
+  keywords: ["cookie policy", "cookies", "ukbestcasinosites cookies", "browser cookies"],
   openGraph: {
-    title: "Cookie Policy | Trusted Casinos Sites UK",
-    description: "What cookies trustedcasinossitesuk.com uses and how to manage your preferences.",
-    url: "https://trustedcasinossitesuk.com/cookie-policy",
+    title: "Cookie Policy | UK Best Casino Sites",
+    description: "What cookies ukbestcasinosites.com uses and how to manage your preferences.",
+    url: "https://ukbestcasinosites.com/cookie-policy",
   },
   robots: { index: false, follow: false },
 }
@@ -24,7 +24,7 @@ function Section({ num, title, children }: { num: number; title: string; childre
   return (
     <section className="mb-7">
       <div className="flex items-baseline gap-3 mb-3">
-        <span className="font-serif font-light text-xl shrink-0 w-6 text-right" style={{ color: "rgba(184,150,90,0.32)" }}>
+        <span className="font-serif font-semibold text-xl shrink-0 w-6 text-right" style={{ color: "rgba(184,150,90,0.32)" }}>
           {num}.
         </span>
         <h2 className="font-serif font-semibold text-lg sm:text-xl" style={{ color: PARCHMENT }}>
@@ -58,8 +58,8 @@ export default function CookiePolicyPage() {
         <div className="px-6 py-8 sm:px-10 sm:py-10">
           {/* Heading */}
           <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
-              trustedcasinossitesuk.com
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              ukbestcasinosites.com
             </p>
             <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
               Cookie Policy
@@ -143,11 +143,11 @@ export default function CookiePolicyPage() {
             <p>
               For questions about this notice, please write to{" "}
               <a
-                href="mailto:info@trustedcasinossitesuk.com"
+                href="mailto:info@ukbestcasinosites.com"
                 className="underline underline-offset-2 font-medium transition-opacity hover:opacity-75"
                 style={{ color: GOLD }}
               >
-                info@trustedcasinossitesuk.com
+                info@ukbestcasinosites.com
               </a>
               . See also our{" "}
               <Link href="/privacy-policy" className="underline underline-offset-2 font-medium transition-opacity hover:opacity-75" style={{ color: GOLD }}>

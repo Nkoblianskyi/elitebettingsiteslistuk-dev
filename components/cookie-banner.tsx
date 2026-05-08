@@ -40,14 +40,14 @@ export function CookieBanner() {
           {/* Text */}
           <div className="flex-1 min-w-0">
             <p
-              className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-1.5"
+              className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-1.5"
               style={{ color: "rgba(201,168,76,0.5)" }}
             >
-              Cookie Notice
+              Cookie Notice — ukbestcasinosites.com
             </p>
             <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(237,228,204,0.52)" }}>
-              This site uses essential cookies to function and, with your consent, analytics cookies to improve the
-              experience. Declining restricts non-essential scripts only.{" "}
+              This site uses essential cookies to function and, with your consent, analytics cookies to improve
+              the experience. Declining restricts non-essential scripts only.{" "}
               <Link
                 href="/cookie-policy"
                 className="underline underline-offset-2 transition-opacity hover:opacity-80"
@@ -63,7 +63,7 @@ export function CookieBanner() {
             <button
               type="button"
               onClick={handleDecline}
-              className="border px-5 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-70"
+              className="border px-5 py-2.5 font-sans text-[10px] font-semibold uppercase tracking-[0.25em] transition-opacity hover:opacity-70"
               style={{
                 borderColor: "rgba(201,168,76,0.2)",
                 color: "rgba(237,228,204,0.5)",
@@ -75,7 +75,7 @@ export function CookieBanner() {
             <button
               type="button"
               onClick={handleAccept}
-              className="px-6 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.25em] transition-opacity hover:opacity-85"
+              className="px-6 py-2.5 font-sans text-[10px] font-semibold uppercase tracking-[0.25em] transition-opacity hover:opacity-85"
               style={{ backgroundColor: "#C9A84C", color: "#0C0F0D" }}
             >
               Accept All

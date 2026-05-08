@@ -43,14 +43,14 @@ export function InfoSections() {
         >
           <div>
             <span
-              className="block font-serif font-light text-[7rem] lg:text-[9rem] leading-none"
+              className="block font-serif font-semibold text-[7rem] lg:text-[9rem] leading-none"
               style={{ color: "rgba(201,168,76,0.08)" }}
               aria-hidden
             >
               &ldquo;
             </span>
             <blockquote
-              className="font-serif font-light leading-tight -mt-10"
+              className="font-serif font-semibold leading-tight -mt-10"
               style={{
                 color: "#EDE4CC",
                 fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)",
@@ -64,7 +64,7 @@ export function InfoSections() {
             </blockquote>
             <div className="w-10 h-px mt-8 mb-6" style={{ background: "#C9A84C" }} />
             <p className="font-sans text-xs leading-loose" style={{ color: "rgba(237,228,204,0.42)" }}>
-              trustedcasinossitesuk.com is an independent editorial platform.
+              ukbestcasinosites.com is an independent editorial platform.
               We hold no player funds and accept no wagers.
               Commercial links may generate affiliate revenue which does not influence
               our editorial rankings.
@@ -84,7 +84,7 @@ export function InfoSections() {
             >
               {/* Number */}
               <span
-                className="font-serif font-light text-3xl leading-none shrink-0 pt-1 w-10"
+                className="font-serif font-semibold text-3xl leading-none shrink-0 pt-1 w-10"
                 style={{ color: "rgba(201,168,76,0.25)" }}
               >
                 {art.num}
@@ -93,7 +93,7 @@ export function InfoSections() {
               {/* Text */}
               <div>
                 <p
-                  className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-2"
+                  className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-2"
                   style={{ color: "rgba(201,168,76,0.45)" }}
                 >
                   {art.standfirst}

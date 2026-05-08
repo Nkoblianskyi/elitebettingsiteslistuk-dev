@@ -54,15 +54,15 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
         />
       </div>
 
-      {/* Content — flex column, full height, justify between so items fill the space */}
+      {/* Content */}
       <div className="relative z-10 h-full max-w-6xl mx-auto px-5 sm:px-10 flex flex-col justify-between py-4 sm:py-6">
 
         {/* Row 1: eyebrow + date */}
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="flex items-center gap-2">
             <div className="h-px w-5 shrink-0" style={{ background: "#C9A84C" }} />
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.4em]" style={{ color: "rgba(201,168,76,0.6)" }}>
-              trustedcasinossitesuk.com
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em]" style={{ color: "rgba(201,168,76,0.6)" }}>
+              ukbestcasinosites.com
             </p>
           </div>
           <div className="flex items-center gap-1.5">
@@ -82,27 +82,27 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
         {/* Row 2: main headline */}
         <div>
           <h1
-            className="font-serif font-light leading-[0.88] text-balance"
+            className="font-serif font-semibold leading-[0.9] text-balance"
             style={{
               color: "#EDE4CC",
               fontSize: "clamp(1.55rem, 4vw, 3rem)",
               letterSpacing: "-0.01em",
             }}
           >
-            Britain&apos;s Most Trusted
+            Britain&apos;s Best
             <br />
-            <em style={{ color: "#C9A84C" }}>Casino</em>{" "}Rankings
+            <em style={{ color: "#C9A84C" }}>Casino</em>{" "}Sites Ranked
           </h1>
           <p
             className="font-sans leading-relaxed mt-1.5"
             style={{ color: "rgba(237,228,204,0.44)", fontSize: "clamp(10px, 1.3vw, 13px)", maxWidth: "38rem" }}
           >
             Independently assessed UK-licensed platforms, ranked across game quality,
-            bonus transparency, payout reliability and player protection.
+            bonus transparency, payout reliability, and player protection.
           </p>
         </div>
 
-        {/* Row 3: trust strip THEN disclosures below */}
+        {/* Row 3: trust strip + disclosures */}
         <div className="flex flex-col gap-2">
           {/* Trust indicators */}
           <div
@@ -121,7 +121,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
                 }}
               >
                 <span
-                  className="font-serif font-light leading-none"
+                  className="font-serif font-semibold leading-none"
                   style={{ color: "#C9A84C", fontSize: "clamp(0.8rem, 2.5vw, 1.2rem)" }}
                 >
                   {stat.value}
@@ -140,12 +140,12 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             ))}
           </div>
 
-          {/* Disclosure links — always in a row below the strip */}
+          {/* Disclosure links */}
           <div className="flex items-center gap-x-3">
             <button
               type="button"
               onClick={onAdvertiserModalOpen}
-              className="font-sans font-bold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
+              className="font-sans font-semibold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
               style={{ color: "rgba(201,168,76,0.42)", fontSize: "clamp(6px, 1.2vw, 8px)", letterSpacing: "0.25em" }}
             >
               Advertiser Disclosure
@@ -154,7 +154,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             <button
               type="button"
               onClick={onTermsModalOpen}
-              className="font-sans font-bold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
+              className="font-sans font-semibold uppercase underline underline-offset-2 transition-opacity hover:opacity-80 whitespace-nowrap"
               style={{ color: "rgba(201,168,76,0.42)", fontSize: "clamp(6px, 1.2vw, 8px)", letterSpacing: "0.25em" }}
             >
               18+ Terms Apply

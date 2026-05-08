@@ -1,6 +1,6 @@
 import type { BettingSite } from "../types"
 
-const defaultTerms = "18+ | New customers only | Wagering requirements apply | T&Cs apply | BeGambleAware.org | Please play responsibly"
+const defaultTerms = "18+ | New UK customers only | Wagering requirements apply | Full T&Cs on operator site | BeGambleAware.org | Please gamble responsibly"
 
 const rawSites: Omit<BettingSite, "score">[] = [
   {

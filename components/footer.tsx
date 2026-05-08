@@ -8,17 +8,17 @@ const LEGAL_NAV = [
 ]
 
 const SITE_NAV = [
-  { href: "/",                 label: "Rankings" },
-  { href: "/about",            label: "About" },
+  { href: "/",                   label: "Rankings" },
+  { href: "/about",              label: "About" },
   { href: "/responsible-gaming", label: "Responsible Play" },
 ]
 
 const RG_LINKS = [
-  { href: "https://www.gamstop.co.uk/",         img: "/gamstop.svg",                    alt: "GamStop" },
-  { href: "https://www.begambleaware.org/",      img: "/gamble-aware.png",               alt: "BeGambleAware" },
-  { href: "https://www.gamcare.org.uk/",         img: "/gamcare.png",                    alt: "GamCare" },
-  { href: "https://www.gamblingtherapy.org/",    img: "/gordon.png",                     alt: "Gambling Therapy" },
-  { href: "https://www.gamblingcommission.gov.uk/", img: "/Gambling_Commission_logo.png", alt: "UK Gambling Commission" },
+  { href: "https://www.gamstop.co.uk/",            img: "/gamstop.svg",                    alt: "GamStop" },
+  { href: "https://www.begambleaware.org/",         img: "/gamble-aware.png",               alt: "BeGambleAware" },
+  { href: "https://www.gamcare.org.uk/",            img: "/gamcare.png",                    alt: "GamCare" },
+  { href: "https://www.gamblingtherapy.org/",       img: "/gordon.png",                     alt: "Gambling Therapy" },
+  { href: "https://www.gamblingcommission.gov.uk/", img: "/Gambling_Commission_logo.png",   alt: "UK Gambling Commission" },
 ]
 
 export function Footer() {
@@ -48,7 +48,7 @@ export function Footer() {
               className="font-sans text-[8px] uppercase tracking-[0.35em]"
               style={{ color: "rgba(201,168,76,0.35)" }}
             >
-              trustedcasinossitesuk.com
+              ukbestcasinosites.com
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export function Footer() {
           <div className="flex gap-12 md:gap-8 md:justify-center">
             <div>
               <p
-                className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-5"
+                className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-5"
                 style={{ color: "rgba(201,168,76,0.4)" }}
               >
                 Site
@@ -76,7 +76,7 @@ export function Footer() {
             </div>
             <div>
               <p
-                className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-5"
+                className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-5"
                 style={{ color: "rgba(201,168,76,0.4)" }}
               >
                 Legal
@@ -99,7 +99,7 @@ export function Footer() {
           {/* Col 3: Responsible gambling */}
           <div>
             <p
-              className="font-sans text-[8px] font-bold uppercase tracking-[0.4em] mb-5"
+              className="font-sans text-[8px] font-semibold uppercase tracking-[0.4em] mb-5"
               style={{ color: "rgba(201,168,76,0.4)" }}
             >
               Responsible Play
@@ -138,7 +138,7 @@ export function Footer() {
             className="font-sans text-[9px] uppercase tracking-[0.3em] shrink-0"
             style={{ color: "rgba(201,168,76,0.3)" }}
           >
-            &copy; {new Date().getFullYear()} trustedcasinossitesuk.com
+            &copy; {new Date().getFullYear()} ukbestcasinosites.com
           </p>
         </div>
       </div>

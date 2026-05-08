@@ -38,10 +38,10 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
           style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}
         >
           <div>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.45em] mb-1" style={{ color: "rgba(201,168,76,0.5)" }}>
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.45em] mb-1" style={{ color: "rgba(201,168,76,0.5)" }}>
               Age Restriction &amp; Rules
             </p>
-            <h2 id="terms-modal-title" className="font-serif font-light text-2xl" style={{ color: PARCHMENT }}>
+            <h2 id="terms-modal-title" className="font-serif font-semibold text-2xl" style={{ color: PARCHMENT }}>
               18+ Terms Apply
             </h2>
           </div>
@@ -105,7 +105,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             </p>
             <p className="text-xs" style={{ color: "rgba(237,228,204,0.35)" }}>
               This site provides no legal or financial advice. Refer to our full Terms page for comprehensive rules
-              governing use of trustedcasinossitesuk.com.
+              governing use of ukbestcasinosites.com.
             </p>
           </div>
         </div>

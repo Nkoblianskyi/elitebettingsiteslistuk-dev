@@ -76,11 +76,11 @@ export function Modal({ bettingSites, casinoSites: _casinoSites }: Top3ModalProp
           className="px-8 py-5 text-center"
           style={{ borderBottom: "1px solid rgba(201,168,76,0.12)" }}
         >
-          <p className="font-sans text-[8px] font-bold uppercase tracking-[0.5em] mb-2" style={{ color: "rgba(201,168,76,0.45)" }}>
-            trustedcasinossitesuk.com
+          <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.5em] mb-2" style={{ color: "rgba(201,168,76,0.45)" }}>
+            ukbestcasinosites.com
           </p>
           <h2
-            className="font-serif font-light leading-tight"
+            className="font-serif font-semibold leading-tight"
             style={{ color: "#EDE4CC", fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
           >
             Today&apos;s Top&nbsp;<em style={{ color: "#C9A84C" }}>Offer</em>

@@ -6,7 +6,7 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "Responsible Play",
   description:
-    "trustedcasinossitesuk.com promotes safer play. Learn the warning signs of problem gambling, self-help tools, and UK support organisations including GambleAware and GamCare.",
+    "ukbestcasinosites.com promotes safer play. Learn the warning signs of problem gambling, self-help tools, and UK support organisations including GambleAware and GamCare.",
   keywords: [
     "responsible gambling UK",
     "problem gambling help UK",
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     "18+ gambling UK",
   ],
   openGraph: {
-    title: "Responsible Play | Trusted Casinos Sites UK",
+    title: "Responsible Play | UK Best Casino Sites",
     description:
       "Safer play guidance, warning signs, and UK support organisations for anyone affected by problem gambling.",
-    url: "https://trustedcasinossitesuk.com/responsible-gaming",
+    url: "https://ukbestcasinosites.com/responsible-gaming",
   },
 }
 
@@ -49,7 +49,7 @@ function InfoCard({ title, body }: { title: string; body: string }) {
   return (
     <div
       className="border px-5 py-4"
-      style={{ borderColor: "rgba(184,150,90,0.18)",         backgroundColor: "rgba(17,17,17,0.6)" }}
+      style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(17,17,17,0.6)" }}
     >
       <p className="font-sans font-semibold text-sm mb-1.5" style={{ color: PARCHMENT }}>{title}</p>
       <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.62)" }}>{body}</p>
@@ -61,7 +61,7 @@ function SupportOrg({ name, website }: { name: string; website: string }) {
   return (
     <div
       className="border px-5 py-4"
-      style={{ borderColor: "rgba(184,150,90,0.18)",         backgroundColor: "rgba(17,17,17,0.5)" }}
+      style={{ borderColor: "rgba(184,150,90,0.18)", backgroundColor: "rgba(17,17,17,0.5)" }}
     >
       <p className="font-serif font-semibold text-base mb-1" style={{ color: PARCHMENT }}>{name}</p>
       <p className="font-sans text-xs" style={{ color: "rgba(184,150,90,0.65)" }}>{website}</p>
@@ -88,14 +88,14 @@ export default function ResponsibleGamingPage() {
         <div className="px-6 py-8 sm:px-10 sm:py-10">
           {/* Page heading */}
           <div className="text-center mb-8 pb-6 border-b" style={{ borderColor: "rgba(184,150,90,0.12)" }}>
-            <p className="font-sans text-[8px] font-bold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
-              trustedcasinossitesuk.com
+            <p className="font-sans text-[8px] font-semibold uppercase tracking-[0.42em] mb-2" style={{ color: "rgba(184,150,90,0.5)" }}>
+              ukbestcasinosites.com
             </p>
             <h1 className="font-serif font-semibold text-3xl lg:text-4xl" style={{ color: PARCHMENT }}>
               Responsible Play
             </h1>
             <p className="font-sans text-sm mt-3 max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(242,236,217,0.55)" }}>
-              We back play that stays inside your limits. If casino games stop being enjoyable, help is always available.
+              We support play that stays within your limits. If casino games stop being enjoyable, help is always available.
             </p>
           </div>
 
@@ -108,8 +108,8 @@ export default function ResponsibleGamingPage() {
               Important Notice
             </p>
             <p className="font-sans text-sm leading-relaxed" style={{ color: "rgba(242,236,217,0.68)" }}>
-              Gambling should always remain an enjoyable leisure activity. If it stops being fun or begins to cause problems
-              in your life, it is time to seek help. You are never alone, and support is always available.
+              Gambling should always remain an enjoyable leisure activity. If it stops being fun or begins to cause
+              problems in your life, it is time to seek help. You are never alone, and support is always available.
             </p>
           </div>
 
@@ -213,7 +213,7 @@ export default function ResponsibleGamingPage() {
               18+ Only
             </p>
             <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(242,236,217,0.58)" }}>
-              All content on trustedcasinossitesuk.com is directed exclusively at adults aged 18 and over who are
+              All content on ukbestcasinosites.com is directed exclusively at adults aged 18 and over who are
               legally entitled to access gambling-related material in Great Britain.
             </p>
           </div>
